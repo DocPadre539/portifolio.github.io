@@ -1,236 +1,490 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio - João Pedro</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title data-i18n="page.title">Portfólio - João Pedro</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { 
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Outfit', 'sans-serif']
-                    },
-                    colors: {
-                        dark: {
-                            900: '#0f172a',
-                            800: '#1e293b',
-                            700: '#334155'
-                        },
-                        brand: {
-                            blue: '#38bdf8',
-                            purple: '#818cf8',
-                            green: '#34d399',
-                            yellow: '#fbbf24',
-                            pink: '#ec4899'
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        html, body { overflow-x: hidden; }
-
-        .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        :root {
+            color-scheme: dark;
+            --bg-0: #070b12;
+            --bg-1: #0b1220;
+            --bg-2: #0f192b;
+            --panel: rgba(12, 19, 33, 0.78);
+            --panel-border: rgba(120, 255, 180, 0.15);
+            --neon: #76ff9f;
+            --cyan: #6fd9ff;
+            --text-0: #e2e8f0;
+            --text-1: #a4b4c8;
+            --text-2: #6b7b93;
+            --shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
         }
 
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        html, body {
+            overflow-x: hidden;
+            background: var(--bg-0);
+            color: var(--text-0);
+            font-family: "Space Grotesk", sans-serif;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 10%, rgba(118, 255, 159, 0.12), transparent 45%),
+                radial-gradient(circle at 90% 20%, rgba(111, 217, 255, 0.12), transparent 45%),
+                linear-gradient(120deg, rgba(9, 14, 26, 0.95), rgba(5, 8, 16, 0.9));
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(118, 255, 159, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(118, 255, 159, 0.08) 1px, transparent 1px);
+            background-size: 36px 36px;
+            opacity: 0.25;
+            z-index: -1;
+        }
+
+        main {
+            max-width: 1080px;
+            margin: 32px auto 48px;
+            background: rgba(5, 8, 16, 0.6);
+            border-radius: 28px;
+            border: 1px solid rgba(118, 255, 159, 0.1);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        header {
+            padding: 32px 32px 24px;
+            background: linear-gradient(135deg, rgba(12, 18, 32, 0.95), rgba(12, 28, 44, 0.95));
+            border-bottom: 1px solid rgba(118, 255, 159, 0.08);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .avatar {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(118, 255, 159, 0.35);
+            box-shadow: 0 0 30px rgba(118, 255, 159, 0.12);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .role {
+            color: var(--cyan);
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .availability {
+            color: var(--text-2);
+            font-size: 0.85rem;
+            margin-top: 8px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(12, 20, 35, 0.9);
+            border: 1px solid rgba(118, 255, 159, 0.2);
+            color: var(--text-0);
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+
+        .chip i {
+            color: var(--neon);
+        }
+
+        .content {
+            padding: 24px 32px 40px;
+            display: grid;
+            gap: 28px;
+        }
+
+        .stack {
+            display: grid;
+            gap: 14px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .row-2 {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            align-items: start;
+        }
+
+        .row-3 {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .section-title span {
+            width: 4px;
+            height: 26px;
+            background: var(--neon);
+            border-radius: 999px;
+        }
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+        }
+
+        .tag {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--neon);
+        }
+
+        .video-frame {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(118, 255, 159, 0.2);
+            background: #02040a;
+        }
+
+        .video-frame video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(118, 255, 159, 0.15);
+            background: rgba(7, 12, 20, 0.8);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.4rem;
+            color: var(--neon);
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 14px;
+        }
+
+        .skill {
+            text-align: center;
+            padding: 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(118, 255, 159, 0.15);
+            background: rgba(7, 12, 20, 0.75);
+        }
+
+        .skill i {
+            font-size: 1.5rem;
+            color: var(--cyan);
+            margin-bottom: 8px;
+        }
+
+        .card {
+            display: grid;
+            grid-template-rows: 150px auto;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(118, 255, 159, 0.15);
+            background: rgba(8, 12, 22, 0.9);
+        }
+
+        .card-body {
+            padding: 14px 16px 16px;
+            background: rgba(6, 10, 18, 0.85);
+        }
+
+        .lang-switch {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .lang-switch select {
+            max-width: 160px;
+            background: rgba(7, 12, 20, 0.8);
+            border-color: rgba(118, 255, 159, 0.25);
+            color: var(--text-0);
+        }
+
+        .language-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(4, 7, 12, 0.85);
+            backdrop-filter: blur(6px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+        }
+
+        .language-modal .panel {
+            max-width: 420px;
+            text-align: center;
+        }
+
+        .language-actions {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .language-actions button {
+            border-radius: 12px;
+            border: 1px solid rgba(118, 255, 159, 0.35);
+            background: rgba(10, 18, 32, 0.9);
+            color: var(--text-0);
+            font-weight: 600;
+        }
+
+        footer {
+            padding: 28px 32px 36px;
+            border-top: 1px solid rgba(118, 255, 159, 0.08);
+            text-align: center;
+            color: var(--text-2);
+        }
+
+
+        @media (max-width: 960px) {
+            main { margin: 0; border-radius: 0; }
+            header { padding: 24px; }
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-actions { justify-content: center; }
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 720px) {
+            .row-2, .row-3 { grid-template-columns: 1fr; }
+            .row { justify-content: center; }
+        }
 
         @media print {
-            body { background: white !important; color: black !important; padding: 0 !important; }
-            .no-print { display: none !important; }
-            .glass-card, .bg-slate-900, .bg-slate-800, header, main {
-                background: white !important;
-                border: none !important;
-                box-shadow: none !important;
-                color: black !important;
-                backdrop-filter: none !important;
-                margin: 0 !important;
-                border-radius: 0 !important;
-            }
-            .text-slate-300, .text-slate-400, .text-white { color: #333 !important; }
-            .text-brand-blue, .text-brand-green, .text-brand-purple { color: #000 !important; font-weight: bold !important; }
-            video { display: none !important; }
-            .video-print-placeholder { display: block !important; border: 1px dashed #999; padding: 10px; text-align: center; font-size: 10px; margin-bottom: 5px; }
-            a { text-decoration: none; color: #000 !important; }
-            section { break-inside: avoid; page-break-inside: avoid; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 20px; }
-            .grid { display: block !important; }
-            .md\:col-span-2 { width: 100% !important; }
+            body { background: white !important; color: black !important; }
+            body::before, body::after { display: none !important; }
+            main { box-shadow: none !important; border: none !important; }
+            .language-modal, .lang-switch { display: none !important; }
+            .panel, header, footer { background: white !important; color: black !important; border: none !important; }
+            .print-button { display: none !important; }
         }
-        .video-print-placeholder { display: none; }
     </style>
 </head>
 
-<body class="bg-[#0b1121] text-slate-300 font-sans selection:bg-brand-blue selection:text-white antialiased">
-
-    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none no-print">
-        <div class="absolute top-[-10%] left-[-10%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-brand-blue/10 rounded-full blur-[80px] md:blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-brand-purple/10 rounded-full blur-[80px] md:blur-[120px]"></div>
+<body>
+    <div class="language-modal" id="language-modal" aria-hidden="true">
+        <div class="panel">
+            <p class="tag" data-i18n="lang.tag">Primeira visita</p>
+            <h2 data-i18n="lang.title">Escolha seu idioma</h2>
+            <p data-i18n="lang.subtitle">Você pode trocar a qualquer momento pelo menu.</p>
+            <div class="language-actions">
+                <button type="button" data-lang="pt-BR">Português</button>
+                <button type="button" data-lang="en">English</button>
+            </div>
+        </div>
     </div>
 
-    <main class="w-full md:max-w-5xl mx-auto md:my-10 bg-slate-900/80 md:rounded-3xl shadow-2xl overflow-hidden border-0 md:border border-white/5 relative">
-        
-        <header class="relative p-6 md:p-12 overflow-hidden">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-purple-900/20 z-0 no-print"></div>
-            
-            <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
-                <div class="relative group shrink-0">
-                    <div class="absolute -inset-1 bg-gradient-to-r from-brand-blue to-brand-purple rounded-full blur opacity-25 group-hover:opacity-75 transition duration-1000 no-print"></div>
-                    <div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-slate-800 bg-slate-800 shadow-xl flex items-center justify-center">
-                        <a href='https://postimg.cc/BL06KmYg' target='_blank'>
-                            <img src='https://i.postimg.cc/BL06KmYg/file.jpg' border='0' alt='João Pedro' class="w-full h-full object-cover">
-                        </a>
-                    </div>
+    <main>
+        <header>
+            <div class="lang-switch" aria-label="Language switch">
+                <label for="lang-select" class="tag" data-i18n="lang.label">Idioma</label>
+                <select id="lang-select">
+                    <option value="pt-BR">Português</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+
+            <div class="hero">
+                <div class="avatar">
+                    <a href="https://postimg.cc/BL06KmYg" target="_blank" rel="noopener noreferrer">
+                        <img src="https://i.postimg.cc/BL06KmYg/file.jpg" alt="João Pedro">
+                    </a>
                 </div>
 
-                <div class="flex-1 text-center md:text-left space-y-4 w-full">
-                    <div>
-                        <h1 class="text-3xl md:text-5xl font-display font-bold text-white tracking-tight leading-tight">João Pedro Resene Da Silva</h1>
-                        <p class="text-lg md:text-xl text-brand-blue font-medium mt-1">
-                            Automação de Produção & Pré-impressão (CorelDRAW VBA) • Suporte Web • Design
-                        </p>
-                        <p class="text-xs text-slate-400 mt-2">
-                            Disponível para mudança (Irlanda/Europa) • Portfólio + história real logo abaixo
-                        </p>
-                    </div>
-
-                    <p class="text-slate-400 text-sm md:text-base leading-relaxed mx-auto md:mx-0 max-w-2xl">
+                <div>
+                    <h1 data-i18n="hero.name">João Pedro Resene Da Silva</h1>
+                    <p class="role" data-i18n="hero.role">Automação de Produção & Pré-impressão (CorelDRAW VBA) • Suporte Web • Design</p>
+                    <p class="availability" data-i18n="hero.design">Designer gráfico especializado em CorelDRAW, Adobe Illustrator e Photoshop</p>
+                    <p class="availability" data-i18n="hero.availability"></p>
+                    <p data-i18n="hero.about">
                         Eu sou um rapaz simples do Brasil, focado e autodidata. Ao longo dos anos fui aprendendo por conta própria, ganhando experiência na prática
-                        e transformando trabalho manual em processo rápido e confiável. Na Form Uniformes, eu criei uma automação no CorelDRAW (VBA) que monta artes,
-                        aplica nomes e números (dados variáveis) e exporta arquivos prontos — reduzindo tempo, aumentando produção e deixando tudo mais seguro na correria.
+                        e transformando trabalho manual em processo rápido e confiável. Tenho perfil curioso, gosto de resolver problemas e busco evolução constante
+                        com disciplina, estudo e prática.
                     </p>
 
-                    <div class="flex flex-wrap justify-center md:justify-start gap-3 pt-2">
-                        <a href="mailto:jpresene@gmail.com" class="px-4 py-2 rounded-full bg-slate-800/50 border border-white/10 hover:bg-slate-800 hover:border-brand-blue/50 transition flex items-center gap-2 text-sm text-white break-all sm:break-normal">
-                            <i class="fas fa-envelope text-brand-blue"></i> <span>jpresene@gmail.com</span>
+                    <div class="hero-actions">
+                        <a class="chip" href="mailto:jpresene@gmail.com">
+                            <i class="fas fa-envelope"></i><span data-i18n="hero.email">jpresene@gmail.com</span>
                         </a>
-                        <a href="tel:+5547984170674" class="px-4 py-2 rounded-full bg-slate-800/50 border border-white/10 hover:bg-slate-800 hover:border-brand-green/50 transition flex items-center gap-2 text-sm text-white">
-                            <i class="fab fa-whatsapp text-brand-green"></i> <span>(47) 98417-0674</span>
+                        <a class="chip" href="tel:+5547984170674">
+                            <i class="fab fa-whatsapp"></i><span data-i18n="hero.phone">(47) 98417-0674</span>
                         </a>
-                        <a href="https://github.com/DocPadre539" target="_blank" class="px-4 py-2 rounded-full bg-slate-800/50 border border-white/10 hover:bg-slate-800 hover:border-purple-400/50 transition flex items-center gap-2 text-sm text-white">
-                            <i class="fab fa-github text-purple-400"></i> <span>GitHub</span>
+                        <a class="chip" href="https://github.com/DocPadre539" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i><span data-i18n="hero.github">GitHub</span>
                         </a>
-                        <span class="px-4 py-2 rounded-full bg-slate-800/50 border border-white/10 flex items-center gap-2 text-sm text-slate-400">
-                            <i class="fas fa-map-marker-alt text-red-400"></i> <span>Ascurra, SC</span>
+                        <span class="chip">
+                            <i class="fas fa-map-marker-alt"></i><span data-i18n="hero.location">Ascurra, SC</span>
                         </span>
                     </div>
                 </div>
             </div>
         </header>
 
-        <div class="p-5 md:p-12 space-y-12 md:space-y-16 bg-slate-900/50">
-
+        <div class="content">
             <section>
-                <div class="flex items-center gap-3 mb-5 md:mb-6">
-                    <div class="w-1 h-6 bg-brand-green rounded-full"></div>
-                    <h2 class="text-xl md:text-2xl font-display font-bold text-white">Minha história na prática</h2>
+                <div class="section-title">
+                    <span></span>
+                    <h2 data-i18n="story.title">Minha história na prática</h2>
                 </div>
-                
-                <div class="glass-card rounded-2xl overflow-hidden p-1">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-8 bg-slate-900/40">
-                        
-                        <div class="p-4 md:p-6 space-y-6">
-                            <div class="space-y-2">
-                                <div class="flex justify-between items-end">
-                                    <span class="text-xs font-bold uppercase tracking-wider text-red-400"><i class="fas fa-times-circle mr-1"></i> Antes</span>
-                                    <span class="text-[10px] text-slate-500">Tudo manual</span>
-                                </div>
-                                <div class="aspect-video bg-black rounded-lg overflow-hidden border border-red-900/30 relative group">
-                                    <video muted loop controls class="w-full h-full object-cover opacity-70 group-hover:opacity-100 transition">
+                <div class="panel">
+                    <div class="grid-2">
+                        <div>
+                            <div class="panel" style="margin-bottom: 16px;">
+                                <div class="tag" data-i18n="story.before">Antes</div>
+                                <p class="tag" data-i18n="story.before.note">Tudo manual</p>
+                                <div class="video-frame">
+                                    <video muted loop controls>
                                         <source src="https://formuniforme.com.br/fotos/1.mp4" type="video/mp4">
                                     </video>
-                                    <div class="video-print-placeholder text-black">Vídeo: Processo manual</div>
                                 </div>
                             </div>
-
-                            <div class="space-y-2">
-                                <div class="flex justify-between items-end">
-                                    <span class="text-xs font-bold uppercase tracking-wider text-brand-green"><i class="fas fa-check-circle mr-1"></i> Depois</span>
-                                    <span class="text-[10px] text-slate-500">Automação</span>
-                                </div>
-                                <div class="aspect-video bg-black rounded-lg overflow-hidden border border-brand-green/30 relative group shadow-[0_0_15px_rgba(52,211,153,0.1)]">
-                                    <video muted loop autoplay playsinline class="w-full h-full object-cover">
+                            <div class="panel">
+                                <div class="tag" data-i18n="story.after">Depois</div>
+                                <p class="tag" data-i18n="story.after.note">Automação</p>
+                                <div class="video-frame">
+                                    <video muted loop autoplay playsinline>
                                         <source src="https://formuniforme.com.br/fotos/2.mp4" type="video/mp4">
                                     </video>
-                                    <div class="video-print-placeholder text-black">Vídeo: Automação</div>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="p-4 md:p-6 lg:pl-0 flex flex-col justify-center">
-                            
-                            <div class="mb-6 border-b border-white/5 pb-6">
-                                <div class="flex flex-col sm:flex-row justify-between items-start mb-2 gap-2">
-                                    <h3 class="text-lg md:text-xl font-bold text-white">Form Uniformes</h3>
-                                    <span class="text-xs bg-brand-green/20 text-brand-green px-2 py-1 rounded font-mono whitespace-nowrap">Mai 2024 - Atual</span>
+
+                        <div>
+                            <div class="panel" style="margin-bottom: 16px;">
+                                <div class="row">
+                                    <div>
+                                        <h3 data-i18n="story.company">Form Uniformes</h3>
+                                        <p class="tag" data-i18n="story.period">Mai 2024 - Atual</p>
+                                    </div>
+                                </div>
+                                <p class="role" data-i18n="story.role">Assistente de Produção • Designer/Automação • Webmaster</p>
+
+                                <div class="panel" style="margin-top: 16px;">
+                                    <h4 class="tag" data-i18n="story.build.title">O que eu construí</h4>
+                                    <p data-i18n-html="story.build.text">
+                                        Eu cheguei num processo bem travado e totalmente manual. Em vez de reclamar, eu fui atrás:
+                                        <strong>estudei VBA em 3 semanas</strong> e criei uma <strong>automação no CorelDRAW</strong> que monta as artes, aplica
+                                        <strong>nomes e números (dados variáveis)</strong>, e exporta tudo pronto pra produção.
+                                    </p>
                                 </div>
 
-                                <p class="text-sm text-brand-blue font-medium mb-4">
-                                    Assistente de Produção ? Designer/Automação ? Webmaster
-                                </p>
-                                
-                                <div class="space-y-4">
-                                    <div class="bg-slate-800/40 p-3 rounded-lg border border-white/5">
-                                        <h4 class="text-xs font-bold text-brand-purple uppercase mb-1">
-                                            <i class="fas fa-rocket mr-1"></i> O que eu construí
-                                        </h4>
-                                        <p class="text-slate-300 text-sm text-justify leading-relaxed">
-                                            Eu cheguei num processo bem travado e totalmente manual. Em vez de reclamar, eu fui atrás: <strong>estudei VBA em 3 semanas</strong>
-                                            e criei uma <strong>automação no CorelDRAW</strong> que monta as artes, aplica <strong>nomes e números (dados variáveis)</strong>,
-                                            e exporta tudo pronto pra produção.
-                                        </p>
-                                    </div>
+                                <div class="panel" style="margin-top: 16px;">
+                                    <h4 class="tag" data-i18n="story.results.title">Resultados (números reais)</h4>
+                                    <ul>
+                                        <li data-i18n="story.results.1">Tempo pra 5 camisetas: de ~1h40 para ~7 minutos (≈5 min montagem + 2 min nomes/números + exportação)</li>
+                                        <li data-i18n="story.results.2">Capacidade diária de artes: de máx 12 para máx 32 artes/dia</li>
+                                        <li data-i18n="story.results.3">Pico de produção: 700+ camisetas em 1 dia (batendo meta da semana e do mês)</li>
+                                    </ul>
+                                </div>
 
-                                    <div class="bg-slate-800/40 p-3 rounded-lg border border-white/5">
-                                        <h4 class="text-xs font-bold text-brand-blue uppercase mb-1">
-                                            <i class="fas fa-chart-line mr-1"></i> Resultados (números reais)
-                                        </h4>
-                                        <ul class="text-slate-300 text-sm leading-relaxed list-disc pl-5 space-y-1">
-                                            <li><strong>Tempo pra 5 camisetas:</strong> de <strong>~1h40</strong> para <strong>~7 minutos</strong> (˜5 min montagem + 2 min nomes/números + exportação)</li>
-                                            <li><strong>Capacidade diária de artes:</strong> de <strong>máx 12</strong> para <strong>máx 32</strong> artes/dia</li>
-                                            <li><strong>Pico de produção:</strong> <strong>700+ camisetas</strong> em 1 dia (batendo meta da semana e do mês)</li>
-                                        </ul>
-                                    </div>
-
-                                    <div class="bg-slate-800/40 p-3 rounded-lg border border-white/5">
-                                        <h4 class="text-xs font-bold text-brand-green uppercase mb-1">
-                                            <i class="fas fa-shield-halved mr-1"></i> Consistência e confiança
-                                        </h4>
-                                        <p class="text-slate-300 text-sm text-justify leading-relaxed">
-                                            Padronizei etapas e exportações pra reduzir retrabalho e manter qualidade mesmo na correria. Além disso, também
-                                            sou responsável por <strong>criar e cuidar do site da empresa</strong>, editar vídeos comerciais e ajudar no conteúdo das redes sociais.
-                                        </p>
-                                    </div>
+                                <div class="panel" style="margin-top: 16px;">
+                                    <h4 class="tag" data-i18n="story.trust.title">Consistência e confiança</h4>
+                                    <p data-i18n-html="story.trust.text">
+                                        Padronizei etapas e exportações pra reduzir retrabalho e manter qualidade mesmo na correria. Além disso, também
+                                        sou responsável por <strong>criar e cuidar do site da empresa</strong>, editar vídeos comerciais e ajudar no conteúdo das redes sociais.
+                                    </p>
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-3 gap-2 md:gap-3 pt-2">
-                                <div class="bg-slate-800/50 p-2 md:p-3 rounded-lg border border-white/5 text-center">
-                                    <span class="block text-xl md:text-2xl font-bold text-brand-green">~7 min</span>
-                                    <span class="text-[10px] uppercase text-slate-500 font-bold">5 camisetas + nomes</span>
+                            <div class="grid-3">
+                                <div class="stat">
+                                    <strong data-i18n="story.stat.1">~7 min</strong>
+                                    <span data-i18n="story.stat.1.label">5 camisetas + nomes</span>
                                 </div>
-                                <div class="bg-slate-800/50 p-2 md:p-3 rounded-lg border border-white/5 text-center">
-                                    <span class="block text-xl md:text-2xl font-bold text-white">32</span>
-                                    <span class="text-[10px] uppercase text-slate-500 font-bold">artes/dia (máx)</span>
+                                <div class="stat">
+                                    <strong data-i18n="story.stat.2">32</strong>
+                                    <span data-i18n="story.stat.2.label">artes/dia (máx)</span>
                                 </div>
-                                <div class="bg-gradient-to-br from-brand-yellow to-orange-600 p-2 md:p-3 rounded-lg text-center shadow-lg transform scale-100 md:scale-105 flex flex-col justify-center">
-                                    <i class="fas fa-shirt text-white mb-1 text-sm"></i>
-                                    <span class="block text-[10px] md:text-[12px] uppercase text-white font-bold leading-tight">700+ camisetas/dia</span>
+                                <div class="stat">
+                                    <strong data-i18n="story.stat.3">700+</strong>
+                                    <span data-i18n="story.stat.3.label">camisetas/dia</span>
                                 </div>
                             </div>
                         </div>
@@ -239,96 +493,79 @@
             </section>
 
             <section>
-                <div class="flex items-center gap-3 mb-5 md:mb-6">
-                    <div class="w-1 h-6 bg-brand-purple rounded-full"></div>
-                    <h2 class="text-xl md:text-2xl font-display font-bold text-white">Habilidades & Qualificações</h2>
+                <div class="section-title">
+                    <span></span>
+                    <h2 data-i18n="skills.title">Habilidades & Qualificações</h2>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="glass-card p-5 md:p-6 rounded-xl">
-                        <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4 border-b border-white/10 pb-2">Habilidades principais</h3>
-
-                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                            <div class="skill-item flex flex-col items-center p-3 rounded bg-slate-800/50 border border-white/5 hover:border-brand-blue/30 transition group">
-                                <i class="fa-solid fa-pen-nib text-brand-blue text-2xl mb-2 group-hover:scale-110 transition"></i>
-                                <span class="text-xs font-semibold text-white">CorelDRAW</span>
-                                <span class="text-[10px] text-slate-500 mt-1">Macros VBA</span>
+                <div class="grid-2">
+                    <div class="panel">
+                        <h3 class="tag" data-i18n="skills.main">Habilidades principais</h3>
+                        <div class="skill-grid">
+                            <div class="skill">
+                                <i class="fa-solid fa-pen-nib"></i>
+                                <strong data-i18n="skills.corel">CorelDRAW</strong>
+                                <div class="tag" data-i18n="skills.corel.sub">Macros VBA</div>
                             </div>
-
-                            <div class="skill-item flex flex-col items-center p-3 rounded bg-slate-800/50 border border-white/5 hover:border-gray-300/30 transition group">
-                                <i class="fa-solid fa-layer-group text-slate-200 text-2xl mb-2 group-hover:scale-110 transition"></i>
-                                <span class="text-xs font-semibold text-white">Pré-impressão</span>
-                                <span class="text-[10px] text-slate-500 mt-1">layout/export</span>
+                            <div class="skill">
+                                <i class="fa-solid fa-layer-group"></i>
+                                <strong data-i18n="skills.prepress">Pré-impressão</strong>
+                                <div class="tag" data-i18n="skills.prepress.sub">layout/export</div>
                             </div>
-
-                            <div class="skill-item flex flex-col items-center p-3 rounded bg-slate-800/50 border border-white/5 hover:border-brand-green/30 transition group">
-                                <i class="fa-solid fa-list-ol text-brand-green text-2xl mb-2 group-hover:scale-110 transition"></i>
-                                <span class="text-xs font-semibold text-white">Dados variáveis</span>
-                                <span class="text-[10px] text-slate-500 mt-1">nomes/números</span>
+                            <div class="skill">
+                                <i class="fa-solid fa-list-ol"></i>
+                                <strong data-i18n="skills.variable">Dados variáveis</strong>
+                                <div class="tag" data-i18n="skills.variable.sub">nomes/números</div>
                             </div>
-
-                            <div class="skill-item flex flex-col items-center p-3 rounded bg-slate-800/50 border border-white/5 hover:border-yellow-400/30 transition group">
-                                <i class="fa-brands fa-python text-yellow-300 text-2xl mb-2 group-hover:scale-110 transition"></i>
-                                <span class="text-xs font-semibold text-white">Python</span>
+                            <div class="skill">
+                                <i class="fa-brands fa-python"></i>
+                                <strong data-i18n="skills.python">Python</strong>
                             </div>
-
-                            <div class="skill-item flex flex-col items-center p-3 rounded bg-slate-800/50 border border-white/5 hover:border-gray-400/30 transition group">
-                                <i class="fa-solid fa-file-code text-slate-300 text-2xl mb-2 group-hover:scale-110 transition"></i>
-                                <span class="text-xs font-semibold text-white">VBA</span>
+                            <div class="skill">
+                                <i class="fa-solid fa-file-code"></i>
+                                <strong data-i18n="skills.vba">VBA</strong>
                             </div>
-
-                            <div class="skill-item flex flex-col items-center p-3 rounded bg-slate-800/50 border border-white/5 hover:border-orange-500/30 transition group">
-                                <i class="fa-brands fa-html5 text-orange-500 text-2xl mb-2 group-hover:scale-110 transition"></i>
-                                <span class="text-xs font-semibold text-white">HTML/CSS</span>
+                            <div class="skill">
+                                <i class="fa-brands fa-html5"></i>
+                                <strong data-i18n="skills.html">HTML/CSS</strong>
                             </div>
                         </div>
-
-                        <div class="mt-4 text-xs text-slate-400 leading-relaxed">
-                            <span class="text-white font-semibold">Também:</span> JavaScript • PHP • SQL • Gestão de site • Edição de vídeo (comercial/institucional)
-                        </div>
+                        <p style="margin-top: 16px;" data-i18n="skills.extra">
+                            Também: JavaScript • PHP • SQL • Gestão de site • Edição de vídeo (comercial/institucional)
+                        </p>
                     </div>
-
-                    <div class="space-y-6">
-                        <div class="glass-card p-5 md:p-6 rounded-xl">
-                            <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4 border-b border-white/10 pb-2">Idiomas</h3>
-                            <div class="space-y-4">
-                                <div class="flex justify-between items-center">
-                                    <div class="flex items-center gap-3">
-                                        <i class="fas fa-flag text-brand-green text-lg"></i>
-                                        <span class="text-sm font-medium text-white">Português</span>
-                                    </div>
-                                    <span class="text-xs bg-brand-green/10 text-brand-green px-2 py-1 rounded">Nativo</span>
+                    <div class="stack" style="gap: 18px;">
+                        <div class="panel">
+                            <h3 class="tag" data-i18n="skills.languages">Idiomas</h3>
+                            <div class="stack" style="gap: 14px;">
+                                <div class="row-3">
+                                    <i class="fas fa-flag"></i>
+                                    <span data-i18n="skills.lang.pt">Português</span>
+                                    <span class="tag" data-i18n="skills.lang.pt.level">Nativo</span>
                                 </div>
-                                <div class="flex justify-between items-center">
-                                    <div class="flex items-center gap-3">
-                                        <i class="fas fa-language text-brand-blue text-lg"></i>
-                                        <span class="text-sm font-medium text-white">Inglês</span>
-                                    </div>
-                                    <span class="text-xs bg-brand-blue/10 text-brand-blue px-2 py-1 rounded">Intermediário</span>
+                                <div class="row-3">
+                                    <i class="fas fa-language"></i>
+                                    <span data-i18n="skills.lang.en">Inglês</span>
+                                    <span class="tag" data-i18n="skills.lang.en.level">Intermediário</span>
                                 </div>
-                                <div class="flex justify-between items-center pt-2 border-t border-white/5">
-                                    <div class="flex items-center gap-3">
-                                        <i class="fas fa-passport text-brand-yellow text-lg"></i>
-                                        <span class="text-sm font-medium text-white">Passaporte</span>
-                                    </div>
-                                    <span class="text-xs bg-brand-yellow/10 text-brand-yellow px-2 py-1 rounded"><i class="fas fa-check mr-1"></i>Ativo</span>
+                                <div class="row-3">
+                                    <i class="fas fa-passport"></i>
+                                    <span data-i18n="skills.passport">Passaporte</span>
+                                    <span class="tag" data-i18n="skills.passport.active">Ativo</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="glass-card p-5 md:p-6 rounded-xl relative overflow-hidden">
-                            <div class="absolute top-0 right-0 w-16 h-16 bg-brand-purple/10 rounded-bl-full -mr-4 -mt-4"></div>
-                            <h3 class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-4 border-b border-white/10 pb-2">Formação</h3>
-                            <ul class="space-y-4 border-l-2 border-slate-700 ml-2 pl-4">
-                                <li class="relative">
-                                    <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-brand-purple border-2 border-slate-900"></div>
-                                    <p class="text-sm font-bold text-white">Ensino Médio</p>
-                                    <p class="text-xs text-brand-purple mt-1">Previsão de conclusão: 2026</p>
+                        <div class="panel">
+                            <h3 class="tag" data-i18n="skills.education">Formação</h3>
+                            <ul>
+                                <li>
+                                    <strong data-i18n="skills.education.highschool">Ensino Médio</strong>
+                                    <p data-i18n="skills.education.highschool.note">Previsão de conclusão: 2026</p>
                                 </li>
-                                <li class="relative">
-                                    <div class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-slate-700 border-2 border-slate-900"></div>
-                                    <p class="text-sm font-bold text-slate-300">Autodidata</p>
-                                    <p class="text-xs text-slate-500 mt-1">Automação VBA (CorelDRAW), desenvolvimento web, otimização de fluxo de produção</p>
+                                <li>
+                                    <strong data-i18n="skills.education.self">Autodidata</strong>
+                                    <p data-i18n="skills.education.self.note">Automação VBA (CorelDRAW), desenvolvimento web, otimização de fluxo de produção</p>
                                 </li>
                             </ul>
                         </div>
@@ -337,104 +574,307 @@
             </section>
 
             <section>
-                <div class="flex items-center gap-3 mb-5 md:mb-6">
-                    <div class="w-1 h-6 bg-brand-blue rounded-full"></div>
-                    <h2 class="text-xl md:text-2xl font-display font-bold text-white">Projetos & Sistemas</h2>
+                <div class="section-title">
+                    <span></span>
+                    <h2 data-i18n="projects.title">Projetos & Sistemas</h2>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                    
-                    <div class="group relative bg-slate-900 rounded-xl overflow-hidden border border-white/10 hover:border-brand-blue/50 transition">
-                        <div class="aspect-[4/3] overflow-hidden">
-                            <div class="w-full h-full bg-slate-800 flex items-center justify-center text-slate-600 group-hover:scale-105 transition duration-500 relative">
-                                <i class="fas fa-fill-drip text-4xl text-cyan-500"></i>
-                                <div class="absolute top-2 right-2 bg-yellow-500/20 text-yellow-300 text-[10px] font-bold px-2 py-1 rounded border border-yellow-500/30 shadow-lg">
-                                    <i class="fas fa-certificate mr-1"></i> Certificado
-                                </div>
-                            </div>
+                <div class="grid-4">
+                    <div class="card">
+                        <div class="panel" style="min-height: 150px; display: grid; place-items: center;">
+                            <i class="fas fa-file-excel" style="font-size: 2.2rem; color: var(--cyan);"></i>
                         </div>
-                        <div class="p-3 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent pt-10">
-                            <p class="text-white font-bold text-sm">Automação de tintas</p>
-                            <p class="text-xs text-slate-300">Caso Brandili</p>
+                        <div class="card-body">
+                            <strong data-i18n="projects.0.title">Sistema de organização de tintas</strong>
+                            <p data-i18n="projects.0.subtitle">Excel • Brandili • Certificado</p>
                         </div>
                     </div>
-
-                    <div class="group relative bg-slate-900 rounded-xl overflow-hidden border border-white/10 hover:border-brand-blue/50 transition">
-                        <div class="aspect-[4/3] overflow-hidden">
-                            <div class="w-full h-full bg-slate-800 flex items-center justify-center text-slate-600 group-hover:scale-105 transition duration-500">
-                                <i class="fas fa-ticket text-3xl"></i>
-                            </div>
+                    <div class="card">
+                        <div class="panel" style="min-height: 150px; display: grid; place-items: center;">
+                            <i class="fas fa-fill-drip" style="font-size: 2.2rem; color: var(--cyan);"></i>
                         </div>
-                        <div class="p-3 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent pt-10">
-                            <p class="text-white font-bold text-sm">Sistema de tickets</p>
-                            <p class="text-xs text-slate-300">Fullstack PHP</p>
+                        <div class="card-body">
+                            <strong data-i18n="projects.1.title">Automação de tintas</strong>
+                            <p data-i18n="projects.1.subtitle">Caso Brandili</p>
                         </div>
                     </div>
-
-                    <div class="group relative bg-slate-900 rounded-xl overflow-hidden border border-white/10 hover:border-brand-blue/50 transition">
-                        <div class="aspect-[4/3] overflow-hidden">
-                            <div class="w-full h-full bg-slate-800 flex items-center justify-center text-slate-600 group-hover:scale-105 transition duration-500">
-                                <i class="fas fa-robot text-3xl"></i>
-                            </div>
+                    <div class="card">
+                        <div class="panel" style="min-height: 150px; display: grid; place-items: center;">
+                            <i class="fas fa-ticket" style="font-size: 2.2rem; color: var(--cyan);"></i>
                         </div>
-                        <div class="p-3 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent pt-10">
-                            <p class="text-white font-bold text-sm">Macro CorelDRAW</p>
-                            <p class="text-xs text-slate-300">Sublimação: layout + export</p>
+                        <div class="card-body">
+                            <strong data-i18n="projects.2.title">Sistema de tickets</strong>
+                            <p data-i18n="projects.2.subtitle">Fullstack PHP</p>
                         </div>
                     </div>
-
-                    <div class="group relative bg-slate-900 rounded-xl overflow-hidden border border-white/10 hover:border-brand-blue/50 transition">
-                        <div class="aspect-[4/3] overflow-hidden">
-                            <div class="w-full h-full bg-slate-800 flex items-center justify-center text-slate-600 group-hover:scale-105 transition duration-500">
-                                <i class="fas fa-video text-3xl"></i>
-                            </div>
+                    <div class="card">
+                        <div class="panel" style="min-height: 150px; display: grid; place-items: center;">
+                            <i class="fas fa-robot" style="font-size: 2.2rem; color: var(--cyan);"></i>
                         </div>
-                        <div class="p-3 absolute bottom-0 left-0 w-full bg-gradient-to-t from-black to-transparent pt-10">
-                            <p class="text-white font-bold text-sm">Edição de vídeo</p>
-                            <p class="text-xs text-slate-300">Comercial/Institucional</p>
+                        <div class="card-body">
+                            <strong data-i18n="projects.3.title">Macro CorelDRAW</strong>
+                            <p data-i18n="projects.3.subtitle">Sublimação: layout + export</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="panel" style="min-height: 150px; display: grid; place-items: center;">
+                            <i class="fas fa-video" style="font-size: 2.2rem; color: var(--cyan);"></i>
+                        </div>
+                        <div class="card-body">
+                            <strong data-i18n="projects.4.title">Edição de vídeo</strong>
+                            <p data-i18n="projects.4.subtitle">Comercial/Institucional</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section>
-                <div class="flex items-center gap-3 mb-5 md:mb-6">
-                    <div class="w-1 h-6 bg-slate-600 rounded-full"></div>
-                    <h2 class="text-xl md:text-2xl font-display font-bold text-white">Histórico Profissional</h2>
+                <div class="section-title">
+                    <span></span>
+                    <h2 data-i18n="history.title">Histórico Profissional</h2>
                 </div>
 
-                <div class="glass-card p-5 md:p-6 rounded-xl flex flex-col md:flex-row gap-4 md:gap-6 items-start">
-                    <div class="bg-slate-800 p-3 rounded-lg shrink-0">
-                        <i class="fas fa-industry text-2xl text-slate-400"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white">Brandili Têxtil LTDA</h3>
-                        <p class="text-sm text-slate-400 mb-2">Operador de Máquina Rotativa & Inovação | 1 ano</p>
-                        <p class="text-sm text-slate-300 leading-relaxed">
-                            Operava e monitorava máquinas de estamparia. Criei um sistema de organização de tintas que melhorou o setor e gerou reconhecimento/certificação interna.
-                        </p>
+                <div class="panel">
+                    <div class="row-2">
+                        <div class="panel" style="width: 64px; height: 64px; display: grid; place-items: center;">
+                            <i class="fas fa-industry" style="font-size: 2rem; color: var(--text-2);"></i>
+                        </div>
+                        <div>
+                            <h3 data-i18n="history.company">Brandili Têxtil LTDA</h3>
+                            <p class="role" data-i18n="history.role">Operador de Máquina Rotativa & Inovação | 1 ano</p>
+                            <p data-i18n="history.desc">
+                                Operava e monitorava máquinas de estamparia. Criei um sistema de organização de tintas que melhorou o setor e gerou reconhecimento/certificação interna.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
-
         </div>
 
-        <footer class="bg-slate-950 p-8 text-center border-t border-white/5 relative z-10 no-print">
-            <p class="text-slate-500 text-sm mb-4">© 2026 João Pedro. Trabalho com foco, resultado e processo bem feito.</p>
-            <button onclick="window.print()" class="group px-6 py-2 rounded-full bg-white text-slate-900 font-bold text-sm hover:bg-slate-200 transition shadow-lg">
-                <i class="fas fa-print mr-2 group-hover:scale-110 transition"></i> Salvar em PDF
-            </button>
+        <footer>
+            <p data-i18n="footer.text">© 2026 João Pedro. Trabalho com foco, resultado e processo bem feito.</p>
         </footer>
     </main>
 
     <script>
-        document.querySelectorAll('img').forEach(img => {
-            img.onerror = function() {
-                this.style.display = 'none';
-                this.parentNode.innerHTML = '<div class="flex items-center justify-center h-full bg-slate-800 text-slate-500"><i class="fas fa-image"></i></div>';
+        const translations = {
+            "pt-BR": {
+                "page.title": "Portfólio - João Pedro",
+                "lang.tag": "Primeira visita",
+                "lang.title": "Escolha seu idioma",
+                "lang.subtitle": "Você pode trocar a qualquer momento pelo menu.",
+                "lang.label": "Idioma",
+                "hero.name": "João Pedro Resene Da Silva",
+                "hero.role": "Automação de Produção & Pré-impressão (CorelDRAW VBA) • Suporte Web • Design",
+                "hero.design": "Designer gráfico especializado em CorelDRAW, Adobe Illustrator e Photoshop",
+                "hero.availability": "",
+                "hero.about": "Eu sou um rapaz simples do Brasil, focado e autodidata. Ao longo dos anos fui aprendendo por conta própria, ganhando experiência na prática e transformando trabalho manual em processo rápido e confiável. Tenho perfil curioso, gosto de resolver problemas e busco evolução constante com disciplina, estudo e prática.",
+                "hero.email": "jpresene@gmail.com",
+                "hero.phone": "(47) 98417-0674",
+                "hero.github": "GitHub",
+                "hero.location": "Ascurra, SC",
+                "story.title": "Minha história na prática",
+                "story.before": "Antes",
+                "story.before.note": "Tudo manual",
+                "story.after": "Depois",
+                "story.after.note": "Automação",
+                "story.company": "Form Uniformes",
+                "story.period": "Mai 2024 - Atual",
+                "story.role": "Assistente de Produção • Designer/Automação • Webmaster",
+                "story.build.title": "O que eu construí",
+                "story.build.text": "Eu cheguei num processo bem travado e totalmente manual. Em vez de reclamar, eu fui atrás: <strong>estudei VBA em 3 semanas</strong> e criei uma <strong>automação no CorelDRAW</strong> que monta as artes, aplica <strong>nomes e números (dados variáveis)</strong>, e exporta tudo pronto pra produção.",
+                "story.results.title": "Resultados (números reais)",
+                "story.results.1": "Tempo pra 5 camisetas: de ~1h40 para ~7 minutos (≈5 min montagem + 2 min nomes/números + exportação)",
+                "story.results.2": "Capacidade diária de artes: de máx 12 para máx 32 artes/dia",
+                "story.results.3": "Pico de produção: 700+ camisetas em 1 dia (batendo meta da semana e do mês)",
+                "story.trust.title": "Consistência e confiança",
+                "story.trust.text": "Padronizei etapas e exportações pra reduzir retrabalho e manter qualidade mesmo na correria. Além disso, também sou responsável por <strong>criar e cuidar do site da empresa</strong>, editar vídeos comerciais e ajudar no conteúdo das redes sociais.",
+                "story.stat.1": "~7 min",
+                "story.stat.1.label": "5 camisetas + nomes",
+                "story.stat.2": "32",
+                "story.stat.2.label": "artes/dia (máx)",
+                "story.stat.3": "700+",
+                "story.stat.3.label": "camisetas/dia",
+                "skills.title": "Habilidades & Qualificações",
+                "skills.main": "Habilidades principais",
+                "skills.corel": "CorelDRAW",
+                "skills.corel.sub": "Macros VBA",
+                "skills.prepress": "Pré-impressão",
+                "skills.prepress.sub": "layout/export",
+                "skills.variable": "Dados variáveis",
+                "skills.variable.sub": "nomes/números",
+                "skills.python": "Python",
+                "skills.vba": "VBA",
+                "skills.html": "HTML/CSS",
+                "skills.extra": "Também: JavaScript • PHP • SQL • Gestão de site • Edição de vídeo (comercial/institucional)",
+                "skills.languages": "Idiomas",
+                "skills.lang.pt": "Português",
+                "skills.lang.pt.level": "Nativo",
+                "skills.lang.en": "Inglês",
+                "skills.lang.en.level": "Intermediário",
+                "skills.passport": "Passaporte",
+                "skills.passport.active": "Ativo",
+                "skills.education": "Formação",
+                "skills.education.highschool": "Ensino Médio",
+                "skills.education.highschool.note": "Previsão de conclusão: 2026",
+                "skills.education.self": "Autodidata",
+                "skills.education.self.note": "Automação VBA (CorelDRAW), desenvolvimento web, otimização de fluxo de produção",
+                "projects.title": "Projetos & Sistemas",
+                "projects.0.title": "Sistema de organização de tintas",
+                "projects.0.subtitle": "Excel • Brandili • Certificado",
+                "projects.1.title": "Automação de tintas",
+                "projects.1.subtitle": "Caso Brandili",
+                "projects.2.title": "Sistema de tickets",
+                "projects.2.subtitle": "Fullstack PHP",
+                "projects.3.title": "Macro CorelDRAW",
+                "projects.3.subtitle": "Sublimação: layout + export",
+                "projects.4.title": "Edição de vídeo",
+                "projects.4.subtitle": "Comercial/Institucional",
+                "history.title": "Histórico Profissional",
+                "history.company": "Brandili Têxtil LTDA",
+                "history.role": "Operador de Máquina Rotativa & Inovação | 1 ano",
+                "history.desc": "Operava e monitorava máquinas de estamparia. Criei um sistema de organização de tintas que melhorou o setor e gerou reconhecimento/certificação interna.",
+                "footer.text": "© 2026 João Pedro. Trabalho com foco, resultado e processo bem feito.",
+                "footer.print": "Salvar em PDF"
+            },
+            "en": {
+                "page.title": "Portfolio - Joao Pedro",
+                "lang.tag": "First visit",
+                "lang.title": "Choose your language",
+                "lang.subtitle": "You can switch anytime using the menu.",
+                "lang.label": "Language",
+                "hero.name": "Joao Pedro Resene Da Silva",
+                "hero.role": "Production Automation & Prepress (CorelDRAW VBA) • Web Support • Design",
+                "hero.design": "Graphic designer specialized in CorelDRAW, Adobe Illustrator, and Photoshop",
+                "hero.availability": "",
+                "hero.about": "I am a focused, self-taught guy from Brazil. Over the years I learned on my own, gained hands-on experience, and turned manual work into a fast, reliable process. I am curious by nature, enjoy solving problems, and keep evolving through discipline, study, and practice.",
+                "hero.email": "jpresene@gmail.com",
+                "hero.phone": "(47) 98417-0674",
+                "hero.github": "GitHub",
+                "hero.location": "Ascurra, SC",
+                "story.title": "My story in practice",
+                "story.before": "Before",
+                "story.before.note": "All manual",
+                "story.after": "After",
+                "story.after.note": "Automation",
+                "story.company": "Form Uniformes",
+                "story.period": "May 2024 - Present",
+                "story.role": "Production Assistant • Design/Automation • Webmaster",
+                "story.build.title": "What I built",
+                "story.build.text": "I arrived in a process that was stuck and fully manual. Instead of complaining, I went after it: <strong>I studied VBA in 3 weeks</strong> and built a <strong>CorelDRAW automation</strong> that assembles artwork, applies <strong>names and numbers (variable data)</strong>, and exports everything ready for production.",
+                "story.results.title": "Results (real numbers)",
+                "story.results.1": "Time for 5 shirts: from ~1h40 to ~7 minutes (≈5 min layout + 2 min names/numbers + export)",
+                "story.results.2": "Daily artwork capacity: from max 12 to max 32 arts/day",
+                "story.results.3": "Production peak: 700+ shirts in 1 day (hit weekly and monthly target)",
+                "story.trust.title": "Consistency and trust",
+                "story.trust.text": "I standardized steps and exports to reduce rework and keep quality high even under pressure. I am also responsible for <strong>building and maintaining the company website</strong>, editing commercial videos, and helping with social media content.",
+                "story.stat.1": "~7 min",
+                "story.stat.1.label": "5 shirts + names",
+                "story.stat.2": "32",
+                "story.stat.2.label": "arts/day (max)",
+                "story.stat.3": "700+",
+                "story.stat.3.label": "shirts/day",
+                "skills.title": "Skills & Qualifications",
+                "skills.main": "Core skills",
+                "skills.corel": "CorelDRAW",
+                "skills.corel.sub": "VBA macros",
+                "skills.prepress": "Prepress",
+                "skills.prepress.sub": "layout/export",
+                "skills.variable": "Variable data",
+                "skills.variable.sub": "names/numbers",
+                "skills.python": "Python",
+                "skills.vba": "VBA",
+                "skills.html": "HTML/CSS",
+                "skills.extra": "Also: JavaScript • PHP • SQL • Website management • Video editing (commercial/institutional)",
+                "skills.languages": "Languages",
+                "skills.lang.pt": "Portuguese",
+                "skills.lang.pt.level": "Native",
+                "skills.lang.en": "English",
+                "skills.lang.en.level": "Intermediate",
+                "skills.passport": "Passport",
+                "skills.passport.active": "Active",
+                "skills.education": "Education",
+                "skills.education.highschool": "High school",
+                "skills.education.highschool.note": "Expected completion: 2026",
+                "skills.education.self": "Self-taught",
+                "skills.education.self.note": "VBA automation (CorelDRAW), web development, production flow optimization",
+                "projects.title": "Projects & Systems",
+                "projects.0.title": "Ink organization system",
+                "projects.0.subtitle": "Excel • Brandili • Certificate",
+                "projects.1.title": "Ink automation",
+                "projects.1.subtitle": "Brandili case",
+                "projects.2.title": "Ticket system",
+                "projects.2.subtitle": "PHP fullstack",
+                "projects.3.title": "CorelDRAW macro",
+                "projects.3.subtitle": "Sublimation: layout + export",
+                "projects.4.title": "Video editing",
+                "projects.4.subtitle": "Commercial/Institutional",
+                "history.title": "Work History",
+                "history.company": "Brandili Textile Ltd.",
+                "history.role": "Rotary Machine Operator & Innovation | 1 year",
+                "history.desc": "I operated and monitored printing machines. I created an ink organization system that improved the area and earned internal recognition/certification.",
+                "footer.text": "© 2026 Joao Pedro. Focused on results and well-built processes.",
+                "footer.print": "Save as PDF"
+            }
+        };
+
+        const modal = document.getElementById("language-modal");
+        const select = document.getElementById("lang-select");
+
+        const applyLanguage = (lang) => {
+            const strings = translations[lang] || translations["pt-BR"];
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll("[data-i18n]").forEach((el) => {
+                const key = el.getAttribute("data-i18n");
+                if (strings[key]) {
+                    el.textContent = strings[key];
+                }
+            });
+
+            document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+                const key = el.getAttribute("data-i18n-html");
+                if (strings[key]) {
+                    el.innerHTML = strings[key];
+                }
+            });
+
+            if (select) {
+                select.value = lang;
+            }
+        };
+
+        const savedLang = localStorage.getItem("site-lang");
+        if (!savedLang) {
+            modal.style.display = "flex";
+            modal.setAttribute("aria-hidden", "false");
+            applyLanguage("pt-BR");
+        } else {
+            applyLanguage(savedLang);
+        }
+
+        document.querySelectorAll("[data-lang]").forEach((button) => {
+            button.addEventListener("click", () => {
+                const lang = button.getAttribute("data-lang");
+                localStorage.setItem("site-lang", lang);
+                applyLanguage(lang);
+                modal.style.display = "none";
+                modal.setAttribute("aria-hidden", "true");
+            });
+        });
+
+        select.addEventListener("change", (event) => {
+            const lang = event.target.value;
+            localStorage.setItem("site-lang", lang);
+            applyLanguage(lang);
+        });
+
+        document.querySelectorAll("img").forEach((img) => {
+            img.onerror = function () {
+                this.style.display = "none";
+                this.parentNode.innerHTML = "<div style='display:grid;place-items:center;height:100%;background:#0b1220;color:#6b7b93'><i class='fas fa-image'></i></div>";
             };
         });
     </script>
 </body>
 </html>
-
