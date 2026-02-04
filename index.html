@@ -4,598 +4,404 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="page.title">Portfólio - João Pedro</title>
-    <meta name="description" content="Especialista em Automação CorelDRAW, VBA e Design para Sublimação.">
-
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            color-scheme: dark;
-            --bg-0: #050910;
-            --bg-1: #0b1220;
-            --panel: rgba(13, 19, 33, 0.6);
-            --panel-border: rgba(120, 255, 180, 0.1);
-            --neon: #76ff9f;
-            --cyan: #6fd9ff;
-            --text-0: #e2e8f0;
-            --text-1: #94a3b8;
-            --text-2: #64748b;
-            --shadow: 0 10px 40px -10px rgba(0,0,0,0.5);
-            --glow: 0 0 20px rgba(118, 255, 159, 0.05);
+            /* Paleta Cyberpunk Dark */
+            --bg-body: #050910;
+            --bg-panel: #0d131f;
+            --neon: #76ff9f;     /* Verde Matrix */
+            --cyan: #6fd9ff;     /* Azul Tech */
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border: rgba(118, 255, 159, 0.15);
         }
 
-        html { scroll-behavior: smooth; }
-
+        /* Reset Básico */
         body {
-            overflow-x: hidden;
-            background: var(--bg-0);
-            color: var(--text-0);
+            background-color: var(--bg-body);
+            color: var(--text-main);
             font-family: "Space Grotesk", sans-serif;
-            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at top center, #1a253a 0%, #050910 60%);
+            min-height: 100vh;
         }
 
-        /* Background Effects */
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: 
-                radial-gradient(circle at 15% 50%, rgba(118, 255, 159, 0.05), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(111, 217, 255, 0.05), transparent 25%);
-            z-index: -2;
+        /* Container Principal */
+        main.container {
+            max-width: 1000px;
+            margin-top: 40px;
+            margin-bottom: 60px;
+            padding: 0 20px;
         }
 
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            z-index: -1;
-            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 40px auto 60px;
-            background: rgba(8, 12, 20, 0.4);
-            border-radius: 24px;
-            border: 1px solid var(--panel-border);
-            backdrop-filter: blur(20px);
-            box-shadow: var(--shadow);
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        header {
+        /* Header / Hero */
+        .hero-section {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 20px;
             padding: 40px;
-            border-bottom: 1px solid var(--panel-border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 180px 1fr;
+            margin-bottom: 40px;
+            display: flex;
             gap: 40px;
             align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
         }
 
-        .avatar {
-            width: 180px;
-            height: 180px;
-            border-radius: 24px;
+        .avatar-container {
+            flex-shrink: 0;
+            width: 160px;
+            height: 160px;
+            border-radius: 20px;
             overflow: hidden;
-            border: 2px solid rgba(118, 255, 159, 0.3);
-            box-shadow: 0 0 30px rgba(118, 255, 159, 0.15);
-            transform: rotate(-3deg);
-            transition: transform 0.3s ease;
+            border: 2px solid var(--neon);
+            box-shadow: 0 0 20px rgba(118, 255, 159, 0.2);
         }
 
-        .avatar:hover { transform: rotate(0deg) scale(1.02); }
-        
-        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-        h1 { font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.2em; }
+        .hero-content h1 {
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: white;
+        }
 
-        .role {
-            color: var(--neon);
-            font-family: "JetBrains Mono", monospace;
-            font-size: 0.9rem;
-            margin-bottom: 16px;
+        .role-badge {
             display: inline-block;
-            background: rgba(118, 255, 159, 0.08);
-            padding: 4px 12px;
+            background: rgba(118, 255, 159, 0.1);
+            color: var(--neon);
+            border: 1px solid var(--neon);
+            padding: 5px 12px;
             border-radius: 6px;
-            border: 1px solid rgba(118, 255, 159, 0.2);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
         }
 
-        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-
-        .chip {
-            display: inline-flex;
-            align-items: center;
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
             gap: 10px;
-            padding: 10px 20px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.03);
+            margin-top: 20px;
+        }
+
+        .btn-tech {
+            background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-0);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
             text-decoration: none;
             font-size: 0.9rem;
             transition: all 0.2s;
             cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
-
-        .chip:hover {
+        
+        .btn-tech:hover {
+            border-color: var(--neon);
             background: rgba(118, 255, 159, 0.1);
-            border-color: var(--neon);
-            transform: translateY(-2px);
-            color: white;
-            box-shadow: 0 5px 15px rgba(118, 255, 159, 0.1);
-        }
-
-        .content { padding: 40px; display: grid; gap: 60px; }
-
-        .section-title {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .section-title span {
-            width: 40px;
-            height: 2px;
-            background: var(--neon);
-            box-shadow: 0 0 10px var(--neon);
-        }
-
-        .panel {
-            background: var(--panel);
-            border: 1px solid var(--panel-border);
-            border-radius: 20px;
-            padding: 24px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .panel:hover {
-            border-color: rgba(118, 255, 159, 0.3);
-        }
-
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
-
-        .video-frame {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            background: #000;
-            aspect-ratio: 16/9;
-            position: relative;
-        }
-
-        .stat {
-            text-align: center;
-            padding: 16px;
-            background: rgba(0,0,0,0.2);
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .stat strong { color: var(--cyan); font-size: 1.8rem; display: block; }
-        .stat span { font-size: 0.8rem; color: var(--text-2); text-transform: uppercase; letter-spacing: 1px; }
-
-        .skill-grid { display: flex; flex-wrap: wrap; gap: 12px; }
-
-        .skill {
-            flex: 1 1 140px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 16px;
-            background: rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 12px;
-            transition: 0.3s;
-        }
-
-        .skill:hover { background: rgba(255,255,255,0.05); border-color: var(--cyan); transform: translateY(-3px); }
-        .skill i { font-size: 1.8rem; color: var(--text-1); margin-bottom: 10px; transition: 0.3s; }
-        .skill:hover i { color: var(--cyan); }
-
-        .card {
-            background: rgba(20, 25, 40, 0.5);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: 0.3s;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--neon);
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-        }
-
-        .card-icon {
-            height: 120px;
-            display: grid;
-            place-items: center;
-            background: radial-gradient(circle at center, rgba(118, 255, 159, 0.1), transparent 70%);
-            font-size: 2.5rem;
             color: var(--neon);
         }
 
-        .card-body { padding: 20px; flex-grow: 1; border-top: 1px solid rgba(255,255,255,0.05); }
-        .card-body strong { display: block; font-size: 1.1rem; margin-bottom: 4px; }
-        .card-body p { font-size: 0.9rem; color: var(--text-2); margin: 0; }
+        /* Seletor de Idioma */
+        .lang-select-wrapper {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .lang-select-wrapper select {
+            background: #000;
+            color: white;
+            border: 1px solid var(--border);
+            padding: 5px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
 
-        /* Services Section (New) */
-        .service-list { display: grid; gap: 16px; }
-        .service-item {
+        /* Seções Gerais */
+        .section-header {
             display: flex;
-            align-items: start;
-            gap: 16px;
-            padding: 16px;
-            background: rgba(118, 255, 159, 0.03);
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            margin-top: 40px;
+        }
+        .section-line {
+            width: 4px;
+            height: 25px;
+            background: var(--neon);
+            border-radius: 4px;
+        }
+
+        /* CORREÇÃO DOS VÍDEOS (O Pulo do Gato) */
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            /* Força proporção 16:9 para não quebrar o layout se o video falhar */
+            aspect-ratio: 16 / 9; 
+            background: black;
             border-radius: 12px;
-            border-left: 3px solid var(--neon);
+            overflow: hidden;
+            border: 1px solid var(--border);
         }
 
-        /* Language Switcher */
-        .lang-switch { position: absolute; top: 30px; right: 30px; z-index: 10; }
-        select { background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 5px 10px; border-radius: 8px; cursor: pointer; }
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Garante que o video apareça inteiro */
+        }
 
-        footer {
+        .video-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: var(--neon);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            z-index: 2;
+            border: 1px solid var(--neon);
+        }
+
+        /* Stats Box */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .stat-box {
+            background: rgba(255,255,255,0.03);
+            padding: 15px;
+            border-radius: 10px;
             text-align: center;
-            padding: 40px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-2);
-            font-size: 0.9rem;
+            border: 1px solid var(--border);
+        }
+        .stat-number { display: block; font-size: 1.5rem; color: var(--cyan); font-weight: bold; }
+        .stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; }
+
+        /* Grid de Skills e Projetos */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
-        @media (max-width: 800px) {
-            header { padding: 30px 20px; }
-            .hero { grid-template-columns: 1fr; text-align: center; gap: 20px; }
+        .card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon);
+        }
+        .card i { font-size: 2rem; color: var(--text-muted); margin-bottom: 15px; }
+        .card strong { display: block; color: white; margin-bottom: 5px; }
+        .card p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+
+        /* Responsividade (Mobile) */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
             .hero-actions { justify-content: center; }
-            .avatar { margin: 0 auto; width: 150px; height: 150px; }
-            .grid-2, .grid-3 { grid-template-columns: 1fr; }
-            .content { padding: 20px; gap: 40px; }
-            .lang-switch { top: 10px; right: 20px; }
+            .video-grid { grid-template-columns: 1fr; } /* Um video em cima do outro no celular */
+            .stats-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 
 <body>
-    <main>
-        <header>
-            <div class="lang-switch">
-                <select id="lang-select" aria-label="Idioma">
-                    <option value="pt-BR">🇧🇷 PT-BR</option>
-                    <option value="en">🇺🇸 EN-US</option>
+
+    <main class="container">
+        
+        <div class="hero-section">
+            <div class="lang-select-wrapper">
+                <select id="lang-select" onchange="updateLang(this.value)">
+                    <option value="pt-BR">🇧🇷 PT</option>
+                    <option value="en">🇺🇸 EN</option>
                 </select>
             </div>
 
-            <div class="hero fade-in">
-                <div class="avatar">
-                    <img src="https://i.postimg.cc/BL06KmYg/file.jpg" alt="João Pedro">
-                </div>
+            <div class="avatar-container">
+                <img src="https://i.postimg.cc/BL06KmYg/file.jpg" alt="João Pedro" onerror="this.src='https://via.placeholder.com/160/000000/FFFFFF/?text=JP'">
+            </div>
 
-                <div>
-                    <h1 data-i18n="hero.name">João Pedro Resene</h1>
-                    <div class="role" data-i18n="hero.role">Automação CorelDRAW (VBA) • Design Esportivo 3D</div>
-                    
-                    <p data-i18n="hero.about">
-                        Transformo processos manuais lentos em automação rápida e lucrativa. Especialista em resolver gargalos de produção em estamparia e criar apresentações visuais de alto impacto.
-                    </p>
+            <div class="hero-content">
+                <h1 data-i18n="name">João Pedro Resene</h1>
+                <div class="role-badge" data-i18n="role">Automação (VBA) • Design 3D • Web</div>
+                <p data-i18n="about">
+                    Especialista em resolver problemas de produção. Crio automações para CorelDRAW e designs 3D que vendem. Foco em velocidade e lucro.
+                </p>
 
-                    <div class="hero-actions">
-                        <a class="chip" href="https://wa.me/5547984170674" target="_blank">
-                            <i class="fab fa-whatsapp" style="color: #25D366;"></i> <span data-i18n="btn.whatsapp">WhatsApp</span>
-                        </a>
-                        <button class="chip" onclick="copyEmail()">
-                            <i class="fas fa-envelope" style="color: var(--cyan);"></i> <span id="email-text">jpresene@gmail.com</span>
-                        </button>
-                        <a class="chip" href="https://github.com/DocPadre539" target="_blank">
-                            <i class="fab fa-github"></i> GitHub
-                        </a>
-                    </div>
+                <div class="hero-actions">
+                    <a href="https://wa.me/5547984170674" class="btn-tech">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <button onclick="copyEmail()" class="btn-tech">
+                        <i class="fas fa-envelope"></i> <span id="email-txt">jpresene@gmail.com</span>
+                    </button>
+                    <a href="https://github.com/DocPadre539" class="btn-tech">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
                 </div>
             </div>
-        </header>
-
-        <div class="content">
-            
-            <section class="fade-in">
-                <div class="section-title">
-                    <span></span>
-                    <h2 data-i18n="services.title">O que eu faço</h2>
-                </div>
-                <div class="grid-2">
-                    <div class="service-list">
-                        <div class="service-item">
-                            <i class="fas fa-robot fa-lg" style="color: var(--neon); margin-top: 5px;"></i>
-                            <div>
-                                <strong data-i18n="services.1.title">Automação de Processos (VBA)</strong>
-                                <p data-i18n="services.1.desc">Criação de macros para CorelDRAW que automatizam tarefas repetitivas (nomes, números, layout) reduzindo horas de trabalho para minutos.</p>
-                            </div>
-                        </div>
-                        <div class="service-item">
-                            <i class="fas fa-tshirt fa-lg" style="color: var(--cyan); margin-top: 5px;"></i>
-                            <div>
-                                <strong data-i18n="services.2.title">Design & Mockups 3D</strong>
-                                <p data-i18n="services.2.desc">Criação de artes para sublimação total e vídeos 3D rotativos (CLO3D/Blender) para aprovação de clientes e marketing.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel" style="display:flex; align-items:center; justify-content:center; background: rgba(118, 255, 159, 0.05);">
-                        <div style="text-align:center;">
-                            <i class="fas fa-bolt" style="font-size: 3rem; color: var(--neon); margin-bottom: 16px;"></i>
-                            <h3 data-i18n="services.roi.title">Foco em ROI</h3>
-                            <p data-i18n="services.roi.desc">Meu código não é apenas técnico. Ele existe para aumentar a capacidade produtiva da sua empresa.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="fade-in">
-                <div class="section-title">
-                    <span></span>
-                    <h2 data-i18n="story.title">Case de Sucesso: Automação</h2>
-                </div>
-                <div class="panel">
-                    <div class="grid-2">
-                        <div style="display: flex; flex-direction: column; gap: 16px;">
-                            <div class="video-frame">
-                                <div style="position: absolute; top:10px; left:10px; background:red; padding:2px 8px; border-radius:4px; font-size:0.7rem; font-weight:bold;">ANTES (Manual)</div>
-                                <video muted loop controls preload="none">
-                                    <source src="https://formuniforme.com.br/fotos/1.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                            <div class="video-frame" style="border-color: var(--neon);">
-                                <div style="position: absolute; top:10px; left:10px; background:var(--neon); color:black; padding:2px 8px; border-radius:4px; font-size:0.7rem; font-weight:bold;">DEPOIS (Automático)</div>
-                                <video muted loop autoplay playsinline>
-                                    <source src="https://formuniforme.com.br/fotos/2.mp4" type="video/mp4">
-                                </video>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h3 data-i18n="story.company">Form Uniformes</h3>
-                            <p class="role" style="margin-bottom: 20px;">Mai 2024 - Atual</p>
-                            
-                            <p data-i18n="story.desc">
-                                Desenvolvi uma solução interna que revolucionou o setor de pré-impressão. O que antes dependia de atenção manual constante, agora é processado por algoritmos.
-                            </p>
-
-                            <div class="grid-3" style="margin-top: 24px;">
-                                <div class="stat">
-                                    <strong data-i18n="stat.1">92%</strong>
-                                    <span data-i18n="stat.1.label">Menos Tempo</span>
-                                </div>
-                                <div class="stat">
-                                    <strong data-i18n="stat.2">3x</strong>
-                                    <span data-i18n="stat.2.label">Capacidade</span>
-                                </div>
-                                <div class="stat">
-                                    <strong data-i18n="stat.3">Zero</strong>
-                                    <span data-i18n="stat.3.label">Erros de Digitação</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="fade-in">
-                <div class="section-title">
-                    <span></span>
-                    <h2 data-i18n="skills.title">Tech Stack</h2>
-                </div>
-                
-                <div class="skill-grid">
-                    <div class="skill">
-                        <i class="fas fa-pen-nib"></i>
-                        <strong>CorelDRAW</strong>
-                        <span style="font-size:0.75rem; color:var(--text-2);">Advanced + VBA</span>
-                    </div>
-                    <div class="skill">
-                        <i class="fas fa-cube"></i>
-                        <strong>3D Design</strong>
-                        <span style="font-size:0.75rem; color:var(--text-2);">Blender / CLO3D</span>
-                    </div>
-                    <div class="skill">
-                        <i class="fas fa-code"></i>
-                        <strong>Python</strong>
-                        <span style="font-size:0.75rem; color:var(--text-2);">Scripting</span>
-                    </div>
-                    <div class="skill">
-                        <i class="fas fa-file-excel"></i>
-                        <strong>Excel/VBA</strong>
-                        <span style="font-size:0.75rem; color:var(--text-2);">Data Management</span>
-                    </div>
-                    <div class="skill">
-                        <i class="fas fa-globe"></i>
-                        <strong>Web</strong>
-                        <span style="font-size:0.75rem; color:var(--text-2);">HTML / CSS / PHP</span>
-                    </div>
-                </div>
-            </section>
-
-            <section class="fade-in">
-                <div class="section-title">
-                    <span></span>
-                    <h2 data-i18n="projects.title">Projetos</h2>
-                </div>
-                <div class="grid-4">
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-robot"></i></div>
-                        <div class="card-body">
-                            <strong data-i18n="proj.1.t">Macro de Sublimação</strong>
-                            <p data-i18n="proj.1.d">Automação completa de layout e exportação para corte.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-shirt"></i></div>
-                        <div class="card-body">
-                            <strong data-i18n="proj.2.t">Interclasse Packs</strong>
-                            <p data-i18n="proj.2.d">Coleção de designs vetoriais editáveis para mercado escolar.</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-fill-drip"></i></div>
-                        <div class="card-body">
-                            <strong data-i18n="proj.3.t">Controle de Tintas</strong>
-                            <p data-i18n="proj.3.d">Sistema lógico para redução de desperdício (Brandili).</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fas fa-ticket-alt"></i></div>
-                        <div class="card-body">
-                            <strong data-i18n="proj.4.t">Ticket System</strong>
-                            <p data-i18n="proj.4.d">Gestão de chamados internos em PHP/MySQL.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
         </div>
 
-        <footer>
-            <p data-i18n="footer">© 2026 João Pedro. Disponível para projetos Freelance e Full-time.</p>
-            <div style="margin-top: 10px; font-size: 1.5rem;">
-                <a href="#" style="color:var(--text-2); margin:0 10px;"><i class="fab fa-instagram"></i></a>
-                <a href="#" style="color:var(--text-2); margin:0 10px;"><i class="fab fa-linkedin"></i></a>
+        <section>
+            <div class="section-header">
+                <div class="section-line"></div>
+                <h2 data-i18n="case.title">Case: Automação na Prática</h2>
             </div>
+            
+            <p data-i18n="case.desc" style="margin-bottom: 20px; color: var(--text-muted);">
+                Veja a diferença real. À esquerda, o processo manual antigo. À direita, meu código fazendo o trabalho sozinho em segundos.
+            </p>
+
+            <div class="video-grid">
+                <div class="video-wrapper">
+                    <div class="video-label" style="color: #ff6b6b; border-color: #ff6b6b;">ANTES (Manual)</div>
+                    <video controls muted loop playsinline>
+                        <source src="https://formuniforme.com.br/fotos/1.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+                </div>
+
+                <div class="video-wrapper" style="border-color: var(--neon);">
+                    <div class="video-label">DEPOIS (Automático)</div>
+                    <video autoplay muted loop playsinline>
+                        <source src="https://formuniforme.com.br/fotos/2.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
+                    </video>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="stat-number">90%</span>
+                    <span class="stat-label" data-i18n="stat.1">Menos Tempo</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">Zero</span>
+                    <span class="stat-label" data-i18n="stat.2">Erros</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">3x</span>
+                    <span class="stat-label" data-i18n="stat.3">Produtividade</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <div class="section-line"></div>
+                <h2 data-i18n="services.title">O que eu faço</h2>
+            </div>
+
+            <div class="grid-cards">
+                <div class="card">
+                    <i class="fas fa-robot" style="color: var(--neon);"></i>
+                    <strong data-i18n="serv.1.t">Automação CorelDRAW</strong>
+                    <p data-i18n="serv.1.d">Macros VBA para montar grades, aplicar nomes e exportar arquivos de corte automaticamente.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-tshirt" style="color: var(--cyan);"></i>
+                    <strong data-i18n="serv.2.t">Design 3D (Interclasse)</strong>
+                    <p data-i18n="serv.2.d">Mockups realistas em vídeo (CLO3D) para aprovação de clientes e vendas no Instagram.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-file-code" style="color: #d6b4fc;"></i>
+                    <strong data-i18n="serv.3.t">Sistemas Web</strong>
+                    <p data-i18n="serv.3.d">Painéis de controle PHP/HTML para gestão de produção e tickets internos.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer style="margin-top: 60px; text-align: center; color: var(--text-muted); padding-bottom: 20px;">
+            <p>© 2026 João Pedro Resene.</p>
         </footer>
+
     </main>
 
     <script>
-        // TRADUÇÕES
-        const translations = {
+        // SISTEMA DE IDIOMAS SIMPLES E FUNCIONAL
+        const content = {
             "pt-BR": {
-                "page.title": "Portfólio - João Pedro | Automação & Design",
-                "hero.role": "Automação CorelDRAW (VBA) • Design Esportivo 3D",
-                "hero.about": "Transformo processos manuais lentos em automação rápida e lucrativa. Especialista em resolver gargalos de produção em estamparia e criar apresentações visuais de alto impacto.",
-                "btn.whatsapp": "Chamar no WhatsApp",
-                "services.title": "O que eu ofereço",
-                "services.1.title": "Automação de Processos (VBA)",
-                "services.1.desc": "Macros customizadas para CorelDRAW. Transforme 2 horas de trabalho manual em 5 minutos de processamento automático.",
-                "services.2.title": "Design & Mockups 3D",
-                "services.2.desc": "Apresentações profissionais em vídeo 3D (CLO3D) para vender mais camisas e aprovar artes mais rápido.",
-                "services.roi.title": "Foco em ROI",
-                "services.roi.desc": "Meu código existe para aumentar a capacidade produtiva e o lucro da sua empresa.",
-                "story.title": "Case Real: Automação",
-                "story.desc": "Desenvolvi uma solução que eliminou o gargalo da pré-impressão. Padronização total e velocidade extrema.",
-                "stat.1.label": "Redução de Tempo",
-                "stat.2.label": "Aumento de Capacidade",
-                "stat.3.label": "Erros de Digitação",
-                "skills.title": "Stack Tecnológico",
-                "projects.title": "Projetos",
-                "proj.1.t": "Macro de Sublimação",
-                "proj.1.d": "Sistema completo de montagem de grades e nomes.",
-                "proj.2.t": "Interclasse 3D",
-                "proj.2.d": "Mockups rotativos e designs de alta conversão.",
-                "proj.3.t": "Gestão de Tintas",
-                "proj.3.d": "Otimização de recursos industriais.",
-                "proj.4.t": "Sistema Web",
-                "proj.4.d": "Painel de controle de produção.",
-                "footer": "© 2026 João Pedro. Disponível para projetos Freelance e Consultoria."
+                name: "João Pedro Resene",
+                role: "Automação (VBA) • Design 3D • Web",
+                about: "Especialista em resolver problemas de produção. Crio automações para CorelDRAW e designs 3D que vendem. Foco em velocidade e lucro.",
+                "case.title": "Case: Automação na Prática",
+                "case.desc": "Veja a diferença real. À esquerda, o processo manual antigo. À direita, meu código fazendo o trabalho sozinho em segundos.",
+                "stat.1": "Menos Tempo",
+                "stat.2": "Erros",
+                "stat.3": "Produtividade",
+                "services.title": "O que eu faço",
+                "serv.1.t": "Automação CorelDRAW",
+                "serv.1.d": "Macros VBA para montar grades, aplicar nomes e exportar arquivos de corte automaticamente.",
+                "serv.2.t": "Design 3D (Interclasse)",
+                "serv.2.d": "Mockups realistas em vídeo (CLO3D) para aprovação de clientes e vendas no Instagram.",
+                "serv.3.t": "Sistemas Web",
+                "serv.3.d": "Painéis de controle PHP/HTML para gestão de produção e tickets internos."
             },
             "en": {
-                "page.title": "Portfolio - João Pedro | Automation & Design",
-                "hero.role": "CorelDRAW Automation (VBA) • 3D Sportswear Design",
-                "hero.about": "I turn slow manual processes into fast, profitable automation. I specialize in solving production bottlenecks for print shops and creating high-impact visual presentations.",
-                "btn.whatsapp": "Chat on WhatsApp",
+                name: "João Pedro Resene",
+                role: "Automation (VBA) • 3D Design • Web",
+                about: "I solve production bottlenecks. I build CorelDRAW automation tools and high-converting 3D sportswear designs. Focused on speed and profit.",
+                "case.title": "Case Study: Automation",
+                "case.desc": "See the real difference. Left: the old manual way. Right: my code doing the job in seconds.",
+                "stat.1": "Time Reduction",
+                "stat.2": "Errors",
+                "stat.3": "Productivity",
                 "services.title": "What I Do",
-                "services.1.title": "Process Automation (VBA)",
-                "services.1.desc": "Custom CorelDRAW macros. Turn 2 hours of manual grunt work into 5 minutes of automatic processing.",
-                "services.2.title": "3D Design & Mockups",
-                "services.2.desc": "Professional 3D video presentations (CLO3D) to help you sell more jerseys and get faster approvals.",
-                "services.roi.title": "ROI Focused",
-                "services.roi.desc": "My code exists to increase your production capacity and profit margins.",
-                "story.title": "Real Case: Automation",
-                "story.desc": "I developed a solution that eliminated the pre-press bottleneck. Total standardization and extreme speed.",
-                "stat.1.label": "Time Reduction",
-                "stat.2.label": "Capacity Increase",
-                "stat.3.label": "Typing Errors",
-                "skills.title": "Tech Stack",
-                "projects.title": "Projects",
-                "proj.1.t": "Sublimation Macro",
-                "proj.1.d": "Complete system for sizing and variable data.",
-                "proj.2.t": "3D Teamwear",
-                "proj.2.d": "Rotating mockups and high-conversion designs.",
-                "proj.3.t": "Ink Management",
-                "proj.3.d": "Industrial resource optimization.",
-                "proj.4.t": "Web System",
-                "proj.4.d": "Production control dashboard.",
-                "footer": "© 2026 João Pedro. Available for Freelance and Consulting."
+                "serv.1.t": "CorelDRAW Automation",
+                "serv.1.d": "VBA Macros to assemble sizes, apply names, and export cut files automatically.",
+                "serv.2.t": "3D Sportswear Design",
+                "serv.2.d": "Realistic 3D video mockups (CLO3D) for client approval and social media sales.",
+                "serv.3.t": "Web Systems",
+                "serv.3.d": "PHP/HTML dashboards for production management and internal tickets."
             }
         };
 
-        // LÓGICA DE IDIOMA
-        const langSelect = document.getElementById('lang-select');
-        
-        function updateLanguage(lang) {
-            const t = translations[lang];
+        function updateLang(lang) {
+            const texts = content[lang];
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (t[key]) el.textContent = t[key];
+                if (texts[key]) el.innerText = texts[key];
             });
-            localStorage.setItem('portfolio-lang', lang);
         }
 
-        langSelect.addEventListener('change', (e) => updateLanguage(e.target.value));
-
-        // Carregar idioma salvo
-        const savedLang = localStorage.getItem('portfolio-lang') || 'pt-BR';
-        langSelect.value = savedLang;
-        updateLanguage(savedLang);
-
-        // COPIAR EMAIL
         function copyEmail() {
-            const email = "jpresene@gmail.com";
-            navigator.clipboard.writeText(email);
-            const span = document.getElementById('email-text');
-            const originalText = span.textContent;
-            
-            span.textContent = "Copiado!";
-            setTimeout(() => {
-                span.textContent = originalText;
-            }, 2000);
+            navigator.clipboard.writeText("jpresene@gmail.com");
+            const btn = document.getElementById("email-txt");
+            const original = btn.innerText;
+            btn.innerText = "Copiado!";
+            setTimeout(() => btn.innerText = original, 2000);
         }
-
-        // SCROLL ANIMATION (OBSERVER)
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
     </script>
 </body>
 </html>
