@@ -5,41 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="page.title">Portfólio - João Pedro</title>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <style>
         :root {
             color-scheme: dark;
-            --bg-0: #070b12;
-            --bg-1: #0b1220;
-            --bg-2: #0f192b;
-            --panel: rgba(12, 19, 33, 0.78);
-            --panel-border: rgba(120, 255, 180, 0.15);
-            --neon: #76ff9f;
-            --cyan: #6fd9ff;
-            --text-0: #e2e8f0;
-            --text-1: #a4b4c8;
-            --text-2: #6b7b93;
-            --shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+            --paper: #0b0f14;
+            --paper-2: #141a22;
+            --ink: #f5f1ea;
+            --ink-soft: #c9c1b5;
+            --ink-faint: #9f9487;
+            --accent: #e09a6d;
+            --line: #263041;
+            --line-strong: #39465a;
+            --shadow: 0 40px 120px rgba(3, 6, 10, 0.65);
+            --radius-lg: 36px;
+            --radius-md: 24px;
         }
 
-        html, body {
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
             overflow-x: hidden;
-            background: var(--bg-0);
-            color: var(--text-0);
-            font-family: "Space Grotesk", sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: "IBM Plex Sans", sans-serif;
+            line-height: 1.65;
         }
 
         body::before {
             content: "";
             position: fixed;
-            inset: 0;
+            inset: -10% -10% 0 -10%;
             background:
-                radial-gradient(circle at 20% 10%, rgba(118, 255, 159, 0.12), transparent 45%),
-                radial-gradient(circle at 90% 20%, rgba(111, 217, 255, 0.12), transparent 45%),
-                linear-gradient(120deg, rgba(9, 14, 26, 0.95), rgba(5, 8, 16, 0.9));
+                radial-gradient(circle at 12% 12%, rgba(224, 154, 109, 0.18), transparent 48%),
+                radial-gradient(circle at 88% 20%, rgba(255, 255, 255, 0.06), transparent 52%),
+                linear-gradient(130deg, rgba(8, 10, 14, 0.95), rgba(4, 6, 9, 0.98));
             z-index: -2;
         }
 
@@ -48,69 +57,250 @@
             position: fixed;
             inset: 0;
             background-image:
-                linear-gradient(rgba(118, 255, 159, 0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(118, 255, 159, 0.08) 1px, transparent 1px);
-            background-size: 36px 36px;
-            opacity: 0.25;
+                linear-gradient(transparent 23px, rgba(255, 255, 255, 0.04) 24px),
+                linear-gradient(90deg, transparent 23px, rgba(255, 255, 255, 0.04) 24px);
+            background-size: 24px 24px;
+            opacity: 0.4;
             z-index: -1;
+            pointer-events: none;
         }
 
         main {
-            max-width: 1080px;
-            margin: 32px auto 48px;
-            background: rgba(5, 8, 16, 0.6);
-            border-radius: 28px;
-            border: 1px solid rgba(118, 255, 159, 0.1);
+            width: min(1160px, 92vw);
+            margin: 32px auto 64px;
+            background: rgba(12, 16, 22, 0.8);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--line);
             box-shadow: var(--shadow);
+            backdrop-filter: blur(6px);
             overflow: hidden;
+            animation: fadeUp 0.9s ease both;
         }
 
         header {
-            padding: 32px 32px 24px;
-            background: linear-gradient(135deg, rgba(12, 18, 32, 0.95), rgba(12, 28, 44, 0.95));
-            border-bottom: 1px solid rgba(118, 255, 159, 0.08);
+            position: relative;
+            padding: 40px 48px 32px;
+            border-bottom: 1px solid var(--line);
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            top: -130px;
+            right: 60px;
+            opacity: 0.7;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 1px solid var(--accent);
+            bottom: -70px;
+            left: 38%;
+            opacity: 0.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: var(--accent);
+        }
+
+        img, video {
+            max-width: 100%;
+            display: block;
+        }
+
+        h2, h3, h4 {
+            margin: 0 0 12px;
+        }
+
+        p {
+            margin: 0 0 12px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        ul {
+            margin: 12px 0 0;
+            padding-left: 1.1rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        button, select {
+            cursor: pointer;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .brand-mark {
+            display: grid;
+            place-items: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 999px;
+            border: 1px solid var(--line-strong);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+        }
+
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .site-nav a {
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .site-nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .site-nav a:hover::after {
+            width: 100%;
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .lang-switch label {
+            border: none;
+            padding: 0;
+            background: none;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+        }
+
+        .lang-switch select {
+            min-width: 140px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--line-strong);
+            background: rgba(12, 16, 22, 0.9);
+            color: var(--ink);
+            font-family: "IBM Plex Sans", sans-serif;
+            font-size: 0.85rem;
         }
 
         .hero {
             display: grid;
-            grid-template-columns: 180px 1fr;
-            gap: 28px;
+            grid-template-columns: 120px minmax(0, 1fr);
+            gap: 32px;
             align-items: center;
         }
 
         .avatar {
             position: relative;
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
+            width: 100%;
+            height: 120px;
+            border-radius: 999px;
             overflow: hidden;
-            border: 3px solid rgba(118, 255, 159, 0.35);
-            box-shadow: 0 0 30px rgba(118, 255, 159, 0.12);
+            border: 1px solid var(--line-strong);
+            background: var(--paper-2);
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.45);
+        }
+
+        .avatar::after {
+            content: "";
+            position: absolute;
+            inset: 10px;
+            border-radius: 999px;
+            border: 1px dashed rgba(245, 241, 234, 0.15);
+            pointer-events: none;
+        }
+
+        .avatar a {
+            display: block;
+            height: 100%;
         }
 
         .avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: grayscale(100%) contrast(1.05) brightness(0.9);
+        }
+
+        h1 {
+            font-family: "Fraunces", serif;
+            font-size: clamp(2.8rem, 4.6vw, 4.9rem);
+            letter-spacing: -0.02em;
+            line-height: 0.95;
+            margin: 0 0 12px;
         }
 
         .role {
-            color: var(--cyan);
+            color: var(--ink-soft);
             font-weight: 600;
-            margin-top: 8px;
+            margin: 8px 0 0;
+        }
+
+        header .role {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin: 0;
         }
 
         .availability {
-            color: var(--text-2);
-            font-size: 0.85rem;
-            margin-top: 8px;
+            color: var(--ink-soft);
+            font-size: 0.95rem;
+            margin: 12px 0 0;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 16px;
+            margin-top: 24px;
         }
 
         .chip {
@@ -119,26 +309,38 @@
             gap: 8px;
             padding: 8px 14px;
             border-radius: 999px;
-            background: rgba(12, 20, 35, 0.9);
-            border: 1px solid rgba(118, 255, 159, 0.2);
-            color: var(--text-0);
-            font-size: 0.85rem;
-            text-decoration: none;
+            border: 1px solid var(--line);
+            background: rgba(14, 18, 25, 0.9);
+            color: var(--ink);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
         }
 
         .chip i {
-            color: var(--neon);
+            color: var(--accent);
         }
 
         .content {
-            padding: 24px 32px 40px;
+            padding: 32px 48px 56px;
             display: grid;
-            gap: 28px;
+            gap: 36px;
         }
+
+        section {
+            scroll-margin-top: 120px;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        section:nth-of-type(1) { animation-delay: 0.05s; }
+        section:nth-of-type(2) { animation-delay: 0.12s; }
+        section:nth-of-type(3) { animation-delay: 0.18s; }
+        section:nth-of-type(4) { animation-delay: 0.24s; }
 
         .stack {
             display: grid;
-            gap: 14px;
+            gap: 16px;
         }
 
         .row {
@@ -164,23 +366,37 @@
         .section-title {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
+            gap: 16px;
+            margin-bottom: 18px;
         }
 
         .section-title span {
-            width: 4px;
-            height: 26px;
-            background: var(--neon);
+            width: 46px;
+            height: 46px;
             border-radius: 999px;
+            border: 1px solid var(--line-strong);
+            position: relative;
+        }
+
+        .section-title span::after {
+            content: "";
+            position: absolute;
+            inset: 12px;
+            border-radius: 999px;
+            border: 1px solid var(--accent);
+        }
+
+        .section-title h2 {
+            font-family: "Fraunces", serif;
+            font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+            margin: 0;
         }
 
         .panel {
-            background: var(--panel);
-            border: 1px solid var(--panel-border);
-            border-radius: 20px;
-            padding: 20px;
-            backdrop-filter: blur(10px);
+            background: rgba(14, 18, 26, 0.88);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 24px;
         }
 
         .grid-2 {
@@ -192,103 +408,102 @@
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 14px;
+            gap: 16px;
         }
 
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
-            gap: 14px;
+            gap: 16px;
         }
 
         .tag {
-            font-family: "JetBrains Mono", monospace;
-            font-size: 0.72rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--neon);
+            letter-spacing: 0.18em;
+            color: var(--ink-faint);
         }
 
         .video-frame {
-            border-radius: 16px;
+            border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(118, 255, 159, 0.2);
-            background: #02040a;
+            border: 1px solid var(--line);
+            background: var(--paper-2);
         }
 
         .video-frame video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.8;
+            filter: grayscale(100%) brightness(0.85);
         }
 
         .stat {
             text-align: center;
-            padding: 12px;
-            border-radius: 16px;
-            border: 1px solid rgba(118, 255, 159, 0.15);
-            background: rgba(7, 12, 20, 0.8);
+            padding: 14px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: rgba(14, 18, 26, 0.9);
         }
 
         .stat strong {
             display: block;
-            font-size: 1.4rem;
-            color: var(--neon);
+            font-family: "Fraunces", serif;
+            font-size: 1.6rem;
+            color: var(--accent);
         }
 
         .skill-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 14px;
+            gap: 16px;
         }
 
         .skill {
             text-align: center;
-            padding: 12px;
-            border-radius: 14px;
-            border: 1px solid rgba(118, 255, 159, 0.15);
-            background: rgba(7, 12, 20, 0.75);
+            padding: 14px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: rgba(14, 18, 26, 0.86);
         }
 
         .skill i {
-            font-size: 1.5rem;
-            color: var(--cyan);
-            margin-bottom: 8px;
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 10px;
         }
 
         .card {
             display: grid;
             grid-template-rows: 150px auto;
-            border-radius: 18px;
+            border-radius: 24px;
             overflow: hidden;
-            border: 1px solid rgba(118, 255, 159, 0.15);
-            background: rgba(8, 12, 22, 0.9);
+            border: 1px solid var(--line);
+            background: rgba(14, 18, 26, 0.86);
+        }
+
+        .card .panel {
+            border: none;
+            background: transparent;
         }
 
         .card-body {
-            padding: 14px 16px 16px;
-            background: rgba(6, 10, 18, 0.85);
-        }
-
-        .lang-switch {
-            display: flex;
-            justify-content: flex-end;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .lang-switch select {
-            max-width: 160px;
-            background: rgba(7, 12, 20, 0.8);
-            border-color: rgba(118, 255, 159, 0.25);
-            color: var(--text-0);
+            padding: 16px 18px 18px;
+            border-top: 1px solid var(--line);
+            background: rgba(10, 14, 20, 0.9);
         }
 
         .language-modal {
             position: fixed;
             inset: 0;
-            background: rgba(4, 7, 12, 0.85);
+            background: rgba(5, 7, 10, 0.92);
             backdrop-filter: blur(6px);
             display: none;
             align-items: center;
@@ -296,9 +511,52 @@
             z-index: 20;
         }
 
+        .info-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(5, 7, 10, 0.92);
+            backdrop-filter: blur(6px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 30;
+            padding: 24px;
+        }
+
         .language-modal .panel {
             max-width: 420px;
             text-align: center;
+            background: rgba(12, 16, 22, 0.95);
+        }
+
+        .info-modal .panel {
+            max-width: 520px;
+            width: min(520px, 92vw);
+            background: rgba(12, 16, 22, 0.97);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .modal-close {
+            border: 1px solid var(--line-strong);
+            background: transparent;
+            color: var(--ink);
+            width: 36px;
+            height: 36px;
+            border-radius: 999px;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .modal-close:hover {
+            color: var(--accent);
+            border-color: var(--accent);
         }
 
         .language-actions {
@@ -309,32 +567,77 @@
         }
 
         .language-actions button {
-            border-radius: 12px;
-            border: 1px solid rgba(118, 255, 159, 0.35);
-            background: rgba(10, 18, 32, 0.9);
-            color: var(--text-0);
+            border-radius: 999px;
+            border: 1px solid var(--line-strong);
+            background: rgba(10, 14, 20, 0.95);
+            color: var(--ink);
             font-weight: 600;
+            padding: 10px 12px;
+            font-family: "IBM Plex Sans", sans-serif;
+        }
+
+        .modal-trigger {
+            margin-top: 12px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--line-strong);
+            background: rgba(10, 14, 20, 0.95);
+            color: var(--ink);
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .modal-trigger:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .language-actions button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
         footer {
-            padding: 28px 32px 36px;
-            border-top: 1px solid rgba(118, 255, 159, 0.08);
+            padding: 28px 48px 36px;
+            border-top: 1px solid var(--line);
             text-align: center;
-            color: var(--text-2);
+            color: var(--ink-faint);
+            font-size: 0.9rem;
         }
 
-        /* Seus breakpoints originais */
-        @media (max-width: 960px) {
-            main { margin: 0; border-radius: 0; }
-            header { padding: 24px; }
-            .hero { grid-template-columns: 1fr; text-align: center; }
-            .hero-actions { justify-content: center; }
-            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 1024px) {
+            main { width: min(100%, 100%); margin: 0; border-radius: 0; }
+            header { padding: 32px 32px 28px; }
+            .content { padding: 28px 32px 44px; }
+            .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .grid-2 { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 720px) {
-            .row-2, .row-3 { grid-template-columns: 1fr; }
-            .row { justify-content: center; }
+            .top-bar { flex-direction: column; align-items: flex-start; }
+            .hero { grid-template-columns: 1fr; align-items: center; text-align: center; }
+            .hero-actions { justify-content: center; }
+            .avatar { width: 96px; height: 96px; margin: 0 auto; }
+            .row-2, .row-3 { grid-template-columns: 1fr; text-align: left; }
+            .site-nav { justify-content: flex-start; }
+        }
+
+        @media (max-width: 640px) {
+            header { padding: 26px 20px 24px; }
+            .content { padding: 24px 20px 40px; }
+            footer { padding: 24px 20px 32px; }
+            .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+            .section-title { flex-direction: column; align-items: flex-start; }
+            .lang-switch { width: 100%; justify-content: flex-start; }
+            .lang-switch select { width: 100%; }
         }
 
         @media print {
@@ -343,105 +646,10 @@
             main { box-shadow: none !important; border: none !important; }
             .language-modal, .lang-switch { display: none !important; }
             .panel, header, footer { background: white !important; color: black !important; border: none !important; }
-            .print-button { display: none !important; }
         }
 
-        /* ===== PATCH RESPONSIVO (adicionado) ===== */
-
-        main{
-            width: min(1080px, 100%);
-            margin: 24px auto 40px;
-        }
-
-        *{
-            min-width: 0;
-        }
-        .hero, .content, .panel, .card, .card-body{
-            overflow-wrap: anywhere;
-        }
-
-        .hero-actions{
-            justify-content: flex-start;
-        }
-        .chip{
-            max-width: 100%;
-            white-space: nowrap;
-        }
-        .chip span{
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .video-frame{
-            aspect-ratio: 16 / 9;
-        }
-        .video-frame video{
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        @media (max-width: 1024px){
-            header{ padding: 24px; }
-            .content{ padding: 20px 24px 32px; }
-
-            .grid-4{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .grid-3{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .grid-2{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        }
-
-        @media (max-width: 640px){
-            main{ margin: 0; border-radius: 0; }
-
-            header{ padding: 18px 16px 16px; }
-            .content{ padding: 16px 16px 28px; gap: 18px; }
-
-            .hero{
-                grid-template-columns: 1fr;
-                gap: 16px;
-                text-align: center;
-            }
-
-            .avatar{
-                width: 120px;
-                height: 120px;
-                margin: 0 auto;
-            }
-
-            .hero-actions{
-                justify-content: center;
-            }
-            .chip{
-                white-space: normal;
-                text-align: left;
-            }
-
-            .panel{
-                padding: 16px;
-                border-radius: 16px;
-            }
-
-            .grid-2, .grid-3, .grid-4{
-                grid-template-columns: 1fr;
-            }
-
-            .row, .row-2, .row-3{
-                justify-content: center;
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .lang-switch{
-                justify-content: center;
-            }
-            .lang-switch select{
-                max-width: 100%;
-                width: 100%;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce){
-            *{
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
                 scroll-behavior: auto !important;
                 transition: none !important;
                 animation: none !important;
@@ -451,26 +659,48 @@
 </head>
 
 <body>
-    <div class="language-modal" id="language-modal" aria-hidden="true">
-        <div class="panel">
-            <p class="tag" data-i18n="lang.tag">Primeira visita</p>
-            <h2 data-i18n="lang.title">Escolha seu idioma</h2>
-            <p data-i18n="lang.subtitle">Você pode trocar a qualquer momento pelo menu.</p>
-            <div class="language-actions">
-                <button type="button" data-lang="pt-BR">Português</button>
-                <button type="button" data-lang="en">English</button>
+            <div class="language-modal" id="language-modal" aria-hidden="true">
+                <div class="panel">
+                    <p class="tag" data-i18n="lang.tag">Primeira visita</p>
+                    <h2 data-i18n="lang.title">Escolha seu idioma</h2>
+                    <p data-i18n="lang.subtitle">Você pode trocar a qualquer momento pelo menu.</p>
+                    <div class="language-actions">
+                        <button type="button" data-lang="pt-BR">Português</button>
+                        <button type="button" data-lang="en">English</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+
+            <div class="info-modal" id="process-modal" aria-hidden="true">
+                <div class="panel">
+                    <div class="modal-header">
+                        <p class="tag" data-i18n="story.process.title">Processo de produção</p>
+                        <button type="button" class="modal-close" aria-label="Fechar">×</button>
+                    </div>
+                    <p data-i18n="story.process.body">
+                        Organizei o processo de produção, padronizei etapas e exportações para reduzir retrabalho e manter qualidade mesmo na correria.
+                        Também cuido do site da empresa, edito vídeos comerciais e apoio o conteúdo das redes sociais.
+                    </p>
+                </div>
+            </div>
 
     <main>
         <header>
-            <div class="lang-switch" aria-label="Language switch">
-                <label for="lang-select" class="tag" data-i18n="lang.label">Idioma</label>
-                <select id="lang-select">
-                    <option value="pt-BR">Português</option>
-                    <option value="en">English</option>
-                </select>
+            <div class="top-bar">
+                <div class="brand-mark">JP</div>
+                <nav class="site-nav" aria-label="Main">
+                    <a href="#historico" data-i18n="nav.history">Histórico</a>
+                    <a href="#habilidades" data-i18n="nav.skills">Habilidades</a>
+                    <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+                    <a href="#contato" data-i18n="nav.contact">Contato</a>
+                </nav>
+                <div class="lang-switch" aria-label="Language switch">
+                    <label for="lang-select" class="tag" data-i18n="lang.label">Idioma</label>
+                    <select id="lang-select">
+                        <option value="pt-BR">Português</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
             </div>
 
             <div class="hero">
@@ -482,7 +712,7 @@
 
                 <div>
                     <h1 data-i18n="hero.name">João Pedro Resene Da Silva</h1>
-                    <p class="role" data-i18n="hero.role">Automação de Produção & Pré-impressão (CorelDRAW VBA) • Suporte Web • Design</p>
+                    <p class="role" data-i18n="hero.role">DESIGNER GRAFICO E PROGRAMADOR FULL STACK</p>
                     <p class="availability" data-i18n="hero.design">Designer gráfico especializado em CorelDRAW, Adobe Illustrator e Photoshop</p>
                     <p class="availability" data-i18n="hero.availability"></p>
                     <p data-i18n="hero.about">
@@ -491,7 +721,7 @@
                         com disciplina, estudo e prática.
                     </p>
 
-                    <div class="hero-actions">
+                    <div class="hero-actions" id="contato">
                         <a class="chip" href="mailto:jpresene@gmail.com">
                             <i class="fas fa-envelope"></i><span data-i18n="hero.email">jpresene@gmail.com</span>
                         </a>
@@ -510,10 +740,10 @@
         </header>
 
         <div class="content">
-            <section>
+            <section id="historico">
                 <div class="section-title">
                     <span></span>
-                    <h2 data-i18n="story.title">Minha história na prática</h2>
+                    <h2 data-i18n="story.title">Histórico Profissional</h2>
                 </div>
 
                 <div class="panel">
@@ -545,11 +775,11 @@
                                 <div class="row">
                                     <div>
                                         <h3 data-i18n="story.company">Form Uniformes</h3>
-                                        <p class="tag" data-i18n="story.period">Mai 2024 - Atual</p>
+                                        <p class="tag" data-i18n="story.period">Mai 2024 - Atual • 2 anos (emprego atual)</p>
                                     </div>
                                 </div>
 
-                                <p class="role" data-i18n="story.role">Assistente de Produção • Designer/Automação • Webmaster</p>
+                                <p class="role" data-i18n="story.role">Designer gráfico • Webmaster • Editor de vídeo</p>
 
                                 <div class="panel" style="margin-top: 16px;">
                                     <h4 class="tag" data-i18n="story.build.title">O que eu construí</h4>
@@ -570,11 +800,13 @@
                                 </div>
 
                                 <div class="panel" style="margin-top: 16px;">
-                                    <h4 class="tag" data-i18n="story.trust.title">Consistência e confiança</h4>
-                                    <p data-i18n-html="story.trust.text">
-                                        Padronizei etapas e exportações pra reduzir retrabalho e manter qualidade mesmo na correria. Além disso, também
-                                        sou responsável por <strong>criar e cuidar do site da empresa</strong>, editar vídeos comerciais e ajudar no conteúdo das redes sociais.
+                                    <h4 class="tag" data-i18n="story.process.title">Processo de produção</h4>
+                                    <p data-i18n="story.process.summary">
+                                        Clique para ver como organizei o fluxo e padronizei etapas na produção.
                                     </p>
+                                    <button type="button" class="modal-trigger" data-modal-target="process-modal" data-i18n="story.process.button">
+                                        Ver processo
+                                    </button>
                                 </div>
                             </div>
 
@@ -592,12 +824,27 @@
                                     <span data-i18n="story.stat.3.label">camisetas/dia</span>
                                 </div>
                             </div>
+
+                            <div class="panel" style="margin-top: 16px;">
+                                <div class="row-2">
+                                    <div class="panel" style="width: 64px; height: 64px; display: grid; place-items: center;">
+                                        <i class="fas fa-industry" style="font-size: 2rem; color: var(--ink-faint);"></i>
+                                    </div>
+                                    <div>
+                                        <h3 data-i18n="history.company">Brandili Têxtil LTDA</h3>
+                                        <p class="role" data-i18n="history.role">Operador de Máquina Rotativa & Inovação | 1 ano</p>
+                                        <p data-i18n="history.desc">
+                                            Operava e monitorava máquinas de estamparia. Criei um sistema de organização de tintas que melhorou o setor e gerou reconhecimento/certificação interna.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section>
+            <section id="habilidades">
                 <div class="section-title">
                     <span></span>
                     <h2 data-i18n="skills.title">Habilidades & Qualificações</h2>
@@ -605,22 +852,27 @@
 
                 <div class="grid-2">
                     <div class="panel">
-                        <h3 class="tag" data-i18n="skills.main">Habilidades principais</h3>
+                        <h3 class="tag" data-i18n="skills.main">Especialidades em programação</h3>
                         <div class="skill-grid">
                             <div class="skill">
-                                <i class="fa-solid fa-pen-nib"></i>
-                                <strong data-i18n="skills.corel">CorelDRAW</strong>
-                                <div class="tag" data-i18n="skills.corel.sub">Macros VBA</div>
+                                <i class="fa-brands fa-html5"></i>
+                                <strong data-i18n="skills.html">HTML/CSS</strong>
+                                <div class="tag" data-i18n="skills.html.years">2 anos</div>
                             </div>
                             <div class="skill">
-                                <i class="fa-solid fa-layer-group"></i>
-                                <strong data-i18n="skills.prepress">Pré-impressão</strong>
-                                <div class="tag" data-i18n="skills.prepress.sub">layout/export</div>
+                                <i class="fa-brands fa-js"></i>
+                                <strong data-i18n="skills.js">JavaScript</strong>
+                                <div class="tag" data-i18n="skills.js.years">1 ano</div>
                             </div>
                             <div class="skill">
-                                <i class="fa-solid fa-list-ol"></i>
-                                <strong data-i18n="skills.variable">Dados variáveis</strong>
-                                <div class="tag" data-i18n="skills.variable.sub">nomes/números</div>
+                                <i class="fa-brands fa-php"></i>
+                                <strong data-i18n="skills.php">PHP</strong>
+                                <div class="tag" data-i18n="skills.php.years">1 ano</div>
+                            </div>
+                            <div class="skill">
+                                <i class="fa-solid fa-database"></i>
+                                <strong data-i18n="skills.sql">SQL</strong>
+                                <div class="tag" data-i18n="skills.sql.years">1 ano</div>
                             </div>
                             <div class="skill">
                                 <i class="fa-brands fa-python"></i>
@@ -629,16 +881,14 @@
                             <div class="skill">
                                 <i class="fa-solid fa-file-code"></i>
                                 <strong data-i18n="skills.vba">VBA</strong>
+                                <div class="tag" data-i18n="skills.vba.years">2 anos</div>
                             </div>
                             <div class="skill">
-                                <i class="fa-brands fa-html5"></i>
-                                <strong data-i18n="skills.html">HTML/CSS</strong>
+                                <i class="fa-solid fa-print"></i>
+                                <strong data-i18n="skills.separation">Separação de cor</strong>
+                                <div class="tag" data-i18n="skills.separation.sub">Estamparia (serigrafia/tela de impressão)</div>
                             </div>
                         </div>
-
-                        <p style="margin-top: 16px;" data-i18n="skills.extra">
-                            Também: JavaScript • PHP • SQL • Gestão de site • Edição de vídeo (comercial/institucional)
-                        </p>
                     </div>
 
                     <div class="stack" style="gap: 18px;">
@@ -680,7 +930,7 @@
                 </div>
             </section>
 
-            <section>
+            <section id="projetos">
                 <div class="section-title">
                     <span></span>
                     <h2 data-i18n="projects.title">Projetos & Sistemas</h2>
@@ -689,7 +939,7 @@
                 <div class="grid-4">
                     <div class="card">
                         <div class="panel" style="min-height: 150px; display: grid; place-items: center;">
-                            <i class="fas fa-file-excel" style="font-size: 2.2rem; color: var(--cyan);"></i>
+                            <i class="fas fa-file-excel" style="font-size: 2.2rem; color: var(--accent);"></i>
                         </div>
                         <div class="card-body">
                             <strong data-i18n="projects.0.title">Sistema de organização de tintas</strong>
@@ -699,7 +949,7 @@
 
                     <div class="card">
                         <div class="panel" style="min-height: 150px; display: grid; place-items: center;">
-                            <i class="fas fa-fill-drip" style="font-size: 2.2rem; color: var(--cyan);"></i>
+                            <i class="fas fa-fill-drip" style="font-size: 2.2rem; color: var(--accent);"></i>
                         </div>
                         <div class="card-body">
                             <strong data-i18n="projects.1.title">Automação de tintas</strong>
@@ -709,7 +959,7 @@
 
                     <div class="card">
                         <div class="panel" style="min-height: 150px; display: grid; place-items: center;">
-                            <i class="fas fa-ticket" style="font-size: 2.2rem; color: var(--cyan);"></i>
+                            <i class="fas fa-ticket" style="font-size: 2.2rem; color: var(--accent);"></i>
                         </div>
                         <div class="card-body">
                             <strong data-i18n="projects.2.title">Sistema de tickets</strong>
@@ -719,7 +969,7 @@
 
                     <div class="card">
                         <div class="panel" style="min-height: 150px; display: grid; place-items: center;">
-                            <i class="fas fa-robot" style="font-size: 2.2rem; color: var(--cyan);"></i>
+                            <i class="fas fa-robot" style="font-size: 2.2rem; color: var(--accent);"></i>
                         </div>
                         <div class="card-body">
                             <strong data-i18n="projects.3.title">Macro CorelDRAW</strong>
@@ -729,7 +979,7 @@
 
                     <div class="card">
                         <div class="panel" style="min-height: 150px; display: grid; place-items: center;">
-                            <i class="fas fa-video" style="font-size: 2.2rem; color: var(--cyan);"></i>
+                            <i class="fas fa-video" style="font-size: 2.2rem; color: var(--accent);"></i>
                         </div>
                         <div class="card-body">
                             <strong data-i18n="projects.4.title">Edição de vídeo</strong>
@@ -739,27 +989,6 @@
                 </div>
             </section>
 
-            <section>
-                <div class="section-title">
-                    <span></span>
-                    <h2 data-i18n="history.title">Histórico Profissional</h2>
-                </div>
-
-                <div class="panel">
-                    <div class="row-2">
-                        <div class="panel" style="width: 64px; height: 64px; display: grid; place-items: center;">
-                            <i class="fas fa-industry" style="font-size: 2rem; color: var(--text-2);"></i>
-                        </div>
-                        <div>
-                            <h3 data-i18n="history.company">Brandili Têxtil LTDA</h3>
-                            <p class="role" data-i18n="history.role">Operador de Máquina Rotativa & Inovação | 1 ano</p>
-                            <p data-i18n="history.desc">
-                                Operava e monitorava máquinas de estamparia. Criei um sistema de organização de tintas que melhorou o setor e gerou reconhecimento/certificação interna.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
 
         <footer>
@@ -775,8 +1004,13 @@
                 "lang.title": "Escolha seu idioma",
                 "lang.subtitle": "Você pode trocar a qualquer momento pelo menu.",
                 "lang.label": "Idioma",
+                "nav.story": "Sobre",
+                "nav.skills": "Habilidades",
+                "nav.projects": "Projetos",
+                "nav.history": "Histórico",
+                "nav.contact": "Contato",
                 "hero.name": "João Pedro Resene Da Silva",
-                "hero.role": "Automação de Produção & Pré-impressão (CorelDRAW VBA) • Suporte Web • Design",
+                "hero.role": "DESIGNER GRAFICO E PROGRAMADOR FULL STACK",
                 "hero.design": "Designer gráfico especializado em CorelDRAW, Adobe Illustrator e Photoshop",
                 "hero.availability": "",
                 "hero.about": "Eu sou um rapaz simples do Brasil, focado e autodidata. Ao longo dos anos fui aprendendo por conta própria, ganhando experiência na prática e transformando trabalho manual em processo rápido e confiável. Tenho perfil curioso, gosto de resolver problemas e busco evolução constante com disciplina, estudo e prática.",
@@ -784,14 +1018,18 @@
                 "hero.phone": "(47) 98417-0674",
                 "hero.github": "GitHub",
                 "hero.location": "Ascurra, SC",
-                "story.title": "Minha história na prática",
+                "story.title": "Histórico Profissional",
                 "story.before": "Antes",
                 "story.before.note": "Tudo manual",
                 "story.after": "Depois",
                 "story.after.note": "Automação",
                 "story.company": "Form Uniformes",
-                "story.period": "Mai 2024 - Atual",
-                "story.role": "Assistente de Produção • Designer/Automação • Webmaster",
+                "story.period": "Mai 2024 - Atual • 2 anos (emprego atual)",
+                "story.role": "Designer gráfico • Webmaster • Editor de vídeo",
+                "story.process.title": "Processo de produção",
+                "story.process.summary": "Clique para ver como organizei o fluxo e padronizei etapas na produção.",
+                "story.process.button": "Ver processo",
+                "story.process.body": "Organizei o processo de produção, padronizei etapas e exportações para reduzir retrabalho e manter qualidade mesmo na correria. Também cuido do site da empresa, edito vídeos comerciais e apoio o conteúdo das redes sociais.",
                 "story.build.title": "O que eu construí",
                 "story.build.text": "Eu cheguei num processo bem travado e totalmente manual. Em vez de reclamar, eu fui atrás: <strong>estudei VBA em 3 semanas</strong> e criei uma <strong>automação no CorelDRAW</strong> que monta as artes, aplica <strong>nomes e números (dados variáveis)</strong>, e exporta tudo pronto pra produção.",
                 "story.results.title": "Resultados (números reais)",
@@ -807,17 +1045,20 @@
                 "story.stat.3": "700+",
                 "story.stat.3.label": "camisetas/dia",
                 "skills.title": "Habilidades & Qualificações",
-                "skills.main": "Habilidades principais",
-                "skills.corel": "CorelDRAW",
-                "skills.corel.sub": "Macros VBA",
-                "skills.prepress": "Pré-impressão",
-                "skills.prepress.sub": "layout/export",
-                "skills.variable": "Dados variáveis",
-                "skills.variable.sub": "nomes/números",
-                "skills.python": "Python",
-                "skills.vba": "VBA",
+                "skills.main": "Especialidades em programação",
                 "skills.html": "HTML/CSS",
-                "skills.extra": "Também: JavaScript • PHP • SQL • Gestão de site • Edição de vídeo (comercial/institucional)",
+                "skills.python": "Python",
+                "skills.html.years": "2 anos",
+                "skills.js": "JavaScript",
+                "skills.js.years": "1 ano",
+                "skills.php": "PHP",
+                "skills.php.years": "1 ano",
+                "skills.sql": "SQL",
+                "skills.sql.years": "1 ano",
+                "skills.vba": "VBA",
+                "skills.vba.years": "2 anos",
+                "skills.separation": "Separação de cor",
+                "skills.separation.sub": "Estamparia (serigrafia/tela de impressão)",
                 "skills.languages": "Idiomas",
                 "skills.lang.pt": "Português",
                 "skills.lang.pt.level": "Nativo",
@@ -854,8 +1095,13 @@
                 "lang.title": "Choose your language",
                 "lang.subtitle": "You can switch anytime using the menu.",
                 "lang.label": "Language",
+                "nav.story": "About",
+                "nav.skills": "Skills",
+                "nav.projects": "Projects",
+                "nav.history": "History",
+                "nav.contact": "Contact",
                 "hero.name": "Joao Pedro Resene Da Silva",
-                "hero.role": "Production Automation & Prepress (CorelDRAW VBA) • Web Support • Design",
+                "hero.role": "GRAPHIC DESIGNER AND FULL STACK DEVELOPER",
                 "hero.design": "Graphic designer specialized in CorelDRAW, Adobe Illustrator, and Photoshop",
                 "hero.availability": "",
                 "hero.about": "I am a focused, self-taught guy from Brazil. Over the years I learned on my own, gained hands-on experience, and turned manual work into a fast, reliable process. I am curious by nature, enjoy solving problems, and keep evolving through discipline, study, and practice.",
@@ -863,14 +1109,18 @@
                 "hero.phone": "(47) 98417-0674",
                 "hero.github": "GitHub",
                 "hero.location": "Ascurra, SC",
-                "story.title": "My story in practice",
+                "story.title": "Professional History",
                 "story.before": "Before",
                 "story.before.note": "All manual",
                 "story.after": "After",
                 "story.after.note": "Automation",
                 "story.company": "Form Uniformes",
-                "story.period": "May 2024 - Present",
-                "story.role": "Production Assistant • Design/Automation • Webmaster",
+                "story.period": "May 2024 - Present • 2 years (current role)",
+                "story.role": "Graphic designer • Webmaster • Video editor",
+                "story.process.title": "Production process",
+                "story.process.summary": "Click to see how I organized the workflow and standardized steps in production.",
+                "story.process.button": "View process",
+                "story.process.body": "I organized the production process, standardized steps and exports to reduce rework and keep quality high under pressure. I also manage the company website, edit commercial videos, and support social media content.",
                 "story.build.title": "What I built",
                 "story.build.text": "I arrived in a process that was stuck and fully manual. Instead of complaining, I went after it: <strong>I studied VBA in 3 weeks</strong> and built a <strong>CorelDRAW automation</strong> that assembles artwork, applies <strong>names and numbers (variable data)</strong>, and exports everything ready for production.",
                 "story.results.title": "Results (real numbers)",
@@ -886,17 +1136,20 @@
                 "story.stat.3": "700+",
                 "story.stat.3.label": "shirts/day",
                 "skills.title": "Skills & Qualifications",
-                "skills.main": "Core skills",
-                "skills.corel": "CorelDRAW",
-                "skills.corel.sub": "VBA macros",
-                "skills.prepress": "Prepress",
-                "skills.prepress.sub": "layout/export",
-                "skills.variable": "Variable data",
-                "skills.variable.sub": "names/numbers",
-                "skills.python": "Python",
-                "skills.vba": "VBA",
+                "skills.main": "Programming specialties",
                 "skills.html": "HTML/CSS",
-                "skills.extra": "Also: JavaScript • PHP • SQL • Website management • Video editing (commercial/institutional)",
+                "skills.python": "Python",
+                "skills.html.years": "2 years",
+                "skills.js": "JavaScript",
+                "skills.js.years": "1 year",
+                "skills.php": "PHP",
+                "skills.php.years": "1 year",
+                "skills.sql": "SQL",
+                "skills.sql.years": "1 year",
+                "skills.vba": "VBA",
+                "skills.vba.years": "2 years",
+                "skills.separation": "Color separation",
+                "skills.separation.sub": "Printing (silkscreen/printing screen)",
                 "skills.languages": "Languages",
                 "skills.lang.pt": "Portuguese",
                 "skills.lang.pt.level": "Native",
@@ -931,6 +1184,7 @@
 
         const modal = document.getElementById("language-modal");
         const select = document.getElementById("lang-select");
+        const body = document.body;
 
         const applyLanguage = (lang) => {
             const strings = translations[lang] || translations["pt-BR"];
@@ -972,6 +1226,41 @@
             const lang = event.target.value;
             localStorage.setItem("site-lang", lang);
             applyLanguage(lang);
+        });
+
+        const openModal = (target) => {
+            if (!target) return;
+            target.style.display = "flex";
+            target.setAttribute("aria-hidden", "false");
+            body.style.overflow = "hidden";
+        };
+
+        const closeModal = (target) => {
+            if (!target) return;
+            target.style.display = "none";
+            target.setAttribute("aria-hidden", "true");
+            body.style.overflow = "";
+        };
+
+        document.querySelectorAll(".modal-trigger").forEach((button) => {
+            const targetId = button.getAttribute("data-modal-target");
+            const target = document.getElementById(targetId);
+            if (!target) return;
+            button.addEventListener("click", () => openModal(target));
+        });
+
+        document.querySelectorAll(".info-modal").forEach((target) => {
+            target.addEventListener("click", (event) => {
+                if (event.target === target) closeModal(target);
+            });
+            target.querySelectorAll(".modal-close").forEach((button) => {
+                button.addEventListener("click", () => closeModal(target));
+            });
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key !== "Escape") return;
+            document.querySelectorAll(".info-modal").forEach((target) => closeModal(target));
         });
 
         document.querySelectorAll("img").forEach((img) => {
