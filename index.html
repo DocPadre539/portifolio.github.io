@@ -495,13 +495,6 @@
       transform: translateY(0);
     }
 
-    .site-footer {
-      padding: 18px 0 30px;
-      color: #9fb2cf;
-      font-size: 1.25rem;
-      text-align: center;
-    }
-
     @media (max-width: 900px) {
       .hero-grid,
       .projects-grid,
@@ -777,9 +770,6 @@
         </div>
       </section>
 
-      <footer class="site-footer">
-        <span id="year"></span> Joao Pedro - Portfolio feito com Skeleton CSS
-      </footer>
     </div>
   </main>
 
@@ -818,7 +808,6 @@
     window.addEventListener("scroll", updateActiveLink, { passive: true });
     updateActiveLink();
 
-    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
