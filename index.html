@@ -103,6 +103,32 @@
       justify-content: flex-end;
     }
 
+    .nav-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      border: 1px solid rgba(156, 187, 231, 0.45);
+      background: rgba(30, 44, 66, 0.82);
+      color: var(--text);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+
+    .nav-toggle:hover {
+      border-color: rgba(118, 224, 255, 0.8);
+      color: #c7f5ff;
+    }
+
+    .nav-toggle:focus-visible {
+      outline: 2px solid rgba(118, 224, 255, 0.9);
+      outline-offset: 2px;
+    }
+
     .top-contacts {
       display: flex;
       gap: 8px;
@@ -203,6 +229,23 @@
 
     main {
       padding: 26px 0 42px;
+    }
+
+    .main-banner {
+      margin-bottom: 16px;
+      border: 1px solid rgba(156, 187, 231, 0.26);
+      border-radius: 22px;
+      overflow: hidden;
+      background: rgba(14, 22, 34, 0.9);
+      box-shadow: var(--shadow);
+    }
+
+    .main-banner img {
+      width: 100%;
+      height: clamp(180px, 34vw, 430px);
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
 
     .section {
@@ -662,17 +705,39 @@
       .header-inner {
         min-height: auto;
         padding: 10px 0;
-        flex-direction: column;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .brand {
+        align-self: center;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
       }
 
       .nav-links {
+        grid-column: 1 / -1;
         width: 100%;
-        justify-content: flex-start;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .nav-links.is-collapsed {
+        display: none;
       }
 
       .nav-links a {
-        font-size: 1.2rem;
+        justify-content: center;
+        font-size: 1.02rem;
+        padding: 9px 8px;
+        min-height: 40px;
+        border-color: rgba(78, 102, 139, 0.5);
+        background: rgba(37, 53, 77, 0.6);
       }
 
       h1 {
@@ -721,6 +786,25 @@
         font-size: 1rem;
         padding: 6px 8px;
       }
+
+      .nav-links {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links a {
+        font-size: 1.05rem;
+        min-height: 38px;
+        padding: 8px 10px;
+      }
+
+      .nav-toggle {
+        width: 38px;
+        height: 38px;
+      }
+
+      .main-banner img {
+        height: clamp(140px, 42vw, 250px);
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -744,7 +828,10 @@
         <span class="brand-mark">JP</span>
         <span>Joao Pedro</span>
       </a>
-      <nav class="nav-links" aria-label="Main navigation">
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="site-nav" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      <nav id="site-nav" class="nav-links" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
@@ -757,6 +844,10 @@
 
   <main id="home">
     <div class="container">
+      <section class="main-banner reveal" aria-label="Main banner">
+        <img src="https://i.postimg.cc/vBqF08YG/Sem-titulo-1.jpg" alt="Main banner artwork">
+      </section>
+
       <section class="section reveal">
         <div class="section-inner hero-grid">
           <div>
@@ -964,22 +1055,9 @@
                     <a class="design-link" href="https://i.postimg.cc/3JhNdSsX/COPA.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open full size design sample">
                       <img src="https://i.postimg.cc/3JhNdSsX/COPA.jpg" alt="Design sample: COPA artwork" loading="lazy">
                     </a>
-                    <figcaption class="design-caption">Copa artwork sample</figcaption>
+                    <figcaption class="design-caption">Copa 2026</figcaption>
                   </figure>
 
-                  <figure class="design-slide">
-                    <a class="design-link" href="https://i.postimg.cc/3JhNdSsX/COPA.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open full size design sample">
-                      <img src="https://i.postimg.cc/3JhNdSsX/COPA.jpg" alt="Replace with your second design sample" loading="lazy">
-                    </a>
-                    <figcaption class="design-caption">Replace with your second design</figcaption>
-                  </figure>
-
-                  <figure class="design-slide">
-                    <a class="design-link" href="https://i.postimg.cc/3JhNdSsX/COPA.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open full size design sample">
-                      <img src="https://i.postimg.cc/3JhNdSsX/COPA.jpg" alt="Replace with your third design sample" loading="lazy">
-                    </a>
-                    <figcaption class="design-caption">Replace with your third design</figcaption>
-                  </figure>
                 </div>
               </div>
 
@@ -1024,6 +1102,9 @@
         pageTitle: "Joao Pedro | Developer Portfolio",
         languageSwitcher: "Language switcher",
         navAria: "Main navigation",
+        navToggleLabel: "Toggle navigation menu",
+        bannerAria: "Main banner",
+        bannerAlt: "Main banner artwork",
         nav: ["About", "Experience", "Skills", "Projects", "Designs", "Contact"],
         eyebrow: "Textile graphic designer + digital production",
         heroTitle: "Graphic designer focused on textile prepress and high-volume production.",
@@ -1113,6 +1194,9 @@
         pageTitle: "Joao Pedro | Portfolio de Desenvolvedor",
         languageSwitcher: "Seletor de idioma",
         navAria: "Navegacao principal",
+        navToggleLabel: "Alternar menu de navegacao",
+        bannerAria: "Banner principal",
+        bannerAlt: "Arte do banner principal",
         nav: ["Sobre", "Experiencia", "Habilidades", "Projetos", "Designs", "Contato"],
         eyebrow: "Designer grafico textil + producao digital",
         heroTitle: "Designer grafico com foco em arte-final textil e producao em alto volume.",
@@ -1202,8 +1286,11 @@
 
     let currentLanguage = "en-US";
 
+    const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelectorAll(".nav-links a");
+    const navContainer = document.querySelector(".nav-links");
     const sections = Array.from(document.querySelectorAll("main section[id]"));
+    const mobileNavQuery = window.matchMedia("(max-width: 900px)");
 
     const updateActiveLink = () => {
       const scrollY = window.scrollY + 140;
@@ -1223,6 +1310,47 @@
 
     window.addEventListener("scroll", updateActiveLink, { passive: true });
     updateActiveLink();
+
+    const setMobileNavState = (expanded) => {
+      if (!navContainer || !navToggle) {
+        return;
+      }
+
+      navContainer.classList.toggle("is-collapsed", !expanded);
+      navToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
+    };
+
+    const syncNavForViewport = () => {
+      if (!navContainer || !navToggle) {
+        return;
+      }
+
+      if (mobileNavQuery.matches) {
+        const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
+        setMobileNavState(isExpanded);
+      } else {
+        navContainer.classList.remove("is-collapsed");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    };
+
+    if (navToggle && navContainer) {
+      navToggle.addEventListener("click", () => {
+        const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
+        setMobileNavState(!isExpanded);
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (mobileNavQuery.matches) {
+            setMobileNavState(false);
+          }
+        });
+      });
+
+      syncNavForViewport();
+      mobileNavQuery.addEventListener("change", syncNavForViewport);
+    }
 
     const setText = (selector, value) => {
       const element = document.querySelector(selector);
@@ -1359,7 +1487,10 @@
 
       setAttribute(".lang-switcher", "aria-label", t.languageSwitcher);
       setAttribute(".nav-links", "aria-label", t.navAria);
+      setAttribute(".nav-toggle", "aria-label", t.navToggleLabel);
       setAttribute(".top-contacts", "aria-label", t.quickContactsAria);
+      setAttribute(".main-banner", "aria-label", t.bannerAria);
+      setAttribute(".main-banner img", "alt", t.bannerAlt);
 
       navLinks.forEach((link, index) => {
         if (t.nav[index] !== undefined) {
