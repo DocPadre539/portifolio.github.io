@@ -543,13 +543,18 @@
         radial-gradient(circle at 20% 15%, rgba(118, 224, 255, 0.18), transparent 50%);
     }
 
-    .design-slide img {
+    .design-slide img,
+    .design-slide video {
       width: 100%;
       height: clamp(220px, 52vw, 560px);
       object-fit: contain;
       object-position: center;
       display: block;
       background: transparent;
+    }
+
+    .design-slide video {
+      pointer-events: none;
     }
 
     .design-caption {
@@ -777,7 +782,8 @@
         font-size: 1.35rem;
       }
 
-      .design-slide img {
+      .design-slide img,
+      .design-slide video {
         height: clamp(200px, 60vw, 420px);
       }
 
