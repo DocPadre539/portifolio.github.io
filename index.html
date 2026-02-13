@@ -242,8 +242,9 @@
 
     .main-banner img {
       width: 100%;
-      height: clamp(200px, 34vw, 430px);
-      object-fit: cover;
+      height: auto; /* Alterado para se ajustar proporcionalmente */
+      max-height: 600px; /* Limite opcional para não ficar gigante em telas ultra-wide */
+      object-fit: contain; /* Alterado para mostrar a imagem inteira */
       object-position: center;
       display: block;
     }
@@ -809,7 +810,7 @@
       }
 
       .main-banner img {
-        height: clamp(140px, 42vw, 250px);
+        height: auto;
       }
     }
 
@@ -1622,8 +1623,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
