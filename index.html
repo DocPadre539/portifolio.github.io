@@ -367,6 +367,19 @@
         display: block; /* Remove o Grid */
         padding: 0 15px;
       }
+
+      /* Animations */
+     .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.45s ease, transform 0.45s ease; }
+     .reveal.show { opacity: 1; transform: translateY(0); }
+
+   /* Classe específica para o card com fundo branco */
+    .video-card.white-bg {
+     background: #ffffff;
+    }
+   .video-card.white-bg .video-caption {
+     color: #1a2333; /* Texto escuro para leitura */
+      border-top-color: rgba(0,0,0,0.1);
+  }
       .side-panel {
         display: none; /* Esconde as abas laterais */
       }
@@ -693,7 +706,7 @@
                 <p class="video-caption">Final Result on Garment</p>
               </article>
 
-              <article class="video-card">
+              <article class="video-card white-bg">
                 <img src="https://i.postimg.cc/5yKCxgrq/1.png" alt="PNG Halftone No Black">
                 <p class="video-caption">PNG Halftone (Black Removed)</p>
               </article>
@@ -1239,3 +1252,4 @@
   </script>
 </body>
 </html>
+
