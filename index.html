@@ -240,12 +240,10 @@
       box-shadow: var(--shadow);
     }
 
+    /* ALTERAÇÃO AQUI: height auto para mostrar imagem inteira */
     .main-banner img {
       width: 100%;
-      height: auto; /* Alterado para se ajustar proporcionalmente */
-      max-height: 600px; /* Limite opcional para não ficar gigante em telas ultra-wide */
-      object-fit: contain; /* Alterado para mostrar a imagem inteira */
-      object-position: center;
+      height: auto;
       display: block;
     }
 
@@ -809,6 +807,7 @@
         height: 38px;
       }
 
+      /* No mobile, height auto pode deixar a imagem pequena demais, mas pelo menos aparece inteira */
       .main-banner img {
         height: auto;
       }
@@ -938,6 +937,22 @@
                   <p class="video-caption">After: automated process</p>
                 </article>
               </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-head">
+                <h3 class="timeline-title">CorelDRAW Nesting System</h3>
+                <p class="timeline-period">Optimization Tool</p>
+              </div>
+              <p>
+                0213.mp4 que é um sistema de nesting que eu crie dentro do coreldraw justamente para organização e econimzar papel na hora da impressão tanto de dtf tanto quanto camisetas sublimadas
+              </p>
+              <article class="video-card">
+                <video muted loop playsinline controls>
+                  <source src="0213.mp4" type="video/mp4">
+                </video>
+                <p class="video-caption">Nesting demonstration</p>
+              </article>
             </article>
 
             <article class="timeline-item">
@@ -1077,15 +1092,15 @@
                   </figure>
 
                   
-                 <figure class="design-slide">
-  <a class="design-link" target="_blank" rel="noopener noreferrer" aria-label="Open full size design sample" href="MakingShirt%20(1).mp4">
-    <video autoplay muted loop playsinline preload="metadata" aria-label="Design sample: Sem Titulo 1">
-      <source src="MakingShirt (1).mp4" type="video/mp4">
-      Seu navegador não suporta vídeo HTML5.
-    </video>
-  </a>
-  <figcaption class="design-caption">T-Shirt Basketball</figcaption>
-</figure>
+                  <figure class="design-slide">
+                    <a class="design-link" target="_blank" rel="noopener noreferrer" aria-label="Open full size design sample" href="MakingShirt%20(1).mp4">
+                      <video autoplay muted loop playsinline preload="metadata" aria-label="Design sample: Sem Titulo 1">
+                        <source src="MakingShirt (1).mp4" type="video/mp4">
+                        Seu navegador não suporta vídeo HTML5.
+                      </video>
+                    </a>
+                    <figcaption class="design-caption">T-Shirt Basketball</figcaption>
+                  </figure>
 
 
                 </div>
@@ -1539,8 +1554,8 @@
       setText("#experience .timeline-item:nth-of-type(1) > p", t.expMainText);
       setMultipleText("#experience .timeline-item:nth-of-type(1) ul li", t.expMainBullets);
       setMultipleText("#experience .timeline-item:nth-of-type(1) .video-caption", t.expVideoCaptions);
-      setText("#experience .timeline-item:nth-of-type(2) .timeline-period", t.expPeriodSecond);
-      setText("#experience .timeline-item:nth-of-type(2) > p", t.expSecondText);
+      setText("#experience .timeline-item:nth-of-type(3) .timeline-period", t.expPeriodSecond);
+      setText("#experience .timeline-item:nth-of-type(3) > p", t.expSecondText);
 
       setText("#skills h2", t.skillsTitle);
       setText("#skills > .section-inner > p", t.skillsText);
