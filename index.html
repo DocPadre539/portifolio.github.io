@@ -689,22 +689,22 @@
             </p>
             <div class="video-split" style="margin-top: 20px;">
               <article class="video-card">
-                <img src="https://drive.google.com/uc?export=view&id=1uxAtDCX8k8hkt-nwP5H4VIZU_nFVNcvj" alt="Finalized Halftone Process">
+                <img src="https://i.postimg.cc/brVtzgM8/2.png" alt="Finalized Halftone Process">
                 <p class="video-caption">Final Result on Garment</p>
               </article>
 
               <article class="video-card">
-                <img src="https://drive.google.com/uc?export=view&id=1_1U81_C1E7pasUlawTiahiid3_S2BpeK" alt="PNG Halftone No Black">
+                <img src="https://i.postimg.cc/5yKCxgrq/1.png" alt="PNG Halftone No Black">
                 <p class="video-caption">PNG Halftone (Black Removed)</p>
               </article>
 
               <article class="video-card">
-                <img src="https://drive.usercontent.google.com/download?id=1s-tArNbdNyX2awyv3HVNf4ISTIFNwp3Z&export=view&authuser=0" alt="Detail Zoom 1">
+                <img src="https://i.postimg.cc/bwj5xRrx/Captura-de-tela-2026-02-14-132749.png" alt="Detail Zoom 1">
                 <p class="video-caption">Detail Zoom 1</p>
               </article>
 
               <article class="video-card">
-                <img src="https://drive.google.com/uc?export=view&id=1xolh1ggtZl_gMa7z1GK6ZJBSKLF25Epp" alt="Detail Zoom 2">
+                <img src="https://i.postimg.cc/QdrzQqCF/Captura-de-tela-2026-02-14-132737.png" alt="Detail Zoom 2">
                 <p class="video-caption">Detail Zoom 2</p>
               </article>
             </div>
@@ -871,6 +871,11 @@
             description: "Updates, maintenance, and technical support to keep a consistent digital presence."
           }
         ],
+        // DADOS NOVOS DE TRADUÇÃO ADICIONADOS AQUI
+        halftoneTitle: "Halftone & Color Separation",
+        halftoneText: "Specialized technique for DTF printing: color separation and halftone processing. This method optimizes ink usage, removes black backgrounds to use the garment's color, and improves the print's touch and durability.",
+        halftoneCaptions: ["Final Result on Garment", "PNG Halftone (Black Removed)", "Detail Zoom 1", "Detail Zoom 2"],
+
         designsTitle: "Design showcase",
         designsText: "Swipe on mobile or use the arrows to browse my design work. Duplicate a slide and replace the image URL to add more.",
         carouselPrev: "Previous design",
@@ -956,6 +961,11 @@
             description: "Atualizacao, manutencao e suporte tecnico para manter presenca digital consistente."
           }
         ],
+        // DADOS NOVOS DE TRADUÇÃO ADICIONADOS AQUI
+        halftoneTitle: "Halftones & Separação de Cores",
+        halftoneText: "Técnica especializada para impressão DTF: separação de cores e reticula (halftone). Otimiza o uso de tinta, remove o fundo preto para usar a cor da malha e melhora o toque e durabilidade.",
+        halftoneCaptions: ["Resultado Final na Peça", "PNG Halftone (Sem Preto)", "Zoom Detalhe 1", "Zoom Detalhe 2"],
+
         designsTitle: "Mostruario de designs",
         designsText: "Deslize no celular ou use as setas para navegar pelos meus designs. Duplique um slide e troque a URL da imagem para adicionar mais.",
         carouselPrev: "Design anterior",
@@ -1135,7 +1145,6 @@
       const updateNavText = (navSelector) => {
         const links = document.querySelectorAll(navSelector);
         links.forEach((link, i) => {
-           // Atualiza apenas se houver tradução disponível
            if(t.nav[i]) link.childNodes.forEach(n => { if(n.nodeType === Node.TEXT_NODE) n.nodeValue = ` ${t.nav[i]}`; });
         });
       };
@@ -1178,6 +1187,11 @@
         if (meta) meta.textContent = project.meta;
         if (description) description.textContent = project.description;
       });
+
+      // --- TRADUÇÃO NOVA DA SEÇÃO HALFTONE ---
+      setText("#halftone h2", t.halftoneTitle);
+      setText("#halftone > .section-inner > p", t.halftoneText);
+      setMultipleText("#halftone .video-caption", t.halftoneCaptions);
 
       setText("#designs h2", t.designsTitle);
       setText("#designs > .section-inner > p", t.designsText);
@@ -1225,4 +1239,3 @@
   </script>
 </body>
 </html>
-
