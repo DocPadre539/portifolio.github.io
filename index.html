@@ -162,10 +162,6 @@
       background: rgba(40, 57, 84, 0.82);
     }
 
-    .quick-card .top-contacts a {
-      font-size: 1.15rem;
-    }
-
     .nav-links a {
       display: inline-flex;
       align-items: center;
@@ -215,11 +211,6 @@
       transition: all 0.2s ease;
     }
 
-    .lang-btn:hover {
-      color: var(--text);
-      border-color: rgba(118, 224, 255, 0.75);
-    }
-
     .lang-btn.is-active {
       color: #10243c;
       border-color: transparent;
@@ -242,9 +233,9 @@
 
     .main-banner img {
       width: 100%;
-      height: auto; /* Alterado para se ajustar proporcionalmente */
-      max-height: 600px; /* Limite opcional para não ficar gigante em telas ultra-wide */
-      object-fit: contain; /* Alterado para mostrar a imagem inteira */
+      height: auto;
+      max-height: 600px;
+      object-fit: contain;
       object-position: center;
       display: block;
     }
@@ -273,10 +264,7 @@
       margin-bottom: 14px;
     }
 
-    h1,
-    h2,
-    h3,
-    h4 {
+    h1, h2, h3 {
       margin-top: 0;
       color: var(--text);
     }
@@ -310,33 +298,6 @@
       color: #c6d4eb;
       max-width: 62ch;
       margin-bottom: 16px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .button,
-    button {
-      border-radius: 10px;
-      border-color: var(--line);
-      background: rgba(34, 49, 74, 0.85);
-      color: var(--text);
-      font-size: 1.25rem;
-      letter-spacing: 0;
-      text-transform: none;
-      padding: 0 16px;
-      margin: 0;
-    }
-
-    .button.button-primary {
-      background: linear-gradient(120deg, #6ed7ff, #74ffc8);
-      border: 0;
-      color: #10243c;
-      font-weight: 700;
     }
 
     .quick-card {
@@ -444,6 +405,26 @@
       font-family: "JetBrains Mono", monospace;
     }
 
+    .nesting-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nesting-video-container {
+      border: 2px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0d1522;
+      box-shadow: var(--shadow);
+    }
+
+    .nesting-video-container video {
+      width: 100%;
+      display: block;
+    }
+
     .skill-pool {
       display: flex;
       flex-wrap: wrap;
@@ -472,122 +453,6 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-    }
-
-    .design-carousel-shell {
-      border: 1px solid rgba(156, 187, 231, 0.33);
-      border-radius: 16px;
-      background: linear-gradient(145deg, rgba(38, 56, 82, 0.88), rgba(28, 41, 61, 0.8));
-      padding: 10px;
-    }
-
-    .design-carousel {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .carousel-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      border: 1px solid rgba(156, 187, 231, 0.45);
-      background: rgba(15, 25, 40, 0.82);
-      color: var(--text);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      font-size: 1.5rem;
-      line-height: 1;
-      flex-shrink: 0;
-      transition: all 0.2s ease;
-      padding: 0;
-    }
-
-    .carousel-btn:hover {
-      border-color: rgba(118, 224, 255, 0.8);
-      color: #c7f5ff;
-    }
-
-    .carousel-btn:focus-visible {
-      outline: 2px solid rgba(118, 224, 255, 0.9);
-      outline-offset: 2px;
-    }
-
-    .carousel-viewport {
-      overflow: hidden;
-      border-radius: 12px;
-      width: 100%;
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.35s ease;
-      will-change: transform;
-      touch-action: pan-y;
-    }
-
-    .design-slide {
-      min-width: 100%;
-      margin: 0;
-      border: 1px solid rgba(156, 187, 231, 0.32);
-      border-radius: 12px;
-      overflow: hidden;
-      background: rgba(12, 22, 36, 0.95);
-    }
-
-    .design-link {
-      display: block;
-      background:
-        linear-gradient(160deg, rgba(16, 28, 45, 0.95), rgba(11, 20, 33, 0.95)),
-        radial-gradient(circle at 20% 15%, rgba(118, 224, 255, 0.18), transparent 50%);
-    }
-
-    .design-slide img,
-    .design-slide video {
-      width: 100%;
-      height: clamp(220px, 52vw, 560px);
-      object-fit: contain;
-      object-position: center;
-      display: block;
-      background: transparent;
-    }
-
-    .design-slide video {
-      pointer-events: none;
-    }
-
-    .design-caption {
-      margin: 0;
-      padding: 10px 12px;
-      border-top: 1px solid rgba(156, 187, 231, 0.3);
-      font-size: 1.35rem;
-      color: #b4c3dc;
-    }
-
-    .carousel-dots {
-      margin-top: 10px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .carousel-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      border: 0;
-      background: rgba(156, 187, 231, 0.45);
-      cursor: pointer;
-      transition: transform 0.2s ease, background-color 0.2s ease;
-      padding: 0;
-    }
-
-    .carousel-dot.is-active {
-      transform: scale(1.2);
-      background: var(--accent);
     }
 
     .project-card {
@@ -641,10 +506,6 @@
       gap: 12px;
     }
 
-    .timeline-item .video-split {
-      margin-top: 12px;
-    }
-
     .video-card {
       border: 1px solid rgba(156, 187, 231, 0.36);
       border-radius: 15px;
@@ -656,7 +517,6 @@
       width: 100%;
       min-height: 190px;
       object-fit: cover;
-      background: #0d1522;
     }
 
     .video-caption {
@@ -667,23 +527,100 @@
       color: #b4c3dc;
     }
 
+    .design-carousel-shell {
+      border: 1px solid rgba(156, 187, 231, 0.33);
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(38, 56, 82, 0.88), rgba(28, 41, 61, 0.8));
+      padding: 10px;
+    }
+
+    .design-carousel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 1px solid rgba(156, 187, 231, 0.45);
+      background: rgba(15, 25, 40, 0.82);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      font-size: 1.5rem;
+      transition: all 0.2s ease;
+      padding: 0;
+    }
+
+    .carousel-viewport {
+      overflow: hidden;
+      border-radius: 12px;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.35s ease;
+    }
+
+    .design-slide {
+      min-width: 100%;
+      border: 1px solid rgba(156, 187, 231, 0.32);
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(12, 22, 36, 0.95);
+    }
+
+    .design-slide img, .design-slide video {
+      width: 100%;
+      height: clamp(220px, 52vw, 560px);
+      object-fit: contain;
+    }
+
+    .design-caption {
+      margin: 0;
+      padding: 10px 12px;
+      border-top: 1px solid rgba(156, 187, 231, 0.3);
+      font-size: 1.35rem;
+      color: #b4c3dc;
+    }
+
+    .carousel-dots {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(156, 187, 231, 0.45);
+      cursor: pointer;
+    }
+
+    .carousel-dot.is-active {
+      transform: scale(1.2);
+      background: var(--accent);
+    }
+
     .contact-box {
       border: 1px solid rgba(156, 187, 231, 0.36);
       border-radius: 16px;
       background: linear-gradient(130deg, rgba(29, 45, 67, 0.94), rgba(38, 64, 96, 0.88));
       padding: 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      justify-content: space-between;
     }
 
     .contact-copy {
       margin: 0;
       font-size: 1.65rem;
       color: #d7e6fc;
-      max-width: 52ch;
     }
 
     .reveal {
@@ -698,128 +635,24 @@
     }
 
     @media (max-width: 900px) {
-      .hero-grid,
-      .projects-grid,
-      .video-split {
+      .hero-grid, .projects-grid, .video-split, .nesting-showcase {
         grid-template-columns: 1fr;
       }
-
-      .section-inner {
-        padding: 20px;
-      }
-
       .header-inner {
-        min-height: auto;
-        padding: 10px 0;
         display: grid;
         grid-template-columns: 1fr auto;
-        align-items: center;
-        gap: 10px;
       }
-
-      .brand {
-        align-self: center;
-      }
-
-      .nav-toggle {
-        display: inline-flex;
-      }
-
       .nav-links {
         grid-column: 1 / -1;
-        width: 100%;
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
+        grid-template-columns: repeat(2, 1fr);
       }
-
-      .nav-links.is-collapsed {
-        display: none;
-      }
-
-      .nav-links a {
-        justify-content: center;
-        font-size: 1.02rem;
-        padding: 9px 8px;
-        min-height: 40px;
-        border-color: rgba(78, 102, 139, 0.5);
-        background: rgba(37, 53, 77, 0.6);
-      }
-
-      h1 {
-        font-size: clamp(2.8rem, 10vw, 4.6rem);
-      }
-
-      .contact-box {
-        align-items: flex-start;
-      }
-
-      .lang-switcher {
-        top: auto;
-        bottom: 14px;
-        right: 12px;
-        transform: none;
-        flex-direction: row;
-        border-radius: 999px;
-      }
+      .nav-links.is-collapsed { display: none; }
+      .nav-toggle { display: inline-flex; }
     }
 
     @media (max-width: 550px) {
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .hero-actions .button {
-        width: 100%;
-      }
-
-      .design-carousel-shell {
-        padding: 8px;
-      }
-
-      .carousel-btn {
-        width: 34px;
-        height: 34px;
-        font-size: 1.35rem;
-      }
-
-      .design-slide img,
-      .design-slide video {
-        height: clamp(200px, 60vw, 420px);
-      }
-
-      .lang-btn {
-        min-width: 56px;
-        font-size: 1rem;
-        padding: 6px 8px;
-      }
-
-      .nav-links {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links a {
-        font-size: 1.05rem;
-        min-height: 38px;
-        padding: 8px 10px;
-      }
-
-      .nav-toggle {
-        width: 38px;
-        height: 38px;
-      }
-
-      .main-banner img {
-        height: auto;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-      }
+      .nav-links { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -835,12 +668,13 @@
         <span class="brand-mark">JP</span>
         <span>Joao Pedro</span>
       </a>
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-controls="site-nav" aria-expanded="false">
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">
         <i class="fa-solid fa-bars"></i>
       </button>
       <nav id="site-nav" class="nav-links" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
+        <a href="#automation">Automation</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#designs">Designs</a>
@@ -863,7 +697,6 @@
             <p class="hero-subtitle">
               I work on file creation, review, and print preparation, plus technical sheet reading and quality control. I am proficient in CorelDRAW, Illustrator, and Photoshop, with a focus on speed, standardization, and reducing rework.
             </p>
-
           </div>
 
           <aside class="quick-card">
@@ -876,101 +709,89 @@
                 <p class="meta-small">Ascurra, SC - Brazil</p>
               </div>
             </div>
-
             <ul class="meta-list">
               <li><i class="fa-solid fa-briefcase"></i> Form Uniformes - Designer, Webmaster, and Editor</li>
               <li><i class="fa-solid fa-language"></i> Native Portuguese (PT-BR) | Intermediate English</li>
               <li><i class="fa-solid fa-passport"></i> Valid passport</li>
-              <li><i class="fa-solid fa-graduation-cap"></i> High school (expected graduation: 2026)</li>
+              <li><i class="fa-solid fa-graduation-cap"></i> High school (expected 2026)</li>
             </ul>
-            <div class="top-contacts" aria-label="Quick contacts">
+            <div class="top-contacts">
               <a href="mailto:jpresene@gmail.com"><i class="fa-solid fa-envelope"></i><span>Email</span></a>
-              <a href="https://github.com/DocPadre539" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
+              <a href="https://github.com/DocPadre539" target="_blank"><i class="fa-brands fa-github"></i><span>GitHub</span></a>
               <a href="tel:+5547984170674"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
             </div>
           </aside>
         </div>
       </section>
 
+      <section class="section reveal" id="automation">
+        <div class="section-inner">
+          <h2 id="nesting-title">CorelDRAW Nesting System</h2>
+          <div class="nesting-showcase">
+            <div class="nesting-video-container">
+              <video muted loop autoplay playsinline controls>
+                <source src="0213.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+            </div>
+            <div>
+              <p id="nesting-desc">
+                Developed a custom nesting automation within CorelDRAW to optimize layout organization. This system significantly reduces media waste for both DTF and sublimation printing by intelligently positioning artwork for maximum material efficiency.
+              </p>
+              <div class="skill-pool">
+                <span class="pill"><i class="fa-solid fa-leaf"></i> Eco-Efficiency</span>
+                <span class="pill"><i class="fa-solid fa-bolt"></i> Time Saving</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section reveal" id="about">
         <div class="section-inner">
           <h2>About me</h2>
-          <p>
-            Graphic designer with experience in textile prepress, printing, and high-volume production. I work on file creation, review, and print preparation, plus technical sheet reading and quality control.
-          </p>
-          <p>
-            I am proficient in CorelDRAW, Illustrator, and Photoshop, focused on speed, standardization, and reducing rework. I also handle social media projects, short-form video editing, and website maintenance for companies.
-          </p>
-
+          <p>Graphic designer with experience in textile prepress, printing, and high-volume production. I am proficient in CorelDRAW, Illustrator, and Photoshop, focused on speed and standardization.</p>
         </div>
       </section>
 
       <section class="section reveal" id="experience">
         <div class="section-inner">
           <h2>Professional experience</h2>
-
           <div class="timeline">
             <article class="timeline-item">
               <div class="timeline-head">
                 <h3 class="timeline-title">Form Uniformes</h3>
                 <p class="timeline-period">May 2024 - Present</p>
               </div>
-              <p>
-                Graphic designer, webmaster, and video editor. I structured a production workflow with CorelDRAW (VBA) automation, standardized steps, and measurable productivity gains.
-              </p>
-              <ul>
-                <li>Time for 5 shirts: from ~1h40 to ~7min.</li>
-                <li>Design output: from 12 to 32 per day.</li>
-                <li>Peak operation: 700+ shirts in a single day.</li>
-              </ul>
+              <p>Graphic designer and webmaster. Time for 5 shirts: from ~1h40 to ~7min using VBA automation.</p>
               <div class="video-split">
                 <article class="video-card">
-                  <video muted loop playsinline controls>
-                    <source src="https://formuniforme.com.br/fotos/1.mp4" type="video/mp4">
-                  </video>
-                  <p class="video-caption">Before: manual process</p>
+                  <video muted loop playsinline controls><source src="https://formuniforme.com.br/fotos/1.mp4" type="video/mp4"></video>
+                  <p class="video-caption">Before: manual</p>
                 </article>
-
                 <article class="video-card">
-                  <video muted loop autoplay playsinline controls>
-                    <source src="https://formuniforme.com.br/fotos/2.mp4" type="video/mp4">
-                  </video>
-                  <p class="video-caption">After: automated process</p>
+                  <video muted loop autoplay playsinline controls><source src="https://formuniforme.com.br/fotos/2.mp4" type="video/mp4"></video>
+                  <p class="video-caption">After: automated</p>
                 </article>
               </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="timeline-head">
-                <h3 class="timeline-title">Brandili Textil LTDA</h3>
-                <p class="timeline-period">1 year</p>
-              </div>
-              <p>
-                Rotary machine operator with a continuous improvement focus. I created a paint organization system that improved the department and earned internal recognition.
-              </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="main-banner reveal" aria-label="Main banner">
-        <img src="https://i.postimg.cc/j2tpYTY0/TESTE.jpg" alt="Main banner artwork">
+      <section class="main-banner reveal">
+        <img src="https://i.postimg.cc/j2tpYTY0/TESTE.jpg" alt="Secondary banner">
       </section>
 
       <section class="section reveal" id="skills">
         <div class="section-inner">
           <h2>Tech stack and skills</h2>
-          <p>Core skills I use daily in automation, web work, and visual production.</p>
-
           <div class="skill-pool">
             <span class="pill"><i class="fa-brands fa-html5"></i>HTML/CSS</span>
             <span class="pill"><i class="fa-brands fa-js"></i>JavaScript</span>
             <span class="pill"><i class="fa-brands fa-php"></i>PHP</span>
-            <span class="pill"><i class="fa-solid fa-database"></i>SQL</span>
-            <span class="pill"><i class="fa-brands fa-python"></i>Python</span>
             <span class="pill"><i class="fa-solid fa-file-code"></i>VBA for CorelDRAW</span>
             <span class="pill"><i class="fa-solid fa-video"></i>Video editing</span>
-            <span class="pill"><i class="fa-solid fa-globe"></i>Webmaster</span>
           </div>
         </div>
       </section>
@@ -978,72 +799,20 @@
       <section class="section reveal" id="projects">
         <div class="section-inner">
           <h2>Featured projects</h2>
-
           <div class="projects-grid">
             <article class="project-card">
               <div class="project-top">
-                <span class="project-icon"><i class="fa-solid fa-file-excel"></i></span>
-                <div>
-                  <h3 class="project-title">Paint organization system</h3>
-                  <p class="project-meta">Excel | Brandili</p>
-                </div>
-              </div>
-              <p>Visual and logical standards to speed up operations and reduce errors in paint workflow.</p>
-            </article>
-
-            <article class="project-card">
-              <div class="project-top">
-                <span class="project-icon"><i class="fa-solid fa-fill-drip"></i></span>
-                <div>
-                  <h3 class="project-title">Paint automation</h3>
-                  <p class="project-meta">Real case | production</p>
-                </div>
-              </div>
-              <p>Structure to organize, locate, and reuse settings with more speed.</p>
-            </article>
-
-            <article class="project-card">
-              <div class="project-top">
-                <span class="project-icon"><i class="fa-solid fa-ticket"></i></span>
-                <div>
-                  <h3 class="project-title">Ticketing system</h3>
-                  <p class="project-meta">PHP fullstack</p>
-                </div>
-              </div>
-              <p>Application to manage internal requests and track task status.</p>
-            </article>
-
-            <article class="project-card">
-              <div class="project-top">
                 <span class="project-icon"><i class="fa-solid fa-robot"></i></span>
-                <div>
-                  <h3 class="project-title">CorelDRAW macro</h3>
-                  <p class="project-meta">VBA | sublimation</p>
-                </div>
+                <div><h3 class="project-title">CorelDRAW macro</h3><p class="project-meta">VBA | sublimation</p></div>
               </div>
               <p>Macro to build artwork, insert variables, and export production-ready files.</p>
             </article>
-
             <article class="project-card">
               <div class="project-top">
-                <span class="project-icon"><i class="fa-solid fa-video"></i></span>
-                <div>
-                  <h3 class="project-title">Commercial video editing</h3>
-                  <p class="project-meta">Media and campaigns</p>
-                </div>
+                <span class="project-icon"><i class="fa-solid fa-ticket"></i></span>
+                <div><h3 class="project-title">Ticketing system</h3><p class="project-meta">PHP fullstack</p></div>
               </div>
-              <p>Editing promotional content focused on pace, message clarity, and conversion.</p>
-            </article>
-
-            <article class="project-card">
-              <div class="project-top">
-                <span class="project-icon"><i class="fa-solid fa-globe"></i></span>
-                <div>
-                  <h3 class="project-title">Corporate website management</h3>
-                  <p class="project-meta">Webmaster</p>
-                </div>
-              </div>
-              <p>Updates, maintenance, and technical support to keep a consistent digital presence.</p>
+              <p>Application to manage internal requests and track task status.</p>
             </article>
           </div>
         </div>
@@ -1052,50 +821,24 @@
       <section class="section reveal" id="designs">
         <div class="section-inner">
           <h2>Design showcase</h2>
-          <p>Swipe on mobile or use the arrows to browse my design work. Duplicate a slide and replace the image URL to add more.</p>
-
           <div class="design-carousel-shell" data-carousel>
             <div class="design-carousel">
-              <button class="carousel-btn" type="button" aria-label="Previous design" data-carousel-prev>
-                <i class="fa-solid fa-chevron-left"></i>
-              </button>
-
+              <button class="carousel-btn" data-carousel-prev><i class="fa-solid fa-chevron-left"></i></button>
               <div class="carousel-viewport">
                 <div class="carousel-track" data-carousel-track>
                   <figure class="design-slide">
-                    <a class="design-link" href="https://i.postimg.cc/3JhNdSsX/COPA.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open full size design sample">
-                      <img src="https://i.postimg.cc/3JhNdSsX/COPA.jpg" alt="Design sample: COPA artwork" loading="lazy">
-                    </a>
+                    <img src="https://i.postimg.cc/3JhNdSsX/COPA.jpg" alt="Copa 2026">
                     <figcaption class="design-caption">Copa 2026</figcaption>
                   </figure>
-
                   <figure class="design-slide">
-                    <a class="design-link" href="https://i.postimg.cc/mgKCv7r8/Sem-Titulo-1.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open full size design sample">
-                      <img src="https://i.postimg.cc/mgKCv7r8/Sem-Titulo-1.jpg" alt="Design sample: Sem Titulo 1" loading="lazy">
-                    </a>
-                    <figcaption class="design-caption">Sem Titulo 1</figcaption>
+                    <video autoplay muted loop playsinline><source src="MakingShirt (1).mp4" type="video/mp4"></video>
+                    <figcaption class="design-caption">T-Shirt Basketball</figcaption>
                   </figure>
-
-                  
-                 <figure class="design-slide">
-  <a class="design-link" target="_blank" rel="noopener noreferrer" aria-label="Open full size design sample" href="MakingShirt%20(1).mp4">
-    <video autoplay muted loop playsinline preload="metadata" aria-label="Design sample: Sem Titulo 1">
-      <source src="MakingShirt (1).mp4" type="video/mp4">
-      Seu navegador não suporta vídeo HTML5.
-    </video>
-  </a>
-  <figcaption class="design-caption">T-Shirt Basketball</figcaption>
-</figure>
-
-
                 </div>
               </div>
-
-              <button class="carousel-btn" type="button" aria-label="Next design" data-carousel-next>
-                <i class="fa-solid fa-chevron-right"></i>
-              </button>
+              <button class="carousel-btn" data-carousel-next><i class="fa-solid fa-chevron-right"></i></button>
             </div>
-            <div class="carousel-dots" data-carousel-dots aria-label="Select design slide"></div>
+            <div class="carousel-dots" data-carousel-dots></div>
           </div>
         </div>
       </section>
@@ -1103,523 +846,81 @@
       <section class="section reveal" id="contact">
         <div class="section-inner">
           <h2>Contact</h2>
-          <div class="contact-box">
-            <p class="contact-copy">
-              My contact links are at the top, next to my name and key information. You can reach me by email, GitHub, or WhatsApp.
-            </p>
-          </div>
+          <div class="contact-box"><p class="contact-copy">Reach me by email, GitHub, or WhatsApp using the links at the top.</p></div>
         </div>
       </section>
-
     </div>
   </main>
 
   <script>
-    const revealElements = document.querySelectorAll(".reveal");
+    // Reveal Animation
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("show"); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-    revealElements.forEach((el) => observer.observe(el));
-
+    // Translation Data
     const i18n = {
       "en-US": {
-        pageTitle: "Joao Pedro | Developer Portfolio",
-        languageSwitcher: "Language switcher",
-        navAria: "Main navigation",
-        navToggleLabel: "Toggle navigation menu",
-        bannerAria: "Main banner",
-        bannerAlt: "Main banner artwork",
-        nav: ["About", "Experience", "Skills", "Projects", "Designs", "Contact"],
-        eyebrow: "Textile graphic designer + digital production",
-        heroTitle: "Graphic designer focused on textile prepress and high-volume production.",
-        heroSubtitle: "I work on file creation, review, and print preparation, plus technical sheet reading and quality control. I am proficient in CorelDRAW, Illustrator, and Photoshop, with a focus on speed, standardization, and reducing rework.",
-        profilePhotoAlt: "Photo of Joao Pedro",
-        location: "Ascurra, SC - Brazil",
-        profileMeta: [
-          "Form Uniformes - Designer, Webmaster, and Editor",
-          "Native Portuguese (PT-BR) | Intermediate English",
-          "Valid passport",
-          "High school (expected graduation: 2026)"
-        ],
-        quickContactsAria: "Quick contacts",
+        nav: ["About", "Experience", "Automation", "Skills", "Projects", "Designs", "Contact"],
+        nestingTitle: "CorelDRAW Nesting System",
+        nestingDesc: "Developed a custom nesting automation within CorelDRAW to optimize layout organization. This system significantly reduces media waste for both DTF and sublimation printing by intelligently positioning artwork for maximum material efficiency.",
         aboutTitle: "About me",
-        aboutParagraphs: [
-          "Graphic designer with experience in textile prepress, printing, and high-volume production. I work on file creation, review, and print preparation, plus technical sheet reading and quality control.",
-          "I am proficient in CorelDRAW, Illustrator, and Photoshop, focused on speed, standardization, and reducing rework. I also handle social media projects, short-form video editing, and website maintenance for companies."
-        ],
-        experienceTitle: "Professional experience",
-        expPeriodMain: "May 2024 - Present",
-        expMainText: "Graphic designer, webmaster, and video editor. I structured a production workflow with CorelDRAW (VBA) automation, standardized steps, and measurable productivity gains.",
-        expMainBullets: [
-          "Time for 5 shirts: from ~1h40 to ~7min.",
-          "Design output: from 12 to 32 per day.",
-          "Peak operation: 700+ shirts in a single day."
-        ],
-        expVideoCaptions: ["Before: manual process", "After: automated process"],
-        expPeriodSecond: "1 year",
-        expSecondText: "Rotary machine operator with a continuous improvement focus. I created a paint organization system that improved the department and earned internal recognition.",
-        skillsTitle: "Tech stack and skills",
-        skillsText: "Core skills I use daily in automation, web work, and visual production.",
-        skillsLabels: ["HTML/CSS", "JavaScript", "PHP", "SQL", "Python", "VBA for CorelDRAW", "Video editing", "Webmaster"],
-        projectsTitle: "Featured projects",
-        projects: [
-          {
-            title: "Paint organization system",
-            meta: "Excel | Brandili",
-            description: "Visual and logical standards to speed up operations and reduce errors in paint workflow."
-          },
-          {
-            title: "Paint automation",
-            meta: "Real case | production",
-            description: "Structure to organize, locate, and reuse settings with more speed."
-          },
-          {
-            title: "Ticketing system",
-            meta: "PHP fullstack",
-            description: "Application to manage internal requests and track task status."
-          },
-          {
-            title: "CorelDRAW macro",
-            meta: "VBA | sublimation",
-            description: "Macro to build artwork, insert variables, and export production-ready files."
-          },
-          {
-            title: "Commercial video editing",
-            meta: "Media and campaigns",
-            description: "Editing promotional content focused on pace, message clarity, and conversion."
-          },
-          {
-            title: "Corporate website management",
-            meta: "Webmaster",
-            description: "Updates, maintenance, and technical support to keep a consistent digital presence."
-          }
-        ],
-        designsTitle: "Design showcase",
-        designsText: "Swipe on mobile or use the arrows to browse my design work. Duplicate a slide and replace the image URL to add more.",
-        carouselPrev: "Previous design",
-        carouselNext: "Next design",
-        carouselOpen: "Open full size design sample",
-        carouselDotsAria: "Select design slide",
-        carouselDotPrefix: "Show design",
-        designAlts: [
-          "Design sample: COPA 2026 artwork",
-          "Design sample: Sem Titulo 1"
-        ],
-        designCaptions: [
-          "Copa 2026",
-          "Sem Titulo 1"
-        ],
-        contactTitle: "Contact",
-        contactText: "My contact links are at the top, next to my name and key information. You can reach me by email, GitHub, or WhatsApp."
+        experienceTitle: "Professional experience"
       },
       "pt-BR": {
-        pageTitle: "Joao Pedro | Portfolio de Desenvolvedor",
-        languageSwitcher: "Seletor de idioma",
-        navAria: "Navegacao principal",
-        navToggleLabel: "Alternar menu de navegacao",
-        bannerAria: "Banner principal",
-        bannerAlt: "Arte do banner principal",
-        nav: ["Sobre", "Experiencia", "Habilidades", "Projetos", "Designs", "Contato"],
-        eyebrow: "Designer grafico textil + producao digital",
-        heroTitle: "Designer grafico com foco em arte-final textil e producao em alto volume.",
-        heroSubtitle: "Atuo com criacao, conferencia e preparacao de arquivos para impressao, leitura de ficha tecnica e controle de qualidade. Domino CorelDRAW, Illustrator e Photoshop, com foco em agilidade, padronizacao e reducao de retrabalho.",
-        profilePhotoAlt: "Foto de Joao Pedro",
-        location: "Ascurra, SC - Brasil",
-        profileMeta: [
-          "Form Uniformes - Designer, Webmaster e Editor",
-          "PT-BR nativo | EN intermediario",
-          "Passaporte valido",
-          "Ensino medio (conclusao prevista: 2026)"
-        ],
-        quickContactsAria: "Contatos rapidos",
+        nav: ["Sobre", "Experiência", "Automação", "Habilidades", "Projetos", "Designs", "Contato"],
+        nestingTitle: "Sistema de Nesting no CorelDRAW",
+        nestingDesc: "Desenvolvi uma automação personalizada de nesting dentro do CorelDRAW para otimizar a organização dos layouts. Este sistema reduz significativamente o desperdício de material (papel/filme) tanto para impressão DTF quanto para sublimação, posicionando as artes de forma inteligente para máxima eficiência.",
         aboutTitle: "Sobre mim",
-        aboutParagraphs: [
-          "Designer grafico com experiencia em arte-final textil, estamparia e producao em alto volume. Atuo com criacao, conferencia e preparacao de arquivos para impressao, leitura de ficha tecnica e controle de qualidade.",
-          "Domino CorelDRAW, Illustrator e Photoshop, com foco em agilidade, padronizacao e reducao de retrabalho. Tambem realizo projetos para redes sociais, edicao de video curto e manutencao de sites para empresas."
-        ],
-        experienceTitle: "Experiencia profissional",
-        expPeriodMain: "Mai 2024 - Atual",
-        expMainText: "Designer grafico, webmaster e editor de video. Estruturei um fluxo de producao com automacao em CorelDRAW (VBA), padronizacao de etapas e ganho real de produtividade.",
-        expMainBullets: [
-          "Tempo de 5 camisetas: de ~1h40 para ~7min.",
-          "Capacidade de artes: de 12 para 32 por dia.",
-          "Pico operacional: 700+ camisetas em um unico dia."
-        ],
-        expVideoCaptions: ["Antes: processo manual", "Depois: processo automatizado"],
-        expPeriodSecond: "1 ano",
-        expSecondText: "Operador de maquina rotativa com atuacao em melhoria continua. Criei sistema de organizacao de tintas com impacto no setor e reconhecimento interno.",
-        skillsTitle: "Stack e habilidades",
-        skillsText: "Conjunto de competencias que uso no dia a dia em automacao, web e producao visual.",
-        skillsLabels: ["HTML/CSS", "JavaScript", "PHP", "SQL", "Python", "VBA para CorelDRAW", "Edicao de video", "Webmaster"],
-        projectsTitle: "Projetos em destaque",
-        projects: [
-          {
-            title: "Sistema de organizacao de tintas",
-            meta: "Excel | Brandili",
-            description: "Padrao visual e logico para agilizar operacao e reduzir erro em fluxo de tinta."
-          },
-          {
-            title: "Automacao de tintas",
-            meta: "Caso real | producao",
-            description: "Estrutura para organizar, localizar e reaproveitar configuracoes com mais velocidade."
-          },
-          {
-            title: "Sistema de tickets",
-            meta: "PHP fullstack",
-            description: "Aplicacao para controle de chamados internos e acompanhamento do status da tarefa."
-          },
-          {
-            title: "Macro CorelDRAW",
-            meta: "VBA | sublimacao",
-            description: "Macro para montar arte, inserir variaveis e exportar arquivos prontos para producao."
-          },
-          {
-            title: "Edicao comercial de video",
-            meta: "Midias e campanhas",
-            description: "Edicao de pecas promocionais com foco em ritmo, clareza de mensagem e conversao."
-          },
-          {
-            title: "Gestao de site institucional",
-            meta: "Webmaster",
-            description: "Atualizacao, manutencao e suporte tecnico para manter presenca digital consistente."
-          }
-        ],
-        designsTitle: "Mostruario de designs",
-        designsText: "Deslize no celular ou use as setas para navegar pelos meus designs. Duplique um slide e troque a URL da imagem para adicionar mais.",
-        carouselPrev: "Design anterior",
-        carouselNext: "Proximo design",
-        carouselOpen: "Abrir design em tamanho completo",
-        carouselDotsAria: "Selecionar slide de design",
-        carouselDotPrefix: "Mostrar design",
-        designAlts: [
-          "Exemplo de design: arte COPA 2026",
-          "Exemplo de design: Sem Titulo 1"
-        ],
-        designCaptions: [
-          "Copa 2026",
-          "Sem Titulo 1"
-        ],
-        contactTitle: "Contato",
-        contactText: "Meus contatos estao no topo, ao lado do meu nome e das informacoes principais. Voce pode falar comigo por email, GitHub ou WhatsApp."
+        experienceTitle: "Experiência profissional"
       }
     };
 
-    let currentLanguage = "en-US";
-
-    const navToggle = document.querySelector(".nav-toggle");
-    const navLinks = document.querySelectorAll(".nav-links a");
-    const navContainer = document.querySelector(".nav-links");
-    const sections = Array.from(document.querySelectorAll("main section[id]"));
-    const mobileNavQuery = window.matchMedia("(max-width: 900px)");
-
-    const updateActiveLink = () => {
-      const scrollY = window.scrollY + 140;
-      let current = sections[0]?.id;
-
-      sections.forEach((section) => {
-        if (scrollY >= section.offsetTop) {
-          current = section.id;
-        }
-      });
-
-      navLinks.forEach((link) => {
-        const target = link.getAttribute("href").replace("#", "");
-        link.classList.toggle("active", target === current);
-      });
-    };
-
-    window.addEventListener("scroll", updateActiveLink, { passive: true });
-    updateActiveLink();
-
-    const setMobileNavState = (expanded) => {
-      if (!navContainer || !navToggle) {
-        return;
-      }
-
-      navContainer.classList.toggle("is-collapsed", !expanded);
-      navToggle.setAttribute("aria-expanded", expanded ? "true" : "false");
-    };
-
-    const syncNavForViewport = () => {
-      if (!navContainer || !navToggle) {
-        return;
-      }
-
-      if (mobileNavQuery.matches) {
-        const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
-        setMobileNavState(isExpanded);
-      } else {
-        navContainer.classList.remove("is-collapsed");
-        navToggle.setAttribute("aria-expanded", "false");
-      }
-    };
-
-    if (navToggle && navContainer) {
-      navToggle.addEventListener("click", () => {
-        const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
-        setMobileNavState(!isExpanded);
-      });
-
-      navLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          if (mobileNavQuery.matches) {
-            setMobileNavState(false);
-          }
-        });
-      });
-
-      syncNavForViewport();
-      mobileNavQuery.addEventListener("change", syncNavForViewport);
+    function applyLanguage(lang) {
+      const t = i18n[lang];
+      document.querySelectorAll(".nav-links a").forEach((link, i) => link.textContent = t.nav[i]);
+      document.getElementById("nesting-title").textContent = t.nestingTitle;
+      document.getElementById("nesting-desc").textContent = t.nestingDesc;
+      document.querySelector("#about h2").textContent = t.aboutTitle;
+      document.querySelector("#experience h2").textContent = t.experienceTitle;
+      
+      document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.toggle("is-active", btn.dataset.lang === lang));
     }
 
-    const setText = (selector, value) => {
-      const element = document.querySelector(selector);
-      if (element) {
-        element.textContent = value;
-      }
-    };
-
-    const setMultipleText = (selector, values) => {
-      const elements = document.querySelectorAll(selector);
-      elements.forEach((element, index) => {
-        if (values[index] !== undefined) {
-          element.textContent = values[index];
-        }
-      });
-    };
-
-    const setMultipleIconText = (selector, values) => {
-      const elements = document.querySelectorAll(selector);
-      elements.forEach((element, index) => {
-        if (values[index] === undefined) {
-          return;
-        }
-
-        const textNode = Array.from(element.childNodes).find((node) => node.nodeType === Node.TEXT_NODE);
-        if (textNode) {
-          textNode.nodeValue = ` ${values[index]}`;
-        } else {
-          element.append(` ${values[index]}`);
-        }
-      });
-    };
-
-    const setAttribute = (selector, attribute, value) => {
-      const element = document.querySelector(selector);
-      if (element) {
-        element.setAttribute(attribute, value);
-      }
-    };
-
-    const setMultipleAttribute = (selector, attribute, value) => {
-      const elements = document.querySelectorAll(selector);
-      elements.forEach((element) => {
-        element.setAttribute(attribute, value);
-      });
-    };
-
-    const initCarousels = () => {
-      const carousels = document.querySelectorAll("[data-carousel]");
-
-      carousels.forEach((carousel) => {
-        const track = carousel.querySelector("[data-carousel-track]");
-        const slides = Array.from(track?.querySelectorAll(".design-slide") || []);
-        const prevButton = carousel.querySelector("[data-carousel-prev]");
-        const nextButton = carousel.querySelector("[data-carousel-next]");
-        const dotsWrap = carousel.querySelector("[data-carousel-dots]");
-
-        if (!track || slides.length === 0) {
-          return;
-        }
-
-        let currentIndex = 0;
-
-        const goToSlide = (newIndex) => {
-          currentIndex = (newIndex + slides.length) % slides.length;
-          track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-          slides.forEach((slide, index) => {
-            slide.setAttribute("aria-hidden", index === currentIndex ? "false" : "true");
-          });
-
-          if (dotsWrap) {
-            const dots = dotsWrap.querySelectorAll(".carousel-dot");
-            dots.forEach((dot, index) => {
-              const isActive = index === currentIndex;
-              dot.classList.toggle("is-active", isActive);
-              dot.setAttribute("aria-selected", isActive ? "true" : "false");
-            });
-          }
-        };
-
-        if (dotsWrap) {
-          dotsWrap.innerHTML = "";
-          dotsWrap.setAttribute("role", "tablist");
-
-          slides.forEach((_, index) => {
-            const dot = document.createElement("button");
-            dot.type = "button";
-            dot.className = "carousel-dot";
-            dot.setAttribute("aria-label", `${i18n[currentLanguage].carouselDotPrefix} ${index + 1}`);
-            dot.setAttribute("role", "tab");
-            dot.addEventListener("click", () => goToSlide(index));
-            dotsWrap.appendChild(dot);
-          });
-        }
-
-        prevButton?.addEventListener("click", () => goToSlide(currentIndex - 1));
-        nextButton?.addEventListener("click", () => goToSlide(currentIndex + 1));
-
-        let touchStartX = 0;
-        track.addEventListener("touchstart", (event) => {
-          touchStartX = event.changedTouches[0].clientX;
-        }, { passive: true });
-
-        track.addEventListener("touchend", (event) => {
-          const touchEndX = event.changedTouches[0].clientX;
-          const delta = touchStartX - touchEndX;
-
-          if (Math.abs(delta) > 40) {
-            goToSlide(delta > 0 ? currentIndex + 1 : currentIndex - 1);
-          }
-        }, { passive: true });
-
-        if (slides.length === 1) {
-          if (prevButton) prevButton.hidden = true;
-          if (nextButton) nextButton.hidden = true;
-          if (dotsWrap) dotsWrap.hidden = true;
-        }
-
-        goToSlide(0);
-      });
-    };
-
-    const applyLanguage = (language) => {
-      if (!i18n[language]) {
-        return;
-      }
-
-      currentLanguage = language;
-      const t = i18n[currentLanguage];
-
-      document.documentElement.lang = currentLanguage;
-      document.title = t.pageTitle;
-
-      setAttribute(".lang-switcher", "aria-label", t.languageSwitcher);
-      setAttribute(".nav-links", "aria-label", t.navAria);
-      setAttribute(".nav-toggle", "aria-label", t.navToggleLabel);
-      setAttribute(".top-contacts", "aria-label", t.quickContactsAria);
-      setAttribute(".main-banner", "aria-label", t.bannerAria);
-      setAttribute(".main-banner img", "alt", t.bannerAlt);
-
-      navLinks.forEach((link, index) => {
-        if (t.nav[index] !== undefined) {
-          link.textContent = t.nav[index];
-        }
-      });
-
-      setMultipleIconText(".eyebrow", [t.eyebrow]);
-      setText("h1", t.heroTitle);
-      setText(".hero-subtitle", t.heroSubtitle);
-      setAttribute(".avatar img", "alt", t.profilePhotoAlt);
-      setText(".meta-small", t.location);
-      setMultipleIconText(".meta-list li", t.profileMeta);
-
-      setText("#about h2", t.aboutTitle);
-      setMultipleText("#about p", t.aboutParagraphs);
-
-      setText("#experience h2", t.experienceTitle);
-      setText("#experience .timeline-item:nth-of-type(1) .timeline-period", t.expPeriodMain);
-      setText("#experience .timeline-item:nth-of-type(1) > p", t.expMainText);
-      setMultipleText("#experience .timeline-item:nth-of-type(1) ul li", t.expMainBullets);
-      setMultipleText("#experience .timeline-item:nth-of-type(1) .video-caption", t.expVideoCaptions);
-      setText("#experience .timeline-item:nth-of-type(2) .timeline-period", t.expPeriodSecond);
-      setText("#experience .timeline-item:nth-of-type(2) > p", t.expSecondText);
-
-      setText("#skills h2", t.skillsTitle);
-      setText("#skills > .section-inner > p", t.skillsText);
-      setMultipleIconText("#skills .pill", t.skillsLabels);
-
-      setText("#projects h2", t.projectsTitle);
-      const projectCards = document.querySelectorAll("#projects .project-card");
-      projectCards.forEach((card, index) => {
-        const project = t.projects[index];
-        if (!project) {
-          return;
-        }
-
-        const title = card.querySelector(".project-title");
-        const meta = card.querySelector(".project-meta");
-        const paragraphs = card.querySelectorAll("p");
-        const description = paragraphs[1];
-
-        if (title) title.textContent = project.title;
-        if (meta) meta.textContent = project.meta;
-        if (description) description.textContent = project.description;
-      });
-
-      setText("#designs h2", t.designsTitle);
-      setText("#designs > .section-inner > p", t.designsText);
-      setMultipleAttribute("[data-carousel-prev]", "aria-label", t.carouselPrev);
-      setMultipleAttribute("[data-carousel-next]", "aria-label", t.carouselNext);
-      setMultipleAttribute(".design-slide .design-link", "aria-label", t.carouselOpen);
-      setAttribute("[data-carousel-dots]", "aria-label", t.carouselDotsAria);
-      setMultipleAttribute(".carousel-dot", "aria-label", t.carouselDotPrefix);
-      setMultipleText(".design-caption", t.designCaptions);
-      setMultipleAttribute(".design-slide img", "alt", "");
-      const designImages = document.querySelectorAll(".design-slide img");
-      designImages.forEach((img, index) => {
-        if (t.designAlts[index] !== undefined) {
-          img.setAttribute("alt", t.designAlts[index]);
-        }
-      });
-
-      const dots = document.querySelectorAll(".carousel-dot");
-      dots.forEach((dot, index) => {
-        dot.setAttribute("aria-label", `${t.carouselDotPrefix} ${index + 1}`);
-      });
-
-      setText("#contact h2", t.contactTitle);
-      setText(".contact-copy", t.contactText);
-
-      const langButtons = document.querySelectorAll(".lang-btn");
-      langButtons.forEach((button) => {
-        button.classList.toggle("is-active", button.dataset.lang === currentLanguage);
-      });
-
-      try {
-        localStorage.setItem("site-language", currentLanguage);
-      } catch (error) {
-        // Ignore storage failures (private mode or blocked storage)
-      }
-    };
-
-    initCarousels();
-
-    const languageButtons = document.querySelectorAll(".lang-btn");
-    languageButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        applyLanguage(button.dataset.lang || "en-US");
-      });
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.lang));
     });
 
-    let savedLanguage = "en-US";
-    try {
-      savedLanguage = localStorage.getItem("site-language") || "en-US";
-    } catch (error) {
-      savedLanguage = "en-US";
+    // Mobile Nav
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
+    navToggle.addEventListener("click", () => {
+      const expanded = navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", !expanded);
+      navLinks.classList.toggle("is-collapsed", expanded);
+    });
+
+    // Carousel Logic
+    const track = document.querySelector("[data-carousel-track]");
+    const slides = Array.from(track.children);
+    let currentSlide = 0;
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
 
-    const browserLanguage = navigator.language && navigator.language.toLowerCase().startsWith("pt") ? "pt-BR" : "en-US";
-    const initialLanguage = i18n[savedLanguage] ? savedLanguage : browserLanguage;
-    applyLanguage(initialLanguage);
+    document.querySelector("[data-carousel-next]").addEventListener("click", () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateCarousel();
+    });
 
+    document.querySelector("[data-carousel-prev]").addEventListener("click", () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateCarousel();
+    });
+
+    applyLanguage("en-US");
   </script>
 </body>
 </html>
