@@ -27,17 +27,11 @@
       --radius: 18px;
     }
 
-    img.whitebadk {
-    background: #fff !important;
-    }
+    img.whitebadk { background: #fff !important; }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -50,254 +44,141 @@
       min-height: 100vh;
     }
 
-    a {
-      color: var(--accent);
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: #c7f5ff;
-    }
+    a { color: var(--accent); transition: color 0.2s ease; }
+    a:hover { color: #c7f5ff; }
 
     /* --- Header (Mantido para Mobile/Tablet) --- */
     .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
+      position: sticky; top: 0; z-index: 30;
       border-bottom: 1px solid rgba(156, 187, 231, 0.28);
       background: rgba(18, 27, 41, 0.78);
       backdrop-filter: blur(10px);
-      display: none; /* Oculto em Desktop pois teremos as abas laterais */
+      display: none;
     }
 
     .header-inner {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      min-height: 72px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
     }
 
     .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-size: 1.3rem;
+      display: inline-flex; align-items: center; gap: 10px;
+      color: var(--text); text-decoration: none; font-weight: 700;
+      letter-spacing: 0.04em; text-transform: uppercase; font-size: 1.3rem;
     }
 
     .brand-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      border: 1px solid var(--line);
-      background: rgba(39, 56, 82, 0.9);
-      color: var(--accent);
-      font-family: "JetBrains Mono", monospace;
-      font-size: 1.2rem;
+      width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center;
+      border: 1px solid var(--line); background: rgba(39, 56, 82, 0.9);
+      color: var(--accent); font-family: "JetBrains Mono", monospace; font-size: 1.2rem;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
+    .nav-links { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
 
     .nav-toggle {
-      display: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      border: 1px solid rgba(156, 187, 231, 0.45);
-      background: rgba(30, 44, 66, 0.82);
-      color: var(--text);
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1.2rem;
-      transition: all 0.2s ease;
-      padding: 0;
+      display: none; width: 40px; height: 40px; border-radius: 10px;
+      border: 1px solid rgba(156, 187, 231, 0.45); background: rgba(30, 44, 66, 0.82);
+      color: var(--text); align-items: center; justify-content: center;
+      cursor: pointer; font-size: 1.2rem; transition: all 0.2s ease; padding: 0;
     }
 
     /* --- Layout Principal com Abas (Grid) --- */
-    main {
-      padding: 26px 0 42px;
-    }
+    main { padding: 26px 0 42px; }
 
     .layout-wrapper {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: grid;
-      grid-template-columns: 240px 1fr 240px; /* Aba Esq | Conteúdo | Aba Dir */
-      gap: 32px;
-      align-items: start;
+      max-width: 1400px; margin: 0 auto; padding: 0 20px;
+      display: grid; grid-template-columns: 240px 1fr 240px;
+      gap: 32px; align-items: start;
     }
 
     /* --- Estilo das Abas Laterais --- */
     .side-panel {
-      position: sticky;
-      top: 40px;
-      background: rgba(28, 40, 58, 0.3);
-      border: 1px solid rgba(156, 187, 231, 0.15);
-      border-radius: 16px;
-      padding: 20px;
-      backdrop-filter: blur(5px);
+      position: sticky; top: 40px;
+      background: rgba(28, 40, 58, 0.3); border: 1px solid rgba(156, 187, 231, 0.15);
+      border-radius: 16px; padding: 20px; backdrop-filter: blur(5px);
     }
 
     .side-panel h3 {
-      font-size: 1.4rem;
-      margin-bottom: 16px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      border-bottom: 1px solid rgba(156, 187, 231, 0.2);
-      padding-bottom: 8px;
+      font-size: 1.4rem; margin-bottom: 16px; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.05em;
+      border-bottom: 1px solid rgba(156, 187, 231, 0.2); padding-bottom: 8px;
     }
 
-    /* Menu Lateral Esquerdo */
-    .side-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .side-nav { display: flex; flex-direction: column; gap: 10px; }
 
     .side-nav a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 1.4rem;
-      padding: 10px 14px;
-      border-radius: 10px;
-      transition: all 0.2s ease;
+      display: flex; align-items: center; gap: 10px; text-decoration: none;
+      color: var(--muted); font-size: 1.4rem; padding: 10px 14px;
+      border-radius: 10px; transition: all 0.2s ease;
     }
 
     .side-nav a:hover, .side-nav a.active {
-      background: rgba(118, 224, 255, 0.1);
-      color: var(--accent);
+      background: rgba(118, 224, 255, 0.1); color: var(--accent);
     }
 
-    .side-nav a i {
-      width: 20px;
-      text-align: center;
-    }
+    .side-nav a i { width: 20px; text-align: center; }
 
-    /* Menu Lateral Direito */
-    .side-socials {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+    .side-socials { display: flex; flex-direction: column; gap: 12px; }
 
     .side-social-btn {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(15, 25, 40, 0.6);
-      border: 1px solid rgba(156, 187, 231, 0.2);
-      padding: 10px;
-      border-radius: 12px;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 1.3rem;
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(15, 25, 40, 0.6); border: 1px solid rgba(156, 187, 231, 0.2);
+      padding: 10px; border-radius: 12px; text-decoration: none;
+      color: var(--text); font-size: 1.3rem;
     }
 
     .side-social-btn:hover {
-      border-color: var(--accent);
-      background: rgba(118, 224, 255, 0.1);
+      border-color: var(--accent); background: rgba(118, 224, 255, 0.1);
     }
 
     .side-lang {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      margin-top: 20px; display: flex; flex-direction: column; gap: 8px;
     }
 
     /* --- Estilos Gerais do Conteúdo Central --- */
     .main-banner {
-      margin-bottom: 16px;
-      border: 1px solid rgba(156, 187, 231, 0.26);
-      border-radius: 22px;
-      overflow: hidden;
-      background: rgba(14, 22, 34, 0.9);
-      box-shadow: var(--shadow);
+      margin-bottom: 16px; border: 1px solid rgba(156, 187, 231, 0.26);
+      border-radius: 22px; overflow: hidden;
+      background: rgba(14, 22, 34, 0.9); box-shadow: var(--shadow);
     }
 
-    .main-banner img {
-      width: 100%;
-      height: auto; /* Correção do Banner */
-      display: block;
-    }
+    .main-banner img { width: 100%; height: auto; display: block; }
 
     .section {
-      margin-bottom: 16px;
-      border: 1px solid rgba(156, 187, 231, 0.2);
-      border-radius: 22px;
-      background: rgba(28, 40, 58, 0.58);
+      margin-bottom: 16px; border: 1px solid rgba(156, 187, 231, 0.2);
+      border-radius: 22px; background: rgba(28, 40, 58, 0.58);
       box-shadow: var(--shadow);
     }
 
-    .section-inner {
-      padding: 28px;
-    }
+    .section-inner { padding: 28px; }
 
     .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(156, 187, 231, 0.36);
-      border-radius: 999px;
-      padding: 6px 12px;
-      color: var(--muted);
-      font-size: 1.15rem;
-      margin-bottom: 14px;
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(156, 187, 231, 0.36); border-radius: 999px;
+      padding: 6px 12px; color: var(--muted); font-size: 1.15rem; margin-bottom: 14px;
     }
 
     h1, h2, h3, h4 { margin-top: 0; color: var(--text); }
 
     h1 {
-      font-size: clamp(3.2rem, 6vw, 5.7rem);
-      letter-spacing: -0.02em;
-      line-height: 0.95;
-      margin-bottom: 12px;
+      font-size: clamp(3.2rem, 6vw, 5.7rem); letter-spacing: -0.02em;
+      line-height: 0.95; margin-bottom: 12px;
     }
 
     h2 { font-size: clamp(2.4rem, 3.5vw, 3.8rem); margin-bottom: 10px; }
     p { margin-top: 0; color: var(--muted); font-size: 1.75rem; }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 16px;
-    }
+    .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; }
 
     .hero-subtitle {
-      font-size: 1.6rem;
-      color: #c6d4eb;
-      max-width: 62ch;
-      margin-bottom: 16px;
+      font-size: 1.6rem; color: #c6d4eb; max-width: 62ch; margin-bottom: 16px;
     }
 
     /* Quick Card (Avatar) */
     .quick-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
+      border: 1px solid var(--line); border-radius: var(--radius);
       background: linear-gradient(160deg, rgba(43, 62, 91, 0.9), rgba(35, 51, 76, 0.84));
-      padding: 18px;
-      height: 100%;
-      display: grid;
-      gap: 10px;
-      align-content: start;
+      padding: 18px; height: 100%; display: grid; gap: 10px; align-content: start;
     }
 
     .avatar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
@@ -306,7 +187,11 @@
     .meta-title { font-size: 1.4rem; margin: 0; color: #eaf4ff; font-weight: 600; }
     .meta-small { margin: 0; font-size: 1.3rem; color: #a8bad8; }
     .meta-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
-    .meta-list li { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 1.45rem; border: 1px solid rgba(156, 187, 231, 0.22); border-radius: 10px; padding: 8px 10px; background: rgba(27, 39, 58, 0.7); }
+    .meta-list li {
+      display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 1.45rem;
+      border: 1px solid rgba(156, 187, 231, 0.22); border-radius: 10px;
+      padding: 8px 10px; background: rgba(27, 39, 58, 0.7);
+    }
     .meta-list i { width: 16px; color: var(--accent); text-align: center; flex-shrink: 0; }
 
     /* Timeline & Video & Images */
@@ -324,35 +209,67 @@
 
     /* Skills */
     .skill-pool { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-    .pill { border: 1px solid rgba(156, 187, 231, 0.36); border-radius: 999px; padding: 7px 12px; font-size: 1.25rem; color: var(--text); background: rgba(35, 50, 75, 0.72); display: inline-flex; align-items: center; gap: 7px; }
+    .pill {
+      border: 1px solid rgba(156, 187, 231, 0.36); border-radius: 999px; padding: 7px 12px;
+      font-size: 1.25rem; color: var(--text); background: rgba(35, 50, 75, 0.72);
+      display: inline-flex; align-items: center; gap: 7px;
+    }
     .pill i { color: var(--accent-2); font-size: 1.2rem; }
 
     /* Projects */
     .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    .project-card { border: 1px solid rgba(156, 187, 231, 0.33); border-radius: 15px; background: linear-gradient(145deg, rgba(38, 56, 82, 0.88), rgba(28, 41, 61, 0.8)); padding: 16px; display: grid; gap: 8px; transition: transform 0.2s ease, border-color 0.2s ease; }
+    .project-card {
+      border: 1px solid rgba(156, 187, 231, 0.33); border-radius: 15px;
+      background: linear-gradient(145deg, rgba(38, 56, 82, 0.88), rgba(28, 41, 61, 0.8));
+      padding: 16px; display: grid; gap: 8px; transition: transform 0.2s ease, border-color 0.2s ease;
+    }
     .project-card:hover { transform: translateY(-4px); border-color: rgba(118, 224, 255, 0.7); }
     .project-top { display: flex; align-items: center; gap: 10px; }
-    .project-icon { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; border: 1px solid rgba(156, 187, 231, 0.45); color: var(--accent); background: rgba(21, 33, 50, 0.88); flex-shrink: 0; }
+    .project-icon {
+      width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center;
+      border: 1px solid rgba(156, 187, 231, 0.45); color: var(--accent);
+      background: rgba(21, 33, 50, 0.88); flex-shrink: 0;
+    }
     .project-title { margin: 0; font-size: 1.8rem; }
     .project-meta { margin: 0; font-size: 1.3rem; color: #9cb2d4; font-family: "JetBrains Mono", monospace; }
 
     /* Carousel */
-    .design-carousel-shell { border: 1px solid rgba(156, 187, 231, 0.33); border-radius: 16px; background: linear-gradient(145deg, rgba(38, 56, 82, 0.88), rgba(28, 41, 61, 0.8)); padding: 10px; }
+    .design-carousel-shell {
+      border: 1px solid rgba(156, 187, 231, 0.33); border-radius: 16px;
+      background: linear-gradient(145deg, rgba(38, 56, 82, 0.88), rgba(28, 41, 61, 0.8)); padding: 10px;
+    }
     .design-carousel { position: relative; display: flex; align-items: center; gap: 8px; }
-    .carousel-btn { width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(156, 187, 231, 0.45); background: rgba(15, 25, 40, 0.82); color: var(--text); display: grid; place-items: center; cursor: pointer; font-size: 1.5rem; line-height: 1; flex-shrink: 0; transition: all 0.2s ease; padding: 0; }
+    .carousel-btn {
+      width: 40px; height: 40px; border-radius: 999px; border: 1px solid rgba(156, 187, 231, 0.45);
+      background: rgba(15, 25, 40, 0.82); color: var(--text); display: grid; place-items: center;
+      cursor: pointer; font-size: 1.5rem; line-height: 1; flex-shrink: 0; transition: all 0.2s ease; padding: 0;
+    }
     .carousel-viewport { overflow: hidden; border-radius: 12px; width: 100%; }
     .carousel-track { display: flex; transition: transform 0.35s ease; will-change: transform; touch-action: pan-y; }
-    .design-slide { min-width: 100%; margin: 0; border: 1px solid rgba(156, 187, 231, 0.32); border-radius: 12px; overflow: hidden; background: rgba(12, 22, 36, 0.95); }
+    .design-slide {
+      min-width: 100%; margin: 0; border: 1px solid rgba(156, 187, 231, 0.32);
+      border-radius: 12px; overflow: hidden; background: rgba(12, 22, 36, 0.95);
+    }
     .design-link { display: block; background: linear-gradient(160deg, rgba(16, 28, 45, 0.95), rgba(11, 20, 33, 0.95)), radial-gradient(circle at 20% 15%, rgba(118, 224, 255, 0.18), transparent 50%); }
-    .design-slide img, .design-slide video { width: 100%; height: clamp(220px, 52vw, 560px); object-fit: contain; object-position: center; display: block; background: transparent; }
+    .design-slide img, .design-slide video {
+      width: 100%; height: clamp(220px, 52vw, 560px); object-fit: contain;
+      object-position: center; display: block; background: transparent;
+    }
     .design-slide video { pointer-events: none; }
     .design-caption { margin: 0; padding: 10px 12px; border-top: 1px solid rgba(156, 187, 231, 0.3); font-size: 1.35rem; color: #b4c3dc; }
     .carousel-dots { margin-top: 10px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
-    .carousel-dot { width: 10px; height: 10px; border-radius: 999px; border: 0; background: rgba(156, 187, 231, 0.45); cursor: pointer; transition: transform 0.2s ease, background-color 0.2s ease; padding: 0; }
+    .carousel-dot {
+      width: 10px; height: 10px; border-radius: 999px; border: 0; background: rgba(156, 187, 231, 0.45);
+      cursor: pointer; transition: transform 0.2s ease, background-color 0.2s ease; padding: 0;
+    }
     .carousel-dot.is-active { transform: scale(1.2); background: var(--accent); }
 
     /* Contact */
-    .contact-box { border: 1px solid rgba(156, 187, 231, 0.36); border-radius: 16px; background: linear-gradient(130deg, rgba(29, 45, 67, 0.94), rgba(38, 64, 96, 0.88)); padding: 20px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+    .contact-box {
+      border: 1px solid rgba(156, 187, 231, 0.36); border-radius: 16px;
+      background: linear-gradient(130deg, rgba(29, 45, 67, 0.94), rgba(38, 64, 96, 0.88));
+      padding: 20px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;
+    }
     .contact-copy { margin: 0; font-size: 1.65rem; color: #d7e6fc; max-width: 52ch; }
 
     /* Animations */
@@ -360,65 +277,31 @@
     .reveal.show { opacity: 1; transform: translateY(0); }
 
     /* Lang Btn Reuse */
-    .lang-btn { min-width: 64px; border: 1px solid rgba(156, 187, 231, 0.38); border-radius: 10px; background: rgba(35, 50, 75, 0.75); color: var(--muted); font-family: "JetBrains Mono", monospace; font-size: 1.1rem; padding: 6px 10px; cursor: pointer; transition: all 0.2s ease; }
+    .lang-btn {
+      min-width: 64px; border: 1px solid rgba(156, 187, 231, 0.38); border-radius: 10px;
+      background: rgba(35, 50, 75, 0.75); color: var(--muted); font-family: "JetBrains Mono", monospace;
+      font-size: 1.1rem; padding: 6px 10px; cursor: pointer; transition: all 0.2s ease;
+    }
     .lang-btn:hover { color: var(--text); border-color: rgba(118, 224, 255, 0.75); }
-    .lang-btn.is-active { color: #10243c; border-color: transparent; background: linear-gradient(120deg, #6ed7ff, #74ffc8); font-weight: 700; }
+    .lang-btn.is-active {
+      color: #10243c; border-color: transparent; background: linear-gradient(120deg, #6ed7ff, #74ffc8); font-weight: 700;
+    }
 
     /* --- RESPONSIVIDADE --- */
-    /* Tablet e Mobile: Layout volta para coluna única e exibe o Header Topo */
     @media (max-width: 1200px) {
-      .layout-wrapper {
-        display: block; /* Remove o Grid */
-        padding: 0 15px;
-      }
-
-      /* Animations */
-     .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.45s ease, transform 0.45s ease; }
-     .reveal.show { opacity: 1; transform: translateY(0); }
-
-   /* Classe específica para o card com fundo branco */
-    .video-card.white-bg {
-     background: #ffffff;
-    }
-   .video-card.white-bg .video-caption {
-     color: #1a2333; /* Texto escuro para leitura */
-      border-top-color: rgba(0,0,0,0.1);
-  }
-      .side-panel {
-        display: none; /* Esconde as abas laterais */
-      }
-      .site-header {
-        display: block; /* Mostra o header original */
-      }
-      
-      .hero-grid, .projects-grid, .video-split {
-        grid-template-columns: 1fr;
-      }
-
-      .section-inner {
-        padding: 20px;
-      }
-
-      .header-inner {
-        min-height: auto;
-        padding: 10px 0;
-        display: grid;
-        grid-template-columns: 1fr auto;
-        align-items: center;
-        gap: 10px;
-      }
-
+      .layout-wrapper { display: block; padding: 0 15px; }
+      .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.45s ease, transform 0.45s ease; }
+      .reveal.show { opacity: 1; transform: translateY(0); }
+      .video-card.white-bg { background: #ffffff; }
+      .video-card.white-bg .video-caption { color: #1a2333; border-top-color: rgba(0,0,0,0.1); }
+      .side-panel { display: none; }
+      .site-header { display: block; }
+      .hero-grid, .projects-grid, .video-split { grid-template-columns: 1fr; }
+      .section-inner { padding: 20px; }
+      .header-inner { min-height: auto; padding: 10px 0; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; }
       .brand { align-self: center; }
       .nav-toggle { display: inline-flex; }
-
-      .nav-links {
-        grid-column: 1 / -1;
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 8px;
-      }
-
+      .nav-links { grid-column: 1 / -1; width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
       .nav-links.is-collapsed { display: none; }
       .nav-links a { justify-content: center; font-size: 1.02rem; padding: 9px 8px; min-height: 40px; border-color: rgba(78, 102, 139, 0.5); background: rgba(37, 53, 77, 0.6); }
       h1 { font-size: clamp(2.8rem, 10vw, 4.6rem); }
@@ -551,8 +434,8 @@
                   Graphic designer, webmaster, and video editor. I structured a production workflow with CorelDRAW (VBA) automation, standardized steps, and measurable productivity gains.
                 </p>
                 <ul>
-                  <li>Time for 5 shirts: from ~1h40 to ~7min.</li>
-                  <li>Design output: from 12 to 32 per day.</li>
+                  <li>Processing time for 5 shirts: from ~1h40 to ~7min.</li>
+                  <li>Daily artwork output: from 12 to 32 per day.</li>
                   <li>Peak operation: 700+ shirts in a single day.</li>
                 </ul>
                 <div class="video-split">
@@ -578,7 +461,7 @@
                   <p class="timeline-period">Optimization Tool</p>
                 </div>
                 <p>
-                 nesting system that I create within CorelDraw precisely to organize and save paper when printing both DTF and sublimated t-shirts
+                  Nesting system that I created within CorelDRAW precisely to organize and save paper when printing both DTF and sublimated t-shirts.
                 </p>
                 <article class="video-card">
                   <video muted loop playsinline controls>
@@ -819,7 +702,7 @@
 
     revealElements.forEach((el) => observer.observe(el));
 
-    // Traduções
+    // Traduções Completas e Corrigidas
     const i18n = {
       "en-US": {
         pageTitle: "Joao Pedro | Developer Portfolio",
@@ -845,11 +728,18 @@
         expPeriodMain: "May 2024 - Present",
         expMainText: "Graphic designer, webmaster, and video editor. I structured a production workflow with CorelDRAW (VBA) automation, standardized steps, and measurable productivity gains.",
         expMainBullets: [
-          "Time for 5 shirts: from ~1h40 to ~7min.",
-          "Design output: from 12 to 32 per day.",
+          "Processing time for 5 shirts: from ~1h40 to ~7min.",
+          "Daily artwork output: from 12 to 32 per day.",
           "Peak operation: 700+ shirts in a single day."
         ],
         expVideoCaptions: ["Before: manual process", "After: automated process"],
+        
+        // Nesting System
+        expNestingTitle: "CorelDRAW Nesting System",
+        expNestingPeriod: "Optimization Tool",
+        expNestingText: "Nesting system that I created within CorelDRAW precisely to organize and save paper when printing both DTF and sublimated t-shirts.",
+        expNestingCaption: "Nesting demonstration",
+
         expPeriodSecond: "1 year",
         expSecondText: "Rotary machine operator with a continuous improvement focus. I created a paint organization system that improved the department and earned internal recognition.",
         skillsTitle: "Tech stack and skills",
@@ -888,7 +778,6 @@
             description: "Updates, maintenance, and technical support to keep a consistent digital presence."
           }
         ],
-        // DADOS NOVOS DE TRADUÇÃO ADICIONADOS AQUI
         halftoneTitle: "Halftone & Color Separation",
         halftoneText: "Specialized technique for DTF printing: color separation and halftone processing. This method optimizes ink usage, removes black backgrounds to use the garment's color, and improves the print's touch and durability.",
         halftoneCaptions: ["Final Result on Garment", "PNG Halftone (Black Removed)", "Detail Zoom 1", "Detail Zoom 2"],
@@ -902,104 +791,114 @@
         carouselDotPrefix: "Show design",
         designAlts: [
           "Design sample: COPA 2026 artwork",
-          "Design sample: Sem Titulo 1"
+          "Design sample: Sem Titulo 1",
+          "Design sample: T-Shirt Basketball"
         ],
         designCaptions: [
           "Copa 2026",
-          "Sem Titulo 1"
+          "Sem Titulo 1",
+          "T-Shirt Basketball"
         ],
         contactTitle: "Contact",
         contactText: "My contact links are at the top, next to my name and key information. You can reach me by email, GitHub, or WhatsApp."
       },
       "pt-BR": {
-        pageTitle: "Joao Pedro | Portfolio de Desenvolvedor",
-        nav: ["Sobre", "Experiencia", "Habilidades", "Projetos", "Halftone", "Designs", "Contato"],
-        eyebrow: "Designer grafico textil + producao digital",
-        heroTitle: "Designer grafico com foco em arte-final textil e producao em alto volume.",
-        heroSubtitle: "Atuo com criacao, conferencia e preparacao de arquivos para impressao, leitura de ficha tecnica e controle de qualidade. Domino CorelDRAW, Illustrator e Photoshop, com foco em agilidade, padronizacao e reducao de retrabalho.",
-        profilePhotoAlt: "Foto de Joao Pedro",
+        pageTitle: "João Pedro | Portfólio de Desenvolvedor",
+        nav: ["Sobre", "Experiência", "Habilidades", "Projetos", "Halftone", "Designs", "Contato"],
+        eyebrow: "Designer gráfico têxtil + produção digital",
+        heroTitle: "Designer gráfico com foco em arte-final têxtil e produção em alto volume.",
+        heroSubtitle: "Atuo com criação, conferência e preparação de arquivos para impressão, leitura de ficha técnica e controle de qualidade. Domino CorelDRAW, Illustrator e Photoshop, com foco em agilidade, padronização e redução de retrabalho.",
+        profilePhotoAlt: "Foto de João Pedro",
         location: "Ascurra, SC - Brasil",
         profileMeta: [
           "Form Uniformes - Designer, Webmaster e Editor",
-          "PT-BR nativo | EN intermediario",
-          "Passaporte valido",
-          "Ensino medio (conclusao prevista: 2026)"
+          "PT-BR nativo | EN intermediário",
+          "Passaporte válido",
+          "Ensino médio (conclusão prevista: 2026)"
         ],
-        quickContactsAria: "Contatos rapidos",
+        quickContactsAria: "Contatos rápidos",
         aboutTitle: "Sobre mim",
         aboutParagraphs: [
-          "Designer grafico com experiencia em arte-final textil, estamparia e producao em alto volume. Atuo com criacao, conferencia e preparacao de arquivos para impressao, leitura de ficha tecnica e controle de qualidade.",
-          "Domino CorelDRAW, Illustrator e Photoshop, com foco em agilidade, padronizacao e reducao de retrabalho. Tambem realizo projetos para redes sociais, edicao de video curto e manutencao de sites para empresas."
+          "Designer gráfico com experiência em arte-final têxtil, estamparia e produção em alto volume. Atuo com criação, conferência e preparação de arquivos para impressão, leitura de ficha técnica e controle de qualidade.",
+          "Domino CorelDRAW, Illustrator e Photoshop, com foco em agilidade, padronização e redução de retrabalho. Também realizo projetos para redes sociais, edição de vídeo curto e manutenção de sites para empresas."
         ],
-        experienceTitle: "Experiencia profissional",
+        experienceTitle: "Experiência profissional",
         expPeriodMain: "Mai 2024 - Atual",
-        expMainText: "Designer grafico, webmaster e editor de video. Estruturei um fluxo de producao com automacao em CorelDRAW (VBA), padronizacao de etapas e ganho real de produtividade.",
+        expMainText: "Designer gráfico, webmaster e editor de vídeo. Estruturei um fluxo de produção com automação em CorelDRAW (VBA), padronização de etapas e ganho real de produtividade.",
         expMainBullets: [
-          "Tempo de 5 camisetas: de ~1h40 para ~7min.",
-          "Capacidade de artes: de 12 para 32 por dia.",
-          "Pico operacional: 700+ camisetas em um unico dia."
+          "Tempo processamento de 5 camisetas: de ~1h40 para ~7min.",
+          "Capacidade diária de artes: de 12 para 32 por dia.",
+          "Pico operacional: 700+ camisetas em um único dia."
         ],
         expVideoCaptions: ["Antes: processo manual", "Depois: processo automatizado"],
+        
+        // Nesting System
+        expNestingTitle: "Sistema de Nesting CorelDRAW",
+        expNestingPeriod: "Ferramenta de Otimização",
+        expNestingText: "Sistema de nesting que criei dentro do CorelDRAW precisamente para organizar e economizar papel ao imprimir tanto DTF quanto camisetas sublimadas.",
+        expNestingCaption: "Demonstração do Nesting",
+
         expPeriodSecond: "1 ano",
-        expSecondText: "Operador de maquina rotativa com atuacao em melhoria continua. Criei sistema de organizacao de tintas com impacto no setor e reconhecimento interno.",
+        expSecondText: "Operador de máquina rotativa com atuação em melhoria contínua. Criei sistema de organização de tintas com impacto no setor e reconhecimento interno.",
         skillsTitle: "Stack e habilidades",
-        skillsText: "Conjunto de competencias que uso no dia a dia em automacao, web e producao visual.",
-        skillsLabels: ["HTML/CSS", "JavaScript", "PHP", "SQL", "Python", "VBA para CorelDRAW", "Edicao de video", "Webmaster", "Halftone & DTF"],
+        skillsText: "Conjunto de competências que uso no dia a dia em automação, web e produção visual.",
+        skillsLabels: ["HTML/CSS", "JavaScript", "PHP", "SQL", "Python", "VBA para CorelDRAW", "Edição de vídeo", "Webmaster", "Halftone & DTF"],
         projectsTitle: "Projetos em destaque",
         projects: [
           {
-            title: "Sistema de organizacao de tintas",
+            title: "Sistema de organização de tintas",
             meta: "Excel | Brandili",
-            description: "Padrao visual e logico para agilizar operacao e reduzir erro em fluxo de tinta."
+            description: "Padrão visual e lógico para agilizar operação e reduzir erro em fluxo de tinta."
           },
           {
-            title: "Automacao de tintas",
-            meta: "Caso real | producao",
-            description: "Estrutura para organizar, localizar e reaproveitar configuracoes com mais velocidade."
+            title: "Automação de tintas",
+            meta: "Caso real | produção",
+            description: "Estrutura para organizar, localizar e reaproveitar configurações com mais velocidade."
           },
           {
             title: "Sistema de tickets",
             meta: "PHP fullstack",
-            description: "Aplicacao para controle de chamados internos e acompanhamento do status da tarefa."
+            description: "Aplicação para controle de chamados internos e acompanhamento do status da tarefa."
           },
           {
             title: "Macro CorelDRAW",
-            meta: "VBA | sublimacao",
-            description: "Macro para montar arte, inserir variaveis e exportar arquivos prontos para producao."
+            meta: "VBA | sublimação",
+            description: "Macro para montar arte, inserir variáveis e exportar arquivos prontos para produção."
           },
           {
-            title: "Edicao comercial de video",
-            meta: "Midias e campanhas",
-            description: "Edicao de pecas promocionais com foco em ritmo, clareza de mensagem e conversao."
+            title: "Edição comercial de vídeo",
+            meta: "Mídias e campanhas",
+            description: "Edição de peças promocionais com foco em ritmo, clareza de mensagem e conversão."
           },
           {
-            title: "Gestao de site institucional",
+            title: "Gestão de site institucional",
             meta: "Webmaster",
-            description: "Atualizacao, manutencao e suporte tecnico para manter presenca digital consistente."
+            description: "Atualização, manutenção e suporte técnico para manter presença digital consistente."
           }
         ],
-        // DADOS NOVOS DE TRADUÇÃO ADICIONADOS AQUI
         halftoneTitle: "Halftones & Separação de Cores",
-        halftoneText: "Técnica especializada para impressão DTF: separação de cores e reticula (halftone). Otimiza o uso de tinta, remove o fundo preto para usar a cor da malha e melhora o toque e durabilidade.",
+        halftoneText: "Técnica especializada para impressão DTF: separação de cores e retícula (halftone). Otimiza o uso de tinta, remove o fundo preto para usar a cor da malha e melhora o toque e durabilidade.",
         halftoneCaptions: ["Resultado Final na Peça", "PNG Halftone (Sem Preto)", "Zoom Detalhe 1", "Zoom Detalhe 2"],
 
-        designsTitle: "Mostruario de designs",
+        designsTitle: "Mostruário de designs",
         designsText: "Deslize no celular ou use as setas para navegar pelos meus designs. Duplique um slide e troque a URL da imagem para adicionar mais.",
         carouselPrev: "Design anterior",
-        carouselNext: "Proximo design",
+        carouselNext: "Próximo design",
         carouselOpen: "Abrir design em tamanho completo",
         carouselDotsAria: "Selecionar slide de design",
         carouselDotPrefix: "Mostrar design",
         designAlts: [
           "Exemplo de design: arte COPA 2026",
-          "Exemplo de design: Sem Titulo 1"
+          "Exemplo de design: Sem Título 1",
+          "Exemplo de design: Camiseta Basketball"
         ],
         designCaptions: [
           "Copa 2026",
-          "Sem Titulo 1"
+          "Sem Título 1",
+          "T-Shirt Basketball"
         ],
         contactTitle: "Contato",
-        contactText: "Meus contatos estao no topo, ao lado do meu nome e das informacoes principais. Voce pode falar comigo por email, GitHub ou WhatsApp."
+        contactText: "Meus contatos estão no topo, ao lado do meu nome e das informações principais. Você pode falar comigo por e-mail, GitHub ou WhatsApp."
       }
     };
 
@@ -1064,7 +963,7 @@
       mobileNavQuery.addEventListener("change", syncNavForViewport);
     }
 
-    // Funções auxiliares de Texto e Atributo (Mantidas)
+    // Funções auxiliares de Texto e Atributo
     const setText = (selector, value) => {
       const element = document.querySelector(selector);
       if (element) element.textContent = value;
@@ -1090,7 +989,16 @@
     };
     const setMultipleAttribute = (selector, attribute, value) => {
       const elements = document.querySelectorAll(selector);
-      elements.forEach((element) => element.setAttribute(attribute, value));
+      elements.forEach((element, index) => {
+        if (value) element.setAttribute(attribute, value);
+      });
+    };
+    // Helper especifico para listas de atributo (ex: alt tags)
+    const setMultipleAttributeFromArray = (selector, attribute, values) => {
+      const elements = document.querySelectorAll(selector);
+      elements.forEach((element, index) => {
+        if (values[index] !== undefined) element.setAttribute(attribute, values[index]);
+      });
     };
 
     const initCarousels = () => {
@@ -1175,15 +1083,25 @@
       setAttribute(".avatar img", "alt", t.profilePhotoAlt);
       setText(".meta-small", t.location);
       setMultipleIconText(".meta-list li", t.profileMeta);
+      setAttribute(".top-contacts", "aria-label", t.quickContactsAria);
 
       setText("#about h2", t.aboutTitle);
       setMultipleText("#about p", t.aboutParagraphs);
 
       setText("#experience h2", t.experienceTitle);
+      // Item 1: Form Uniformes
       setText("#experience .timeline-item:nth-of-type(1) .timeline-period", t.expPeriodMain);
       setText("#experience .timeline-item:nth-of-type(1) > p", t.expMainText);
       setMultipleText("#experience .timeline-item:nth-of-type(1) ul li", t.expMainBullets);
       setMultipleText("#experience .timeline-item:nth-of-type(1) .video-caption", t.expVideoCaptions);
+      
+      // Item 2: Nesting System
+      setText("#experience .timeline-item:nth-of-type(2) .timeline-title", t.expNestingTitle);
+      setText("#experience .timeline-item:nth-of-type(2) .timeline-period", t.expNestingPeriod);
+      setText("#experience .timeline-item:nth-of-type(2) > p", t.expNestingText);
+      setText("#experience .timeline-item:nth-of-type(2) .video-caption", t.expNestingCaption);
+
+      // Item 3: Brandili
       setText("#experience .timeline-item:nth-of-type(3) .timeline-period", t.expPeriodSecond);
       setText("#experience .timeline-item:nth-of-type(3) > p", t.expSecondText);
 
@@ -1199,17 +1117,18 @@
         const title = card.querySelector(".project-title");
         const meta = card.querySelector(".project-meta");
         const paragraphs = card.querySelectorAll("p");
-        const description = paragraphs[1];
+        const description = paragraphs[1]; // Pega o segundo P (o primeiro é a meta se não estiver div)
         if (title) title.textContent = project.title;
         if (meta) meta.textContent = project.meta;
         if (description) description.textContent = project.description;
       });
 
-      // --- TRADUÇÃO NOVA DA SEÇÃO HALFTONE ---
+      // Halftone
       setText("#halftone h2", t.halftoneTitle);
       setText("#halftone > .section-inner > p", t.halftoneText);
       setMultipleText("#halftone .video-caption", t.halftoneCaptions);
 
+      // Designs
       setText("#designs h2", t.designsTitle);
       setText("#designs > .section-inner > p", t.designsText);
       setMultipleAttribute("[data-carousel-prev]", "aria-label", t.carouselPrev);
@@ -1218,11 +1137,12 @@
       setAttribute("[data-carousel-dots]", "aria-label", t.carouselDotsAria);
       setMultipleAttribute(".carousel-dot", "aria-label", t.carouselDotPrefix);
       setMultipleText(".design-caption", t.designCaptions);
-      setMultipleAttribute(".design-slide img", "alt", "");
-      const designImages = document.querySelectorAll(".design-slide img");
-      designImages.forEach((img, index) => {
-        if (t.designAlts[index] !== undefined) img.setAttribute("alt", t.designAlts[index]);
-      });
+      setMultipleAttributeFromArray(".design-slide img", "alt", t.designAlts);
+      // Video aria-label também
+      const videos = document.querySelectorAll(".design-slide video");
+      if(videos.length > 0 && t.designAlts[2]) {
+        videos[0].setAttribute("aria-label", t.designAlts[2]); 
+      }
 
       const dots = document.querySelectorAll(".carousel-dot");
       dots.forEach((dot, index) => {
@@ -1256,8 +1176,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
