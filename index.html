@@ -200,6 +200,35 @@
     .timeline-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
     .timeline-title { margin: 0; font-size: 2rem; }
     .timeline-period { margin: 0; font-size: 1.25rem; color: #9cb2d4; font-family: "JetBrains Mono", monospace; }
+    
+    .timeline-summary { margin-bottom: 10px; }
+
+    /* Estilo do botão ler mais */
+    .read-more-btn {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.2s ease;
+      font-family: "JetBrains Mono", monospace;
+      text-transform: uppercase;
+    }
+    
+    .read-more-btn:hover {
+      background: rgba(118, 224, 255, 0.1);
+      color: #c7f5ff;
+    }
+
+    .timeline-full-content ul {
+        margin-top: 10px;
+        padding-left: 20px;
+        font-size: 1.5rem;
+        color: var(--muted);
+    }
 
     .video-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
     .timeline-item .video-split { margin-top: 12px; }
@@ -430,29 +459,25 @@
                   <h3 class="timeline-title">Form Uniformes</h3>
                   <p class="timeline-period">May 2024 - Present</p>
                 </div>
-                <p>
-                  Graphic designer, webmaster, and video editor. I structured a production workflow with CorelDRAW (VBA) automation, standardized steps, and measurable productivity gains.
+                
+                <p class="timeline-summary" id="form-summary">
+                  Graphic designer and Final Artist. I joined the company proficient in CorelDRAW, Illustrator, and Photoshop. I quickly stood out for my agility in a sector that was a bottleneck (5 people, financial losses >40k). When the team was reduced to just two people, I had to innovate to handle the workload.
                 </p>
-                <ul>
-                  <li>Processing time for 5 shirts: from ~1h40 to ~7min.</li>
-                  <li>Daily artwork output: from 12 to 32 per day.</li>
-                  <li>Peak operation: 700+ shirts in a single day.</li>
-                </ul>
-                <div class="video-split">
-                  <article class="video-card">
-                    <video muted loop playsinline controls>
-                      <source src="https://formuniforme.com.br/fotos/1.mp4" type="video/mp4">
-                    </video>
-                    <p class="video-caption">Before: manual process</p>
-                  </article>
 
-                  <article class="video-card">
-                    <video muted loop autoplay playsinline controls>
-                      <source src="https://formuniforme.com.br/fotos/2.mp4" type="video/mp4">
-                    </video>
-                    <p class="video-caption">After: automated process</p>
-                  </article>
+                <div class="timeline-full-content" id="form-full" style="display: none;">
+                    <p id="form-story">
+                      I took over color testing on fabric, artwork assembly, and measurements. Under extreme pressure, I learned VBA (Visual Basic for Applications) to automate the workflow. I developed a macro that assembles artwork on t-shirt templates in seconds. The export process, which used to take about 1 hour, now takes 6 minutes, eliminating errors and boosting production capacity.
+                    </p>
+                    <ul id="form-duties">
+                        <li>Perform final artwork for simple and complex designs.</li>
+                        <li>Check printed proofs (flags) to ensure process compliance.</li>
+                        <li>Define print areas and provide technical sheet data.</li>
+                        <li>Create prints, embroidery files, and visual materials meeting strict deadlines.</li>
+                        <li>Requirements: High school diploma, experience in design/prepress, knowledge of textile processes/materials, and mastery of graphic software (Photoshop, Illustrator) and quality control.</li>
+                    </ul>
                 </div>
+
+                <button class="read-more-btn" type="button" onclick="toggleReadMore('form-full', this)">Read more</button>
               </article>
 
               <article class="timeline-item">
@@ -701,6 +726,18 @@
     }, { threshold: 0.15 });
 
     revealElements.forEach((el) => observer.observe(el));
+    
+    // Função para Expandir Texto
+    function toggleReadMore(contentId, btn) {
+        const content = document.getElementById(contentId);
+        if (content.style.display === "none") {
+            content.style.display = "block";
+            btn.textContent = currentLanguage === "pt-BR" ? "Ler menos" : "Read less";
+        } else {
+            content.style.display = "none";
+            btn.textContent = currentLanguage === "pt-BR" ? "Ler mais" : "Read more";
+        }
+    }
 
     // Traduções Completas e Corrigidas
     const i18n = {
@@ -726,15 +763,21 @@
         ],
         experienceTitle: "Professional experience",
         expPeriodMain: "May 2024 - Present",
-        expMainText: "Graphic designer, webmaster, and video editor. I structured a production workflow with CorelDRAW (VBA) automation, standardized steps, and measurable productivity gains.",
-        expMainBullets: [
-          "Processing time for 5 shirts: from ~1h40 to ~7min.",
-          "Daily artwork output: from 12 to 32 per day.",
-          "Peak operation: 700+ shirts in a single day."
-        ],
-        expVideoCaptions: ["Before: manual process", "After: automated process"],
         
-        // Nesting System
+        // --- FORM UNIFORMES TEXTS ---
+        formSummary: "Graphic designer and Final Artist. I joined the company proficient in CorelDRAW, Illustrator, and Photoshop. I quickly stood out for my agility in a sector that was a bottleneck (5 people, financial losses >40k). When the team was reduced to just two people, I had to innovate to handle the workload.",
+        formStory: "I took over color testing on fabric, artwork assembly, and measurements. Under extreme pressure, I learned VBA (Visual Basic for Applications) to automate the workflow. I developed a macro that assembles artwork on t-shirt templates in seconds. The export process, which used to take about 1 hour, now takes 6 minutes, eliminating errors and boosting production capacity.",
+        formDuties: [
+            "Perform final artwork for simple and complex designs.",
+            "Check printed proofs (flags) to ensure process compliance.",
+            "Define print areas and provide technical sheet data.",
+            "Create prints, embroidery files, and visual materials meeting strict deadlines.",
+            "Requirements: High school diploma, experience in design/prepress, knowledge of textile processes/materials, and mastery of graphic software (Photoshop, Illustrator) and quality control."
+        ],
+        readMoreBtn: "Read more",
+        readLessBtn: "Read less",
+        // ---------------------------
+        
         expNestingTitle: "CorelDRAW Nesting System",
         expNestingPeriod: "Optimization Tool",
         expNestingText: "Nesting system that I created within CorelDRAW precisely to organize and save paper when printing both DTF and sublimated t-shirts.",
@@ -824,15 +867,21 @@
         ],
         experienceTitle: "Experiência profissional",
         expPeriodMain: "Mai 2024 - Atual",
-        expMainText: "Designer gráfico, webmaster e editor de vídeo. Estruturei um fluxo de produção com automação em CorelDRAW (VBA), padronização de etapas e ganho real de produtividade.",
-        expMainBullets: [
-          "Tempo processamento de 5 camisetas: de ~1h40 para ~7min.",
-          "Capacidade diária de artes: de 12 para 32 por dia.",
-          "Pico operacional: 700+ camisetas em um único dia."
-        ],
-        expVideoCaptions: ["Antes: processo manual", "Depois: processo automatizado"],
         
-        // Nesting System
+        // --- TEXTOS FORM UNIFORMES ---
+        formSummary: "Designer Gráfico e Arte-Finalista. Entrei na empresa já dominando CorelDRAW, Illustrator e Photoshop. Me destaquei rapidamente pela agilidade em um setor que era um gargalo (5 pessoas, prejuízos >40 mil). Quando a equipe foi reduzida para apenas duas pessoas, tive que inovar para dar conta da demanda.",
+        formStory: "Assumi os testes de cor no tecido, montagem dos desenhos e medidas. Sob pressão, estudei VBA (Visual Basic for Applications) para automatizar o fluxo. Desenvolvi uma macro que monta os desenhos nos moldes das camisetas em segundos. O processo de exportação, que levava cerca de 1 hora, passou a levar 6 minutos, eliminando erros e multiplicando a capacidade produtiva.",
+        formDuties: [
+            "Efetuar a arte final dos desenhos de menor e maior complexidade.",
+            "Conferir as bandeiras produzidas, certificando-se da conformidade do processo.",
+            "Delimitar áreas de estampas e disponibilizar informações para ficha técnica.",
+            "Desenhos de estampas, bordados e materiais visuais cumprindo os prazos estabelecidos.",
+            "Requisitos: Ensino médio completo, vivência em desenho/arte final, conhecimento de processos/insumos de estamparia, domínio de softwares gráficos (Photoshop e Illustrator) e noções de qualidade."
+        ],
+        readMoreBtn: "Ler mais",
+        readLessBtn: "Ler menos",
+        // ----------------------------
+        
         expNestingTitle: "Sistema de Nesting CorelDRAW",
         expNestingPeriod: "Ferramenta de Otimização",
         expNestingText: "Sistema de nesting que criei dentro do CorelDRAW precisamente para organizar e economizar papel ao imprimir tanto DTF quanto camisetas sublimadas.",
@@ -993,7 +1042,6 @@
         if (value) element.setAttribute(attribute, value);
       });
     };
-    // Helper especifico para listas de atributo (ex: alt tags)
     const setMultipleAttributeFromArray = (selector, attribute, values) => {
       const elements = document.querySelectorAll(selector);
       elements.forEach((element, index) => {
@@ -1089,12 +1137,24 @@
       setMultipleText("#about p", t.aboutParagraphs);
 
       setText("#experience h2", t.experienceTitle);
-      // Item 1: Form Uniformes
-      setText("#experience .timeline-item:nth-of-type(1) .timeline-period", t.expPeriodMain);
-      setText("#experience .timeline-item:nth-of-type(1) > p", t.expMainText);
-      setMultipleText("#experience .timeline-item:nth-of-type(1) ul li", t.expMainBullets);
-      setMultipleText("#experience .timeline-item:nth-of-type(1) .video-caption", t.expVideoCaptions);
       
+      // --- ITEM 1: Form Uniformes (Updated) ---
+      setText("#experience .timeline-item:nth-of-type(1) .timeline-period", t.expPeriodMain);
+      setText("#form-summary", t.formSummary);
+      setText("#form-story", t.formStory);
+      setMultipleText("#form-duties li", t.formDuties);
+      
+      // Botão Ler Mais
+      const readMoreBtn = document.querySelector("#experience .timeline-item:nth-of-type(1) .read-more-btn");
+      if(readMoreBtn) {
+          const content = document.getElementById('form-full');
+          if (content.style.display === "none") {
+             readMoreBtn.textContent = t.readMoreBtn;
+          } else {
+             readMoreBtn.textContent = t.readLessBtn;
+          }
+      }
+
       // Item 2: Nesting System
       setText("#experience .timeline-item:nth-of-type(2) .timeline-title", t.expNestingTitle);
       setText("#experience .timeline-item:nth-of-type(2) .timeline-period", t.expNestingPeriod);
@@ -1117,7 +1177,7 @@
         const title = card.querySelector(".project-title");
         const meta = card.querySelector(".project-meta");
         const paragraphs = card.querySelectorAll("p");
-        const description = paragraphs[1]; // Pega o segundo P (o primeiro é a meta se não estiver div)
+        const description = paragraphs[1]; 
         if (title) title.textContent = project.title;
         if (meta) meta.textContent = project.meta;
         if (description) description.textContent = project.description;
@@ -1138,7 +1198,7 @@
       setMultipleAttribute(".carousel-dot", "aria-label", t.carouselDotPrefix);
       setMultipleText(".design-caption", t.designCaptions);
       setMultipleAttributeFromArray(".design-slide img", "alt", t.designAlts);
-      // Video aria-label também
+      
       const videos = document.querySelectorAll(".design-slide video");
       if(videos.length > 0 && t.designAlts[2]) {
         videos[0].setAttribute("aria-label", t.designAlts[2]); 
