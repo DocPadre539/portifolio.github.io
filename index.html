@@ -231,7 +231,7 @@
     }
 
     .video-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    .timeline-item .video-split { margin-top: 12px; }
+    .timeline-item .video-split { margin-top: 15px; }
     .video-card { border: 1px solid rgba(156, 187, 231, 0.36); border-radius: 15px; overflow: hidden; background: #121d2e; }
     .video-card video, .video-card img { width: 100%; min-height: 190px; object-fit: cover; background: #0d1522; display: block; }
     .video-caption { margin: 0; padding: 10px 12px; border-top: 1px solid rgba(156, 187, 231, 0.3); font-size: 1.35rem; color: #b4c3dc; }
@@ -469,6 +469,23 @@
                 </div>
 
                 <button class="read-more-btn" type="button" onclick="toggleReadMore('form-full', this)">Read more</button>
+
+                <div class="video-split">
+                  <article class="video-card">
+                    <video muted loop playsinline controls>
+                      <source src="https://formuniforme.com.br/fotos/1.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-caption">Before: manual process</p>
+                  </article>
+
+                  <article class="video-card">
+                    <video muted loop autoplay playsinline controls>
+                      <source src="https://formuniforme.com.br/fotos/2.mp4" type="video/mp4">
+                    </video>
+                    <p class="video-caption">After: automated process</p>
+                  </article>
+                </div>
+
               </article>
 
               <article class="timeline-item">
@@ -761,7 +778,8 @@
         readMoreBtn: "Read more",
         readLessBtn: "Read less",
         // ---------------------------
-        
+        expVideoCaptions: ["Before: manual process", "After: automated process"],
+
         expNestingTitle: "CorelDRAW Nesting System",
         expNestingPeriod: "Optimization Tool",
         expNestingText: "Nesting system that I created within CorelDRAW precisely to organize and save paper when printing both DTF and sublimated t-shirts.",
@@ -858,6 +876,7 @@
         readMoreBtn: "Ler mais",
         readLessBtn: "Ler menos",
         // ----------------------------
+        expVideoCaptions: ["Antes: processo manual", "Depois: processo automatizado"],
         
         expNestingTitle: "Sistema de Nesting CorelDRAW",
         expNestingPeriod: "Ferramenta de Otimização",
@@ -1125,6 +1144,7 @@
       // Injeta o texto e HTML (para os bullets da lista)
       setText("#form-visible", t.formVisible);
       setHTML("#form-hidden-text", t.formHiddenText);
+      setMultipleText("#experience .timeline-item:nth-of-type(1) .video-caption", t.expVideoCaptions);
       
       // Botão Ler Mais
       const readMoreBtn = document.querySelector("#experience .timeline-item:nth-of-type(1) .read-more-btn");
